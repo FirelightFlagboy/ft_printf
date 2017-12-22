@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:19:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 12:53:57 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 14:23:41 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,17 @@ int		ft_dprintf(int fd, char const *s, ...)
 int		ft_vfprintf(int fd, char const *s, va_list ap)
 {
 	va_list node;
+	t_buff	*buff;
 
 	if (fd < 0 || fd > OPEN_MAX || !s)
 		return (-1);
-	g_buff.index = 0;
-	g_buff.res = 0;
+	buff = get_buff();
+	buff->index = 0;
+	buff->res = 0;
+	buff->fd = fd;
 	va_copy(node, ap);
+	if (ft_fill_buffer(s, node) != -1)
+		ft_putbuffer();
 	va_end(node);
-	return (g_buff.res);
+	return (buff->res);
 }

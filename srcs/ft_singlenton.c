@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_header_fc.h                              :+:      :+:    :+:   */
+/*   ft_singlenton.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 14:44:52 by fbenneto         ###   ########.fr       */
+/*   Created: 2017/12/22 13:53:25 by fbenneto          #+#    #+#             */
+/*   Updated: 2017/12/22 14:48:31 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_HEADER_FC_H
-# define FT_PRINTF_HEADER_FC_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdint.h>
-# include "ft_printf_typedef.h"
+t_buff	*get_buff(void)
+{
+	static t_buff buff;
+	return (&buff);
+}
 
-/*
-**	%%
-*/
-int		ft_pourcent(va_list *ap, t_flags f);
-#endif
+t_type	*get_t_type(void)
+{
+	static t_type type[NB_FC + 1];
+	if (type[0].f == NULL)
+	{
+		ft_tab_charset((void*)&type);
+		ft_tab_fc((void*)&type);
+	}
+	return (type);
+}
