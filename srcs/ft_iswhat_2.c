@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_header_fc.h                              :+:      :+:    :+:   */
+/*   ft_iswhat_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 12:53:14 by fbenneto         ###   ########.fr       */
+/*   Created: 2017/12/22 12:56:44 by fbenneto          #+#    #+#             */
+/*   Updated: 2017/12/22 12:56:47 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_HEADER_FC_H
-# define FT_PRINTF_HEADER_FC_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdint.h>
-# include "ft_printf_typedef.h"
-
-#endif
+int		ft_isatt_flags(int c)
+{
+	return (c == '#' || c == '-' || c == '0' || c == ' ' || c == '+');
+}

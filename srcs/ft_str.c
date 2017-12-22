@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_header_fc.h                              :+:      :+:    :+:   */
+/*   ft_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 12:53:14 by fbenneto         ###   ########.fr       */
+/*   Created: 2017/12/22 13:01:08 by fbenneto          #+#    #+#             */
+/*   Updated: 2017/12/22 13:02:17 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_HEADER_FC_H
-# define FT_PRINTF_HEADER_FC_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdint.h>
-# include "ft_printf_typedef.h"
-
-#endif
+char		*ft_strchr(char const *s, int c)
+{
+	while (*s)
+	{
+		if (*s == c)
+			return ((char*)s);
+		s++;
+	}
+	return (NULL);
+}

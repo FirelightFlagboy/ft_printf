@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:19:43 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 11:57:09 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 12:52:55 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct	s_flags
 
 typedef struct	s_type
 {
-	char const	*charset;
+	char		charset;
 	int			(*f)(va_list*, int, t_flags);
 }				t_type;
 
@@ -61,6 +61,5 @@ typedef struct	s_buff
 	size_t		index;
 	size_t		res;
 }				t_buff;
-
 
 #endif

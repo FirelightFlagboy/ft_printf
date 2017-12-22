@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:19:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 12:29:00 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 12:53:57 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int		ft_vfprintf(int fd, char const *s, va_list ap)
 
 	if (fd < 0 || fd > OPEN_MAX || !s)
 		return (-1);
-	gl_buff.index = 0;
-	gl_buff.res = 0;
+	g_buff.index = 0;
+	g_buff.res = 0;
 	va_copy(node, ap);
 	va_end(node);
-	return (gl_buff.res);
+	return (g_buff.res);
 }
