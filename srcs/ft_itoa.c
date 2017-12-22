@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:04:33 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 14:11:34 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 15:39:17 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	ft_len_nb(uintmax_t n, size_t lenbase)
+size_t	ft_len_nb(uintmax_t n, size_t lenbase)
 {
 	size_t	len;
 
@@ -45,7 +45,7 @@ int		ft_itoa(uintmax_t n)
 
 int		ft_itoa_base(uintmax_t n, char *base)
 {
-	char		s[64];
+	char		s[65];
 	int			len_base;
 	int			lennb;
 	t_buff		*buff;

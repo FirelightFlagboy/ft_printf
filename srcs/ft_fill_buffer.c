@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:15:51 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 15:49:53 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ char	*ft_call_fc(char const *s, va_list *ap, t_type *t)
 	{
 		if (t[i].charset == f.type)
 		{
-			t[i].f(ap, f);
+			if (t[i].f(ap, f) == -1)
+				return (NULL);
 			return ((char*)s);
 		}
 		i++;
@@ -60,6 +61,8 @@ int		ft_fill_buffer(char const *s, va_list ap)
 		ft_add_nstr_to_buff(s, len);
 		s += len;
 		s = (*s) ? ft_call_fc(s, &node, get_t_type()) : s;
+		if (!s)
+			return (-1);
 	}
 	va_end(node);
 	return (0);

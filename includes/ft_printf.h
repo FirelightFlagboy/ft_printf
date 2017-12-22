@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:09:04 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 15:47:03 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			ft_vfprintf(int fd, char const *s, va_list ap);
 ** Classic libft
 */
 size_t		ft_strlen(char const *s);
+size_t		ft_len_nb(uintmax_t n, size_t lenbase);
 /*
 ** Buffer fc
 */
@@ -62,10 +63,8 @@ t_flags		ft_get_att(char **astr, t_flags *f);
 t_flags		ft_get_len_flags(char **astr, t_flags *f);
 int			ft_get_buff_size(char **astr, t_flags *f);
 int			ft_get_precision(char **astr, t_flags *f);
-/*
-** Lib string
-*/
-char		*ft_strchr(char const *s, int c);
+intmax_t	ft_get_int(va_list *ap, t_flags f);
+uintmax_t	ft_get_uint(va_list *ap, t_flags f);
 /*
 ** T_type
 */
@@ -73,4 +72,24 @@ t_type		*ft_init_t_type(void);
 void		ft_tab_charset(void *data_type);
 void		ft_tab_fc(void *data_type);
 char		*ft_call_fc(char const *s, va_list *ap, t_type *t);
+/*
+** Filler
+*/
+int			ft_fillforward(t_flags f, char isneg, size_t len);
+int			ft_fillforward_hex(t_flags f, size_t len);
+int			ft_fillforward_oct(t_flags f, size_t len);
+int			ft_fillforward_bin(t_flags f, size_t len);
+int			ft_fillbackward(t_flags f, char isneg, size_t len);
+int			ft_filldimen(t_flags f, char isneg, size_t len);
+int			ft_filldimen_hex(t_flags f, size_t len);
+int			ft_filldimen_oct(t_flags f, size_t len);
+int			ft_filldimen_bin(t_flags f, size_t len);
+/*
+** Lib string
+*/
+char		*ft_strchr(char const *s, int c);
+int			ft_strcmp(char const *s1, char const *s2);
+int			ft_strncmp(char const *s1, char const *s2, size_t n);
+int			ft_itoa(uintmax_t n);
+int			ft_itoa_base(uintmax_t n, char *base);
 #endif

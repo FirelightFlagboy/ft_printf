@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:19:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 14:23:41 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 15:21:51 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int		ft_vfprintf(int fd, char const *s, va_list ap)
 	va_copy(node, ap);
 	if (ft_fill_buffer(s, node) != -1)
 		ft_putbuffer();
+	else
+		return (-1);
 	va_end(node);
 	return (buff->res);
 }

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:26:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:13:02 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 15:21:26 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putbuffer(void)
 	t_buff *buff;
 
 	buff = get_buff();
-	buff->res = write(buff->fd, buff->buffer, buff->index);
+	buff->res += write(buff->fd, buff->buffer, buff->index);
 	buff->index = 0;
 }
 
