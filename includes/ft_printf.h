@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:47:03 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:49:13 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int			ft_add_char_to_buff(int c);
 int			ft_add_nchar_to_buff(int c, size_t n);
 int			ft_add_str_to_buff(char const *s);
 int			ft_add_nstr_to_buff(char const *s, size_t n);
+int			ft_fill_ox(char type);
 /*
 ** Ft_iswhat
 */
@@ -75,15 +76,17 @@ char		*ft_call_fc(char const *s, va_list *ap, t_type *t);
 /*
 ** Filler
 */
-int			ft_fillforward(t_flags f, char isneg, size_t len);
-int			ft_fillforward_hex(t_flags f, size_t len);
-int			ft_fillforward_oct(t_flags f, size_t len);
-int			ft_fillforward_bin(t_flags f, size_t len);
-int			ft_fillbackward(t_flags f, char isneg, size_t len);
-int			ft_filldimen(t_flags f, char isneg, size_t len);
-int			ft_filldimen_hex(t_flags f, size_t len);
-int			ft_filldimen_oct(t_flags f, size_t len);
-int			ft_filldimen_bin(t_flags f, size_t len);
+int			ft_fillforward(t_flags f, char isneg, int len);
+int			ft_fillforward_hex(t_flags f, int len);
+int			ft_fillforward_oct(t_flags f, int len);
+int			ft_fillforward_uin(t_flags f, int len);
+int			ft_fillbackward(t_flags f, char isneg, int len);
+int			ft_filldimen(t_flags f, char isneg, int len);
+int			ft_filldimen_hex(t_flags f, int len);
+int			ft_filldimen_oct(t_flags f, int len);
+int			ft_filldimen_uin(t_flags f, int len);
+int			ft_fill_char_sign(t_flags f, char isneg);
+int			ft_get_len_forward(t_flags *f, int flen, char neg);
 /*
 ** Lib string
 */
