@@ -1,0 +1,17 @@
+{
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "ft_printf.h": "c",
+        "stdarg.h": "c",
+        "wchar.h": "c",
+        "stdio.h": "c",
+        "stdint.h": "c"
+    },
+    "clang.cflags":[
+        "-Wall",
+        "-Werror",
+        "-Wextra",
+        "-I${workspaceRoot}/includes",
+        "-I${workspaceRoot}"
+    ]
+}
