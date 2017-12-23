@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:24:04 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:28:45 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 10:12:12 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	ft_uint_size(t_flags f)
 {
 	int size;
 
-	if (f.type == 'U' || f.type == 'O')
+	if (f.type == 'U' || f.type == 'O' || t.type == 'B')
 		return (2);
 	size = 0;
 	if (ft_strcmp(f.len_flags, "hh") == 0)

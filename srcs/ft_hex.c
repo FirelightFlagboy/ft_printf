@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:22:20 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 09:22:24 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 09:30:32 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_fillhex(uintmax_t n, char high)
 
 int		ft_callhex(uintmax_t n, t_flags f, int len)
 {
-	size_t flen;
+	size_t	flen;
 	int		res;
 
 	flen = (f.have_p && f.precision > len) ? f.precision : len;

@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bin.c                                           :+:      :+:    :+:   */
+/*   ft_octal.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/23 09:21:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 09:50:18 by fbenneto         ###   ########.fr       */
+/*   Created: 2017/12/23 09:28:30 by fbenneto          #+#    #+#             */
+/*   Updated: 2017/12/23 09:50:10 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_fillbin(uintmax_t n)
+int		ft_filloctal(uintmax_t n)
 {
-	return (ft_itoa_base(n, "01"));
+	return (ft_itoa_base(n, "01234567"));
 }
 
-int		ft_callbin(uintmax_t n, t_flags f, int len)
+int		ft_calloctal(uintmax_t n, t_flags f, int len)
 {
 	size_t	flen;
 	int		res;
 
 	flen = (f.have_p && f.precision > len) ? f.precision : len;
-	flen += (f.have_hash) ? 2 : 0;
-	res = ft_fillforward_hex(f, len);
-	res += ft_filldimen_hex(f, len);
-	res += ft_fillbin(n);
+	flen += (f.have_hash) ? 1 : 0;
+	res = ft_fillforward_oct(f, flen);
+	res += ft_filldimen_oct(f, len);
+	res += ft_filloctal(n);
 	res += ft_fillbackward(f, 0, len);
 	return (res);
 }
 
-int		ft_call_fillbin(va_list *ap, t_flags f)
+int		ft_call_filloctal(va_list *ap, t_flags f)
 {
-	uintmax_t	nb;
+	uintmax_t	n;
 	int			l;
 
-	nb = ft_get_uint(ap, f);
-	l = ft_len_nb(nb, 2);
-	f.have_hash = (nb == 0) ? 0 : f.have_hash;
-	return (ft_callbin(nb, f, l));
+	n = ft_get_uint(ap, f);
+	l = ft_len_nb(n, 8);
+	f.have_hash = (n == 0) ? 0 : f.have_hash;
+	return (ft_calloctal(n, f, l));
 }
