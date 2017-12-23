@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:55:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 16:09:29 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:34:43 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int		ft_fillbackward(t_flags f, char neg, int len)
 {
 	int	l;
 
-	if (!f.have_buff_size || f.have_minus == 0)
-		return (0);
 	if ((neg || ((f.have_add || f.have_escape) && !neg)))
 		f.buff_size--;
 	if (f.buff_size < len)

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:54:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 14:37:15 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:40:56 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,32 @@ int		ft_fill_longstr(wchar_t *ls, int n)
 int		ft_callstr(char *s, t_flags f, int len)
 {
 	size_t	flen;
-	int		res;
 
 	len = ft_strlen(s);
 	flen = (f.have_p && f.precision < len) ? f.precision : len;
-	res = ft_fillforward(f, 0, flen);
-	res += ft_add_nstr_to_buff(s, flen);
-	res += ft_fillbackward(f, 0, flen);
-	return (res);
+	if (f.have_minus == 0 && f.have_buff_size)
+		ft_fillforward(f, 0, flen);
+	ft_add_nstr_to_buff(s, flen);
+	if (f.have_minus == 1 && f.have_buff_size)
+		ft_fillbackward(f, 0, flen);
+	return (1);
 }
 
 int		ft_call_longstr(wchar_t *s, t_flags f)
 {
 	long	flen;
-	int		res;
 
 	flen = ft_get_finale_len(s, f);
 	if (flen == -1)
 		return (-1);
 	flen = (!f.have_p || (ft_len_unicode(*s) <= f.precision)) ? flen : 0;
-	res = ft_fillforward(f, 0, flen);
+	if (f.have_minus == 0 && f.have_buff_size)
+		ft_fillforward(f, 0, flen);
 	if (flen)
-		res += ft_fill_longstr(s, flen);
-	res += ft_fillbackward(f, 0, flen);
-	return (res);
+		ft_fill_longstr(s, flen);
+	if (f.have_minus == 1 && f.have_buff_size)
+		ft_fillbackward(f, 0, flen);
+	return (1);
 }
 
 int		ft_call_fill_longstr(va_list *ap, t_flags f)

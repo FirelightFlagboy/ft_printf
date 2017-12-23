@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:38:59 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 13:14:20 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:40:46 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,28 @@ int		ft_fill_longchar(wchar_t c)
 
 int		ft_call_longchar(wchar_t c, t_flags f)
 {
-	int		res;
 	int		len;
 
 	len = ft_len_unicode(c);
 	if (len == -1)
 		return (-1);
-	res = ft_fillforward(f, 0, len);
-	res += ft_fill_longchar(c);
-	res += ft_fillbackward(f, 0, len);
-	return (res);
+	if (f.have_minus == 0 && f.have_buff_size)
+		ft_fillforward(f, 0, len);
+	ft_fill_longchar(c);
+	if (f.have_minus == 1 && f.have_buff_size)
+		ft_fillbackward(f, 0, len);
+	return (1);
 }
 
 int		ft_callchar(int c, t_flags f)
 {
-	int		res;
 
-	res = ft_fillforward(f, 0, 1);
-	res += ft_add_char_to_buff(c);
-	res += ft_fillbackward(f, 0, 1);
-	return (res);
+	if (f.have_minus == 0 && f.have_buff_size)
+		ft_fillforward(f, 0, 1);
+	ft_add_char_to_buff(c);
+	if (f.have_minus == 1 && f.have_buff_size)
+		ft_fillbackward(f, 0, 1);
+	return (1);
 }
 
 int		ft_call_fill_longchar(va_list *ap, t_flags f)

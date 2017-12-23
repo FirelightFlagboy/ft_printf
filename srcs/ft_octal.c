@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:28:30 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 13:58:00 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:45:40 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,17 @@ int		ft_filloctal(uintmax_t n)
 int		ft_calloctal(uintmax_t n, t_flags f, int len)
 {
 	size_t	flen;
-	int		res;
 
 	flen = (f.have_p && f.precision > len) ? f.precision : len;
 	flen += (f.have_hash) ? 1 : 0;
-	res = ft_fillforward_oct(f, flen);
-	res += ft_filldimen_oct(f, len);
+	if (f.have_minus == 0 && f.have_buff_size)
+		ft_fillforward_oct(f, flen);
+	ft_filldimen_oct(f, len);
 	if (n != 0 || (n == 0 && f.have_p == 0))
-		res += ft_filloctal(n);
-	res += ft_fillbackward(f, 0, flen);
-	return (res);
+		ft_filloctal(n);
+	if (f.have_minus == 1 && f.have_buff_size)
+		ft_fillbackward(f, 0, flen);
+	return (1);
 }
 
 int		ft_call_filloctal(va_list *ap, t_flags f)
@@ -39,7 +40,11 @@ int		ft_call_filloctal(va_list *ap, t_flags f)
 
 	n = ft_get_uint(ap, f);
 	l = ft_len_nb(n, 8);
-	f.have_hash = (n == 0 && f.have_p == 0) ? 0 : f.have_hash;
-	f.buff_size += (n == 0) ? 1 : 0;
+	if (n == 0)
+	{
+		f.buff_size++;
+		if (f.have_p == 0)
+			f.have_hash = 0;
+	}
 	return (ft_calloctal(n, f, l));
 }
