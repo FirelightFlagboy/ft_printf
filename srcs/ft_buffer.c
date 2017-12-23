@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:26:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 09:20:18 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 11:59:51 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		ft_add_str_to_buff(char const *s)
 	i = 0;
 	while (i < len)
 	{
-		buff->buffer[i] = *s++;
+		buff->buffer[buff->index + i] = *s++;
 		i++;
 	}
 	buff->index += i;

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:04:33 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:39:17 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 12:14:54 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		ft_itoa(uintmax_t n)
 
 
 	lennb = ft_len_nb(n, 10);
+	s[lennb] = 0;
+	lennb--;
 	while (lennb >= 0)
 	{
 		s[lennb] = (n % 10) + '0';

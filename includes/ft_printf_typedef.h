@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:19:43 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 16:00:15 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 12:04:56 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	s_flags
 	char		have_p;
 	char		have_buff_size;
 	char		type;
-	char		*len_flags;
+	char		len_flags[4];
 	int			precision;
 	int			buff_size;
 }				t_flags;

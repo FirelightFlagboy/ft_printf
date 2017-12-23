@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:55:51 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 12:58:43 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 12:05:45 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int			ft_get_buff_size(char **astr, t_flags *f)
 t_flags		ft_get_len_flags(char **astr, t_flags *f)
 {
 	char	*s;
-	char	tmp[4];
 	size_t	i;
 	size_t	flags_len;
 
@@ -65,12 +64,11 @@ t_flags		ft_get_len_flags(char **astr, t_flags *f)
 		flags_len++;
 	while (i < flags_len && i < 3)
 	{
-		tmp[i] = *s;
+		f->len_flags[i] = *s;
 		i++;
 		s++;
 	}
-	tmp[i] = 0;
-	f->len_flags = tmp;
+	f->len_flags[i] = 0;
 	*astr = s;
 	return (*f);
 }

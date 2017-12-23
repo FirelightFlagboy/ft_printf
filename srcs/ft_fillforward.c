@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:53:06 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 16:39:56 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 12:13:05 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		ft_fillforward(t_flags f, char isneg, int len)
 {
 	int	l;
 
+	if (!f.have_buff_size || f.have_minus == 1)
+		return (0);
 	l = ft_get_len_forward(&f, len, isneg);
 	if (l == 0)
 		return (0);
@@ -44,6 +46,8 @@ int		ft_fillforward_uin(t_flags f, int len)
 {
 	int	l;
 
+	if (!f.have_buff_size || f.have_minus == 1)
+		return (0);
 	l = 0;
 	if (f.buff_size < len)
 		return (0);
@@ -56,6 +60,8 @@ int		ft_fillforward_oct(t_flags f, int len)
 {
 	int l;
 
+	if (!f.have_buff_size || f.have_minus == 1)
+		return (0);
 	if (f.buff_size < len)
 		return (0);
 	l = 0;

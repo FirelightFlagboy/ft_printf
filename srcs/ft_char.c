@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:38:59 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 11:14:33 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 13:14:20 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int		ft_fill_longchar(wchar_t c)
 {
-	//TODO
-	return (c);
+	return (ft_unicode(c));
 }
 
 int		ft_call_longchar(wchar_t c, t_flags f)

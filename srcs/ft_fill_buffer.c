@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 16:14:33 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 12:55:10 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 char	*ft_putgen(t_flags f, char const *s)
 {
 	if (f.have_buff_size && f.have_minus == 0)
-		ft_add_nchar_to_buff((f.have_null) ? '0' : ' ', f.buff_size);
+		ft_add_nchar_to_buff((f.have_null) ? '0' : ' ', f.buff_size - 1);
 	if (*s)
 		ft_add_char_to_buff(*s);
 	if (f.have_buff_size && f.have_minus == 1)
-		ft_add_nchar_to_buff(' ', f.buff_size);
+		ft_add_nchar_to_buff(' ', f.buff_size - 1);
 	return ((*s) ? (char*)s++ : (char*)s);
 }
 
@@ -63,6 +63,8 @@ int		ft_fill_buffer(char const *s, va_list ap)
 		s = (*s) ? ft_call_fc(s, &node, get_t_type()) : s;
 		if (!s)
 			return (-1);
+		if (*s)
+			s++;
 	}
 	va_end(node);
 	return (0);

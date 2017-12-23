@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 11:20:22 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 13:23:27 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -381,6 +381,8 @@ int		ft_test_6(void)
 	you[++p] =	printf("11 - [youprintf] |%#9o|\n", 123456789);
 	my[++i] =ft_printf("12 - [ft_printf] |\%d|\n", 123456789);
 	you[++p] =	printf("12 - [youprintf] |\%d|\n", 123456789);
+	my[++i] =ft_printf("13 - [ft_printf] |%#x|\n", 123456789);
+	you[++p] =	printf("13 - [youprintf] |%#x|\n", 123456789);
 
 	printf("\n");
 	i = -1;
@@ -652,6 +654,8 @@ int		ft_test_11(void)
 	you[++p] =	printf("%p\n", &i);
 	my[++i] =ft_printf("{%5p}\n", 0);
 	you[++p] =	printf("{%5p}\n", 0);
+	my[++i] =ft_printf("{%.5p}\n", 0);
+	you[++p] =	printf("{%.5p}\n", 0);
 	my[++i] =ft_printf("%9.2p\n", 1234);
 	you[++p] =	printf("%9.2p\n", 1234);
 	(void)p;
