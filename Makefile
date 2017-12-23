@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/22 12:19:41 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/23 11:53:42 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,8 @@ LIB = ar rc
 INC_DIR = ./includes/
 INC_NAME = \
 	ft_printf_typedef.h\
-	ft_printf_header.h\
+	ft_printf_header_fc.h\
 	ft_printf_d.h\
-	ft_printf_g.h\
 	ft_printf.h\
 
 INCLUDE = $(addprefix $(INC_DIR), $(INC_NAME))
@@ -50,6 +49,31 @@ INC = -I $(INC_DIR)
 
 SRC_DIR = ./srcs/
 SRC_NAME=\
+	ft_fillforward_annexe.c\
+	ft_fillforward.c\
+	ft_filldimen.c\
+	ft_backward.c\
+	ft_buffer_2.c\
+	ft_buffer.c\
+	ft_get_flags_2.c\
+	ft_get_flags.c\
+	ft_iswhat_2.c\
+	ft_iswhat.c\
+	ft_fill_buffer.c\
+	ft_init_t_type.c\
+	ft_singleton.c\
+	ft_unicode.c\
+	ft_get_int.c\
+	ft_fillstr.c\
+	ft_strlen.c\
+	ft_itoa.c\
+	ft_adr.c\
+	ft_bin.c\
+	ft_char.c\
+	ft_hex.c\
+	ft_nbr.c\
+	ft_octal.c\
+	ft_str.c\
 	ft_printf.c\
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_NAME))

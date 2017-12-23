@@ -12,6 +12,7 @@
 *main_leaks
 *test_only
 *.traces
+obj*
 
 # Prerequisites
 *.d
