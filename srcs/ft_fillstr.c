@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:54:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 11:43:40 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:37:15 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ int		ft_call_longstr(wchar_t *s, t_flags f)
 	if (flen == -1)
 		return (-1);
 	flen = (!f.have_p || (ft_len_unicode(*s) <= f.precision)) ? flen : 0;
-	res = ft_fillforward(f, flen, 0);
-	res += ft_fill_longstr(s, flen);
+	res = ft_fillforward(f, 0, flen);
+	if (flen)
+		res += ft_fill_longstr(s, flen);
 	res += ft_fillbackward(f, 0, flen);
 	return (res);
 }

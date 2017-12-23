@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:31:21 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 13:28:29 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:13:47 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_calladr(uintmax_t n, t_flags f, int len)
 
 	flen = (f.have_p && f.precision > len) ? f.precision : len;
 	flen += (f.have_hash) ? 2 : 0;
-	// flen += (n == 0 && !f.have_p) ? 1 : 0;
+	flen += (n == 0 && !f.have_p) ? 1 : 0;
 	dprintf(2, "flen:%zu\n", flen);
 	res = ft_fillforward_hex(f, flen);
 	res += ft_filldimen_hex(f, len);
@@ -37,7 +37,10 @@ int		ft_call_filladr(va_list *ap, t_flags f)
 	f.len_flags[0] = 'l';
 	f.len_flags[1] = 0;
 	n = ft_get_uint(ap, f);
-	l = ft_len_nb(n, 16);
+	if (n != 0)
+		l = ft_len_nb(n, 16);
+	else
+		l = 0;
 	f.type = 'x';
 	f.have_hash = 1;
 	return (ft_calladr(n, f, l));
