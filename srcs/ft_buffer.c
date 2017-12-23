@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:26:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:21:26 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 09:20:18 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,27 @@ int		ft_add_str_to_buff(char const *s)
 int		ft_add_nstr_to_buff(char const *s, size_t n)
 {
 	t_buff	*buff;
-	size_t	len;
-	size_t	i;
 
 	buff = get_buff();
-	len = ft_strlen(s);
-	if (len > n)
-		len = n;
-	if (buff->index + len >= BUFF_SIZE)
-		ft_putbuffer();
-	i = 0;
-	while (i < len)
+	if (n + buff->index < BUFF_SIZE)
 	{
-		buff->buffer[i] = *s++;
-		i++;
+		while (n > 0)
+		{
+			buff->buffer[buff->index++] = *s++;
+			n--;
+		}
+		return(buff->index);
 	}
-	buff->index += i;
+	while (buff->index < BUFF_SIZE)
+	{
+		buff->buffer[buff->index++] = *s++;
+		n--;
+	}
+	ft_putbuffer();
+	while (n > 0)
+	{
+		buff->buffer[buff->index++] = *s++;
+		n--;
+	}
 	return (buff->index);
 }

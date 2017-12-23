@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:52:57 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 16:48:55 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 09:16:17 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,15 @@ int		ft_filldimen(t_flags f, char isneg, int len)
 
 int		ft_filldimen_hex(t_flags f, int len)
 {
+	int	l;
 
+	l = 0;
+	if (f.have_hash && !((!f.have_minus && f.have_null) && f.have_buff_size))
+		ft_fill_ox(f.type);
+	if (f.precision > len)
+		l += f.precision - len;
+	ft_add_nchar_to_buff('0', l);
+	return (l);
 }
 
 int		ft_filldimen_oct(t_flags f, int len)
@@ -48,11 +56,6 @@ int		ft_filldimen_oct(t_flags f, int len)
 		l += f.precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
-}
-
-int		ft_filldimen_bin(t_flags f, int len)
-{
-
 }
 
 int		ft_filldimen_uin(t_flags f, int len)
