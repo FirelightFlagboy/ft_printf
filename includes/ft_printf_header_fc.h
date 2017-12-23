@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 10:37:41 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 10:41:42 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ int		ft_call_fillbin(va_list *ap, t_flags f);
 ** %c %C
 */
 int		ft_call_fillchar(va_list *ap, t_flags f);
+int		ft_call_fill_longchar(va_list *ap, t_flags f);
 /*
 ** %s %S
 */
 int		ft_call_fillstr(va_list *ap, t_flags f);
+int		ft_call_fill_longstr(va_list *ap, t_flags f);
 /*
 ** %p
 */
