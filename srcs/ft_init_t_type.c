@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:54:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:20:03 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 10:29:18 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	ft_tab_charset(void *data_type)
 	t[12].charset = 'c';
 	t[13].charset = 'C';
 	t[14].charset = 'b';
-	t[15].charset = '\0';
+	t[15].charset = 'B';
+	t[16].charset = '\0';
 }
 
 void	ft_tab_fc(void	*data_type)
@@ -40,22 +41,22 @@ void	ft_tab_fc(void	*data_type)
 	t_type *t;
 
 	t = data_type;
-	t[0].f = ;
-	t[1].f = ;
-	t[2].f = ;
-	t[3].f = ;
-	t[4].f = ;
-	t[5].f = ;
-	t[6].f = ;
-	t[7].f = ;
-	t[8].f = ;
-	t[9].f = ;
-	t[10].f = ;
-	t[11].f = ;
-	t[12].f = ;
-	t[13].f = ;
-	t[14].f = ;
-	t[15].f = ;
+	t[0].f = ft_call_fillstr;
+	t[1].f = ft_call_fillstr;
+	t[2].f = ft_call_filladr;
+	t[3].f = ft_call_fillnbr;
+	t[4].f = ft_call_fillnbr;
+	t[5].f = ft_call_fillnbr;
+	t[6].f = ft_call_filloctal;
+	t[7].f = ft_call_filloctal;
+	t[8].f = ft_call_fillunbr;
+	t[9].f = ft_call_fillunbr;
+	t[10].f = ft_call_fillhex;
+	t[11].f = ft_call_fillhex;
+	t[12].f = ft_call_fillchar;
+	t[13].f = ft_call_fillchar;
+	t[14].f = ft_call_fillbin;
+	t[15].f = ft_call_fillbin;
 }
 
 t_type		*ft_init_t_type(void)

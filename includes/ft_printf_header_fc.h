@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 10:20:54 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 10:37:41 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ int		ft_call_fillnbr(va_list *ap, t_flags f);
 */
 int		ft_call_fillunbr(va_list *ap, t_flags f);
 /*
-** %x %X %p
+** %x %X
 */
 int		ft_call_fillhex(va_list *ap, t_flags f);
+int		ft_fillhex(uintmax_t n, char high);
 /*
 ** %o %O
 */
@@ -45,4 +46,8 @@ int		ft_call_fillchar(va_list *ap, t_flags f);
 ** %s %S
 */
 int		ft_call_fillstr(va_list *ap, t_flags f);
+/*
+** %p
+*/
+int		ft_call_filladr(va_list *ap, t_flags f);
 #endif
