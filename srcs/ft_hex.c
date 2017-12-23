@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:22:20 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 13:58:14 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:04:50 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int		ft_callhex(uintmax_t n, t_flags f, int len)
 	int		res;
 
 	flen = (f.have_p && f.precision > len) ? f.precision : len;
-	flen += (f.have_hash) ? 2 : 0;
+	if (f.have_hash)
+		flen += 2;
 	res = ft_fillforward_hex(f, flen);
 	res += ft_filldimen_hex(f, len);
 	if (n != 0 || (n == 0 && f.have_p == 0))
@@ -45,7 +46,10 @@ int		ft_call_fillhex(va_list *ap, t_flags f)
 
 	nb = ft_get_uint(ap, f);
 	l = ft_len_nb(nb, 16);
-	f.have_hash = (nb == 0) ? 0 : f.have_hash;
-	f.buff_size += (nb == 0) ? 1 : 0;
+	if (nb == 0)
+	{
+		f.buff_size++;
+		f.have_hash = 0;
+	}
 	return (ft_callhex(nb, f, l));
 }

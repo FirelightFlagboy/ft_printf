@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 11:29:42 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 11:34:52 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:27:52 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,21 @@ static char	*ft_get_char(int len, wchar_t c, char s[])
 	return (s);
 }
 
-int		ft_unicode(wchar_t c)
+int			ft_unicode(wchar_t c)
 {
 	char	s[5];
 	int		l;
 
 	l = ft_len_unicode(c);
-	if (l > 0)
+	if (l == -1)
+		return (-1);
+	if (l == 1)
 	{
-		s[l] = 0;
-		ft_get_char(l, c, s);
-		ft_add_str_to_buff(s);
+		ft_add_char_to_buff(c);
+		return (1);
 	}
+	s[l] = 0;
+	ft_get_char(l, c, s);
+	ft_add_str_to_buff(s);
 	return (l);
 }

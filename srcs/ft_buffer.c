@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:26:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 11:59:51 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:39:07 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_add_nchar_to_buff(int c, size_t n)
 			buff->buffer[buff->index++] = c;
 			n--;
 		}
-		return(buff->index);
+		return (buff->index);
 	}
 	while (buff->index < BUFF_SIZE)
 	{
@@ -92,7 +92,7 @@ int		ft_add_nstr_to_buff(char const *s, size_t n)
 			buff->buffer[buff->index++] = *s++;
 			n--;
 		}
-		return(buff->index);
+		return (buff->index);
 	}
 	while (buff->index < BUFF_SIZE)
 	{

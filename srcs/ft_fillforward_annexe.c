@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 16:34:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 13:03:18 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 15:54:59 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int		ft_get_len_forward(t_flags *f, int flen, char neg)
 {
 	int l;
 
-	f->buff_size -= (neg || ((f->have_add || f->have_escape) && !neg)) ? 1 : 0;
+	(void)neg;
 	l = 0;
-	if (f->have_null && (neg || (!neg && (f->have_add || f->have_escape))))
-		l++;
+	if (!f->have_null && (neg || ((f->have_add || f->have_escape) && !neg)))
+		f->buff_size--;
 	if (f->buff_size > flen)
-		l += f->buff_size - flen;
+		l = f->buff_size - flen;
 	return (l);
 }

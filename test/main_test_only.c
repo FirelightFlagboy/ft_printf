@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 13:23:27 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 16:23:59 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		ft_test_1(void)
 	you[++p] =	printf("5 - [youprintf] |%-.9hhd|\n", 123456);
 	my[++i] =ft_printf("6 - [ft_printf] |%-5.9hhd|\n", 123456);
 	you[++p] =	printf("6 - [youprintf] |%-5.9hhd|\n", 123456);
-	you[++p] =	printf("7 - [youprintf] |%-9d|\n", -123);
 	my[++i] =ft_printf("7 - [ft_printf] |%-9d|\n", -123);
+	you[++p] =	printf("7 - [youprintf] |%-9d|\n", -123);
 	my[++i] =ft_printf("8 - [ft_printf] |%D|\n", 9223372036854775807);
 	you[++p] =	printf("8 - [youprintf] |%D|\n", 9223372036854775807);
 	my[++i] =ft_printf("9 - [ft_printf] |%hhD|\n", 9223372036854775807);
@@ -570,20 +570,14 @@ int		ft_test_10(void)
 	you[++p] =	printf("3 - [youprintf] |%hs|\n", L"Ξ");
 	my[++i] =ft_printf("4 - [ft_printf] |%9ls|\n", L"Ξ");
 	you[++p] =	printf("4 - [youprintf] |%9ls|\n", L"Ξ");
-	my[p] =ft_printf("tmpclear %ls\n", NULL);
-	you[i] = printf("tmpclear %ls\n", NULL);//
 	my[++i] =ft_printf("5 - [ft_printf] |%9ls|\n", L"Ξ");
 	you[++p] =	printf("5 - [youprintf] |%9ls|\n", L"Ξ");//
-	my[p] =	 ft_printf("tmpclear %ls\n", NULL);
-	you[i] =	printf("tmpclear %ls\n", NULL);
 	my[++i] =ft_printf("6 - [ft_printf] |%4.1lc|\n", L'☢');
 	you[++p] =	printf("6 - [youprintf] |%4.1lc|\n", L'☢');//
 	my[++i] =ft_printf("7 - [ft_printf] |%4.2ls|\n", L"☢b");
 	you[++p] =	printf("7 - [youprintf] |%4.2ls|\n", L"☢b");
 	my[++i] =ft_printf("8 - [ft_printf] |%-9ls|\n", L"☢");
 	you[++p] =	printf("8 - [youprintf] |%-9ls|\n", L"☢");
-	my[p] =	 ft_printf("tmpclear %ls\n", NULL);
-	you[i] =	printf("tmpclear %ls\n", NULL);
 	my[++i] =ft_printf("9 - [ft_printf] |%-9.9ls|\n", L"BONJOUR");
 	you[++p] =	printf("9 - [youprintf] |%-9.9ls|\n", L"BONJOUR");
 	my[++i] =ft_printf("10 - [ft_printf] |%-9.2s|\n", "BONJOUR");
@@ -755,6 +749,8 @@ int		ft_test_13(void)
 	you[++p] =	printf("11 - |%09.2d|\n", 0);
 	my[++i] =ft_printf("12 - |%09.2d|\n", 1);
 	you[++p] =	printf("12 - |%09.2d|\n", 1);
+	my[++i] =ft_printf("{%+03d}\n", 12);
+	you[++p] =	printf("{%+03d}\n", 12);
 
 	(void)p;
 	printf("\n");
@@ -830,7 +826,7 @@ int		ft_test_15(void)
 	int p = -1;
 	int nt = 15; //nb_test
 	printf("\n");
-	setlocale(LC_ALL, "");
+	// setlocale(LC_ALL, "");
 	printf("=====================\nft_test_%d\n=====================\n", nt);
 	my[++i] =ft_printf("0 - %");
 	printf("\n");
@@ -902,6 +898,9 @@ int		ft_test_16(void)
 	you[++p] =	printf("%#.3o\n", 1);
 	my[++i] =ft_printf("{%15.4S}\n", L"我是一只猫。");
 	you[++p] =	printf("{%15.4S}\n", L"我是一只猫。");
+	my[++i] =ft_printf("|%C|\n", 0);
+	you[++p] =	printf("|%C|\n", 0);
+
 	(void)p;
 	printf("\n");
 	i = -1;

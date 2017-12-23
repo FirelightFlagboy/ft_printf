@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:36:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 11:18:45 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:40:52 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_len_unicode(wchar_t n)
+int			ft_len_unicode(wchar_t n)
 {
 	int	l;
 
@@ -40,7 +40,7 @@ size_t		ft_strlen(char const *s)
 	return (save - s);
 }
 
-int		ft_get_finale_len(wchar_t *s, t_flags f)
+int			ft_get_finale_len(wchar_t *s, t_flags f)
 {
 	int len;
 	int l;

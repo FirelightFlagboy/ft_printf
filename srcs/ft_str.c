@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:01:08 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:32:25 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:41:40 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_strncmp(char const *s1, char const *s2, size_t n)
 	while ((*s1 || *s2) && n)
 	{
 		if (*s1 != *s2)
-		return (*s1 - *s2);
+			return (*s1 - *s2);
 		n--;
 		s1++;
 		s2++;

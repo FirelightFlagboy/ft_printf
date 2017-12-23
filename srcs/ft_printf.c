@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:19:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 15:21:51 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:41:58 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_dprintf(int fd, char const *s, ...)
 	va_start(ap, s);
 	rt = ft_vfprintf(fd, s, ap);
 	va_end(ap);
-	return(rt);
+	return (rt);
 }
 
 int		ft_vfprintf(int fd, char const *s, va_list ap)

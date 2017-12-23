@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:54:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 10:29:18 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:40:24 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_tab_charset(void *data_type)
+void		ft_tab_charset(void *data_type)
 {
 	t_type *t;
 
@@ -36,7 +36,7 @@ void	ft_tab_charset(void *data_type)
 	t[16].charset = '\0';
 }
 
-void	ft_tab_fc(void	*data_type)
+void		ft_tab_fc(void *data_type)
 {
 	t_type *t;
 
