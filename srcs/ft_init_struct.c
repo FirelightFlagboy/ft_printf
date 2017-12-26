@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:54:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 11:14:23 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 12:08:18 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void		ft_tab_charset(void *data_type)
 	t[13].charset = 'C';
 	t[14].charset = 'b';
 	t[15].charset = 'B';
-	t[16].charset = '\0';
+	t[16].charset = 'n';
+	t[17].charset = '\0';
 }
 
 void		ft_tab_fc(void *data_type)
@@ -57,6 +58,7 @@ void		ft_tab_fc(void *data_type)
 	t[13].f = ft_call_fillchar;
 	t[14].f = ft_call_fillbin;
 	t[15].f = ft_call_fillbin;
+	t[16].f = ft_get_index;
 }
 
 void		ft_init_color_name(void *data)

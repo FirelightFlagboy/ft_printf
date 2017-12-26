@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:38:59 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 16:40:46 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 11:19:57 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		ft_call_longchar(wchar_t c, t_flags f)
 
 int		ft_callchar(int c, t_flags f)
 {
-
 	if (f.have_minus == 0 && f.have_buff_size)
 		ft_fillforward(f, 0, 1);
 	ft_add_char_to_buff(c);

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 10:51:06 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 11:21:32 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,24 @@ char	*ft_call_fc(char const *s, va_list *ap, t_type *t)
 		}
 		i++;
 	}
-	return ((char*)s + 1);
+	if (*s)
+		return ((char*)s + 1);
+	return ((char*)s);
 }
 
 char	*ft_putcolor(char const *s)
 {
-	t_color	*color;
+	t_color	*c;
 	int		i;
 
 	i = 0;
-	color = get_color();
-	while (color[i].color_name)
+	c = get_color();
+	while (c[i].color_name)
 	{
-		if (ft_strncmp(s, color[i].color_name, ft_strlen(color[i].color_name)) == 0)
+		if (ft_strncmp(s, c[i].color_name, ft_strlen(c[i].color_name)) == 0)
 		{
-			ft_add_str_to_buff(color[i].color_str);
-			return(ft_strchr(s, '}') + 1);
+			ft_add_str_to_buff(c[i].color_str);
+			return (ft_strchr(s, '}') + 1);
 		}
 		i++;
 	}

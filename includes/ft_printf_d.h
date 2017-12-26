@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 15:34:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 10:42:07 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 12:07:46 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Header that contains all perso define
 */
 # ifndef NB_FC
-#  define NB_FC 15
+#  define NB_FC 16
 # endif
 
 # ifndef NB_COLOR
