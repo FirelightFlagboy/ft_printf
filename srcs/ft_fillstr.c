@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:54:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 16:32:54 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 16:45:26 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		ft_fill_longstr(wchar_t *ls, int n)
 	i = -1;
 	res = 0;
 	s = n;
+	if (!n)
+		return (0);
 	while (ls[++i] && (s > 0))
 	{
 		l = ft_len_unicode(ls[i]);
@@ -37,8 +39,9 @@ int		ft_callstr(char *s, t_flags f, int len)
 {
 	size_t	flen;
 
-	len = ft_strlen(s);
-	flen = (f.have_p && f.precision < len) ? f.precision : len;
+	flen = len;
+	if (f.have_p && f.precision < len)
+		flen = f.precision;
 	if (f.buff_size)
 	{
 		if (f.have_minus)
@@ -64,13 +67,23 @@ int		ft_call_longstr(wchar_t *s, t_flags f)
 	flen = ft_get_finale_len(s, f);
 	if (flen == -1)
 		return (-1);
-	flen = (!f.have_p || (ft_len_unicode(*s) <= f.precision)) ? flen : 0;
-	if (f.have_minus == 0 && f.have_buff_size)
-		ft_fillforward(f, 0, flen);
-	if (flen)
+	if (f.have_p &&  ft_len_unicode(*s) > f.precision)
+		flen = 0;
+	if (f.buff_size)
+	{
+		if (f.have_minus)
+		{
+			ft_fill_longstr(s, flen);
+			ft_fillbackward(f, 0, flen);
+		}
+		else
+		{
+			ft_fillforward(f, 0, flen);
+			ft_fill_longstr(s, flen);
+		}
+	}
+	else
 		ft_fill_longstr(s, flen);
-	if (f.have_minus == 1 && f.have_buff_size)
-		ft_fillbackward(f, 0, flen);
 	return (1);
 }
 
