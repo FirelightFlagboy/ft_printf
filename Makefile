@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/23 11:53:42 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/26 10:24:17 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ SRC_NAME=\
 	ft_iswhat_2.c\
 	ft_iswhat.c\
 	ft_fill_buffer.c\
-	ft_init_t_type.c\
+	ft_init_struct.c\
 	ft_singleton.c\
 	ft_unicode.c\
 	ft_get_int.c\

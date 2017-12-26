@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:19:43 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 12:04:56 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 10:22:32 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ typedef struct	s_ite
 	int			index;
 }				t_ite;
 
-typedef struct	s_data
+typedef struct	s_color
 {
-	int			fd;
-	int			res;
-}				t_data;
+	char	*color_name;
+	char	*color_str;
+}				t_color;
 
 typedef struct	s_flags
 {
@@ -57,7 +57,7 @@ typedef struct	s_type
 
 typedef struct	s_buff
 {
-	char		buffer[BUFF_SIZE];
+	char		buffer[BUFF_SIZE_PRINTF];
 	size_t		index;
 	size_t		res;
 	int			fd;

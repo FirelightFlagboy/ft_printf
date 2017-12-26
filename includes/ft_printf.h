@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 11:42:33 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 10:38:22 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ size_t		ft_len_nb(uintmax_t n, size_t lenbase);
 */
 void		ft_putbuffer();
 int			ft_fill_buffer(char const *s, va_list ap);
+int			ft_fill_buffer_color(char const *s, va_list ap);
 int			ft_add_char_to_buff(int c);
 int			ft_add_nchar_to_buff(int c, size_t n);
 int			ft_add_str_to_buff(char const *s);
@@ -59,6 +60,7 @@ int			ft_isspecifier(int c);
 */
 t_buff		*get_buff(void);
 t_type		*get_t_type(void);
+t_color		*get_color(void);
 t_flags		ft_get_flags(char **astr);
 t_flags		ft_get_att(char **astr, t_flags *f);
 t_flags		ft_get_len_flags(char **astr, t_flags *f);
@@ -69,9 +71,10 @@ uintmax_t	ft_get_uint(va_list *ap, t_flags f);
 /*
 ** T_type
 */
-t_type		*ft_init_t_type(void);
 void		ft_tab_charset(void *data_type);
 void		ft_tab_fc(void *data_type);
+void		ft_init_color_name(void *data);
+void		ft_init_color_str(void *data);
 char		*ft_call_fc(char const *s, va_list *ap, t_type *t);
 /*
 ** Filler

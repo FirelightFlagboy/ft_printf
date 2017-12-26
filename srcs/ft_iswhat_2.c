@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:56:44 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 14:53:30 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 09:49:12 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_isspecifier(int c)
 	char	*charset;
 	short	i;
 
-	charset = "sSpdDioOuUxXcCb";
+	charset = "sSpdDioOuUxXcCbB";
 	i = 0;
 	while (charset[i] && charset[i] != c)
 		i++;

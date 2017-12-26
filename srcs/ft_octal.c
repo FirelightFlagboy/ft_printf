@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:28:30 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 16:45:40 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 09:44:55 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ int		ft_calloctal(uintmax_t n, t_flags f, int len)
 {
 	size_t	flen;
 
-	flen = (f.have_p && f.precision > len) ? f.precision : len;
-	flen += (f.have_hash) ? 1 : 0;
+	flen = len;
+	if (f.precision > len)
+		flen = f.precision;
+	if (f.have_hash)
+		flen++;
 	if (f.have_minus == 0 && f.have_buff_size)
 		ft_fillforward_oct(f, flen);
 	ft_filldimen_oct(f, len);
 	if (n != 0 || (n == 0 && f.have_p == 0))
-		ft_filloctal(n);
+		ft_itoa_base(n, "01234567");
 	if (f.have_minus == 1 && f.have_buff_size)
 		ft_fillbackward(f, 0, flen);
 	return (1);

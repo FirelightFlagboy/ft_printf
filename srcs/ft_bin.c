@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:21:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 16:38:27 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 09:44:01 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ int		ft_callbin(uintmax_t n, t_flags f, int len)
 {
 	size_t	flen;
 
-	flen = (f.have_p && f.precision > len) ? f.precision : len;
-	flen += (f.have_hash) ? 2 : 0;
+	flen = len;
+	if (f.precision > len)
+		flen = f.precision;
+	if (f.have_hash)
+		flen += 2;
 	if (f.have_minus == 0 && f.have_buff_size)
 		ft_fillforward_hex(f, len);
 	ft_filldimen_hex(f, len);
 	if (n != 0 || (n == 0 && f.have_p == 0))
-		ft_fillbin(n);
+		ft_itoa_base(n, "01");
 	if (f.have_minus == 1 && f.have_buff_size)
 		ft_fillbackward(f, 0, len);
 	return (1);

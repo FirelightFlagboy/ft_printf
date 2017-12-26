@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_t_type.c                                   :+:      :+:    :+:   */
+/*   ft_init_struct.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:54:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 14:40:24 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 11:14:23 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,47 @@ void		ft_tab_fc(void *data_type)
 	t[15].f = ft_call_fillbin;
 }
 
-t_type		*ft_init_t_type(void)
+void		ft_init_color_name(void *data)
 {
-	t_type *t;
+	t_color *t;
 
-	if (!(t = (t_type*)malloc((NB_FC + 1) * sizeof(t_type))))
-		return (NULL);
-	t[NB_FC].charset = 0;
-	ft_tab_charset(&t);
-	ft_tab_fc(&t);
-	return (t);
+	t = data;
+	t[0].color_name = "{eoc}";
+	t[1].color_name = "{red}";
+	t[2].color_name = "{cyan}";
+	t[3].color_name = "{green}";
+	t[4].color_name = "{yellow}";
+	t[5].color_name = "{blue}";
+	t[6].color_name = "{magenta}";
+	t[7].color_name = "{white}";
+	t[8].color_name = "{black}";
+	t[9].color_name = "{bold}";
+	t[10].color_name = "{dim}";
+	t[11].color_name = "{underline}";
+	t[12].color_name = "{blink}";
+	t[13].color_name = "{inverted}";
+	t[14].color_name = "{hidden}";
+	t[15].color_name = NULL;
+}
+
+void		ft_init_color_str(void *data)
+{
+	t_color *t;
+
+	t = data;
+	t[0].color_str = "\x1b[0m";
+	t[1].color_str = "\x1b[31m";
+	t[2].color_str = "\x1b[36m";
+	t[3].color_str = "\x1b[32m";
+	t[4].color_str = "\x1b[33m";
+	t[5].color_str = "\x1b[34m";
+	t[6].color_str = "\x1b[35m";
+	t[7].color_str = "\x1b[37m";
+	t[8].color_str = "\x1b[30m";
+	t[9].color_str = "\x1b[1m";
+	t[10].color_str = "\x1b[2m";
+	t[11].color_str = "\x1b[4m";
+	t[12].color_str = "\x1b[5m";
+	t[13].color_str = "\x1b[7m";
+	t[14].color_str = "\x1b[8m";
 }

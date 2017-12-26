@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 16:23:59 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 11:08:07 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -893,6 +893,7 @@ int		ft_test_16(void)
 	int p = -1;
 	int nt = 16; //nb_test
 	printf("\n");
+	// setlocale(LC_ALL, "");
 	printf("=====================\nft_test_%d\n=====================\n", nt);
 	my[++i] =ft_printf("%#.3o\n", 1);
 	you[++p] =	printf("%#.3o\n", 1);
@@ -900,7 +901,55 @@ int		ft_test_16(void)
 	you[++p] =	printf("{%15.4S}\n", L"我是一只猫。");
 	my[++i] =ft_printf("|%C|\n", 0);
 	you[++p] =	printf("|%C|\n", 0);
+	ft_printf("|%b|\n|%B|\n", INT32_MAX, INT64_MAX);
+	ft_printf("|%04#b|\n", 5);
+	ft_printf("|%.4#b|\n", 5);
+	ft_printf("|%.0#b|\n", 0);
+	ft_printf("|%0#b|\n", 0);
+	ft_printf("|%.#b|\n", 0);
+	(void)p;
+	printf("\n");
+	i = -1;
+	while (++i < NB_TEST)
+		if ((my[i] != 0 || you[i] != 0) && my[i] != you[i])
+		{
+			printf("%1$d> ft_printf[%1$d] = %2$d printf[%1$d] = %3$d\n", i, my[i], you[i]);
+			error = 1;
+		}
+	free(my);
+	free(you);
+	return (error);
+}
 
+int		ft_test_17(void)
+{
+	int *my = ft_get_tab();
+	int *you = ft_get_tab();
+	int error = 0;
+	int i = -1;
+	int p = -1;
+	int nt = 17; //nb_test
+	printf("\n");
+	printf("=====================\nft_test_%d\n=====================\n", nt);
+	ft_printf("|{red}red{eoc}|\n");
+	ft_printf("|{black}black{eoc}|\n");
+	ft_printf("|{green}green{eoc}|\n");
+	ft_printf("|{yellow}yellow{eoc}|\n");
+	ft_printf("|{blue}blue{eoc}|\n");
+	ft_printf("|{purple}purple{eoc}|\n");
+	ft_printf("|{cyan}cyan{eoc}|\n");
+	ft_printf("|{white}white{eoc}|\n");
+	ft_printf("|{bold}bold{eoc}|\n");
+	ft_printf("|{underline}underline{eoc}|\n");
+	ft_printf("|{dim}dim{eoc}|\n");
+	ft_printf("|{blink}blink{eoc}|\n");
+	ft_printf("|{inverted}inverted{eoc}|\n");
+	ft_printf("|{hidden}hidden{eoc}|\n");
+	ft_printf("|{}{eoc}|\n");
+	ft_printf("|{inverted}{white}{blink}i blink{eoc}|\n");
+	ft_printf("|{blink}%s{eoc}|\n", "bonjour");
+	ft_printf("{white}hola{eoc}\n");
+	ft_printf("{green}{inverted}bonjour{eoc}\n");
 	(void)p;
 	printf("\n");
 	i = -1;
@@ -944,7 +993,7 @@ int		ft_test_n123(void)
 
 int		main(int argc, char **argv)
 {
-	int		nb_fc = 16;
+	int		nb_fc = 17;
 	char	*test_to_make = ft_strnew(nb_fc);
 	char	stres[NB_TEST];
 	int		i = -1;
@@ -1012,6 +1061,8 @@ int		main(int argc, char **argv)
 		stres[i] = ft_test_15();	//unicode | no flags | adr
 	if (test_to_make[++i])
 		stres[i] = ft_test_16();
+	if (test_to_make[++i])
+		stres[i] = ft_test_17();
 	i = 0;
 	printf("=====%s=====\n", "_-resultat-_");
 	while (i < nb_fc)

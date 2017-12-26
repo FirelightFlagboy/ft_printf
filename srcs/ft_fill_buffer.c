@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 12:55:10 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 10:51:06 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,27 @@ char	*ft_call_fc(char const *s, va_list *ap, t_type *t)
 		}
 		i++;
 	}
-	return ((char*)s);
+	return ((char*)s + 1);
+}
+
+char	*ft_putcolor(char const *s)
+{
+	t_color	*color;
+	int		i;
+
+	i = 0;
+	color = get_color();
+	while (color[i].color_name)
+	{
+		if (ft_strncmp(s, color[i].color_name, ft_strlen(color[i].color_name)) == 0)
+		{
+			ft_add_str_to_buff(color[i].color_str);
+			return(ft_strchr(s, '}') + 1);
+		}
+		i++;
+	}
+	ft_add_char_to_buff('{');
+	return ((char*)s + 1);
 }
 
 int		ft_fill_buffer(char const *s, va_list ap)
@@ -65,6 +85,32 @@ int		ft_fill_buffer(char const *s, va_list ap)
 			return (-1);
 		if (*s)
 			s++;
+	}
+	va_end(node);
+	return (0);
+}
+
+int		ft_fill_buffer_color(char const *s, va_list ap)
+{
+	t_buff	*buff;
+	va_list	node;
+
+	buff = get_buff();
+	va_copy(node, ap);
+	while (*s != '\0')
+	{
+		if (*s == '{')
+		{
+			s = ft_putcolor(s);
+			continue;
+		}
+		else if (*s == '%')
+		{
+			s = ft_call_fc(s, &node, get_t_type());
+		}
+		else
+			ft_add_char_to_buff(*s);
+		s++;
 	}
 	va_end(node);
 	return (0);

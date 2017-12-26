@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:35:08 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 16:37:33 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 09:40:12 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,20 @@ int		ft_callunbr(uintmax_t n, t_flags f, int len)
 {
 	size_t	flen;
 
-	f.have_null = (f.have_p) ? 0 : f.have_null;
+	flen = len;
+	if (f.have_p)
+	{
+		f.have_null = 0;
+		if (f.precision > len)
+			flen = f.precision;
+	}
 	if (f.have_buff_size && f.have_null && n == 0)
 		f.buff_size--;
-	flen = (f.have_p && f.precision > len) ? f.precision : len;
 	if (f.have_minus == 0 && f.have_buff_size)
 		ft_fillforward_uin(f, flen);
 	ft_filldimen_uin(f, len);
 	if (n != 0 || (n == 0 && f.have_p == 0))
-		ft_fillunbr(n);
+		ft_itoa(n);
 	if (f.have_minus == 1 && f.have_buff_size)
 		ft_fillbackward(f, 0, flen);
 	return (1);
@@ -43,16 +48,21 @@ int		ft_callnbr(intmax_t n, t_flags f, int len)
 
 	isneg = (n >= 0) ? 0 : 1;
 	un = (isneg) ? -n : n;
-	f.have_null = (f.have_null && f.have_p) ? 0 : f.have_null;
+	flen = len;
+	if (f.have_p)
+	{
+		f.have_null = 0;
+		if (f.precision > len)
+			flen = f.precision;
+	}
 	if (f.have_buff_size && f.have_null
 	&& (n == 0 || (isneg && !f.have_minus)))
 		f.buff_size--;
-	flen = (f.have_p && f.precision > len) ? f.precision : len;
 	if (f.have_minus == 0 && f.have_buff_size)
 		ft_fillforward(f, isneg, flen);
 	ft_filldimen(f, isneg, len);
 	if (n != 0 || (n == 0 && f.have_p == 0))
-		ft_fillunbr(un);
+		ft_itoa(un);
 	if (f.have_minus == 1 && f.have_buff_size)
 		ft_fillbackward(f, isneg, flen);
 	return (1);

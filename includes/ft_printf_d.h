@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 15:34:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/22 12:17:36 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 10:42:07 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,12 @@
 #  define NB_FC 15
 # endif
 
-# ifndef EOF
-#  define EOF "\\033[0m"
+# ifndef NB_COLOR
+#  define NB_COLOR 15
 # endif
 
-# ifndef RED
-#  define RED "\\033[31m"
-# endif
-
-# ifndef GREEN
-#  define GREEN "\\033[32m"
-# endif
-
-# ifndef YELLOW
-#  define YELLOW "\\033[33m"
-# endif
-
-# ifndef BLUE
-#  define BLUE "\\033[34m"
-# endif
-
-# ifndef MAJENTA
-#  define MAJENTA "\\033[35m"
-# endif
-
-# ifndef CYAN
-#  define CYAN "\\033[36m"
-# endif
-
-# ifndef BUFF_SIZE
-#  define BUFF_SIZE 4096
+# ifndef BUFF_SIZE_PRINTF
+#  define BUFF_SIZE_PRINTF 4096
 # endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:26:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 14:39:07 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 10:22:06 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_add_char_to_buff(int c)
 	t_buff *buff;
 
 	buff = get_buff();
-	if (buff->index + 1 >= BUFF_SIZE)
+	if (buff->index + 1 >= BUFF_SIZE_PRINTF)
 		ft_putbuffer();
 	buff->buffer[buff->index++] = c;
 	return (buff->index);
@@ -37,7 +37,7 @@ int		ft_add_nchar_to_buff(int c, size_t n)
 	t_buff *buff;
 
 	buff = get_buff();
-	if (n + buff->index < BUFF_SIZE)
+	if (n + buff->index < BUFF_SIZE_PRINTF)
 	{
 		while (n > 0)
 		{
@@ -46,7 +46,7 @@ int		ft_add_nchar_to_buff(int c, size_t n)
 		}
 		return (buff->index);
 	}
-	while (buff->index < BUFF_SIZE)
+	while (buff->index < BUFF_SIZE_PRINTF)
 	{
 		buff->buffer[buff->index++] = c;
 		n--;
@@ -68,7 +68,7 @@ int		ft_add_str_to_buff(char const *s)
 
 	buff = get_buff();
 	len = ft_strlen(s);
-	if (buff->index + len >= BUFF_SIZE)
+	if (buff->index + len >= BUFF_SIZE_PRINTF)
 		ft_putbuffer();
 	i = 0;
 	while (i < len)
@@ -85,7 +85,7 @@ int		ft_add_nstr_to_buff(char const *s, size_t n)
 	t_buff	*buff;
 
 	buff = get_buff();
-	if (n + buff->index < BUFF_SIZE)
+	if (n + buff->index < BUFF_SIZE_PRINTF)
 	{
 		while (n > 0)
 		{
@@ -94,7 +94,7 @@ int		ft_add_nstr_to_buff(char const *s, size_t n)
 		}
 		return (buff->index);
 	}
-	while (buff->index < BUFF_SIZE)
+	while (buff->index < BUFF_SIZE_PRINTF)
 	{
 		buff->buffer[buff->index++] = *s++;
 		n--;
