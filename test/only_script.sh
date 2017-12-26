@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/13 11:40:28 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/20 10:09:08 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/26 12:39:03 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,14 @@ while [ "$#" -gt 0 ]; do
 	(*) exit 1 # should never be reached.
 	esac
 done
-make -j3 ../libftprintf.a
+cmd="make -j3 ../libftprintf.a"
+eval $cmd
+res=$?
+if [ $res != 0 ]
+then
+	printf "error when compiling libftprintf\n"
+	exit 1
+fi
 case $flags in
 	(0) echo "max flag";
 	gcc -Wall -Werror -Wextra -o test_only ../libftprintf.a\
@@ -43,7 +50,12 @@ case $flags in
 	gcc -w -o test_only ../libftprintf.a ./main_test_only.c -I $INCLUDE_DIR
 	;;
 esac
-
+res=$?
+if [ $res != 0 ]
+then
+	printf "error when compiling main\n"
+	exit 1
+fi
 if [ $# -eq 0 ]
 then
 	./test_only

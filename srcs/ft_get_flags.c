@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:54:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 12:16:06 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 12:30:22 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_flags		ft_init_t_flags(void)
 t_flags		ft_get_att(char **astr, t_flags *f)
 {
 	char	*s;
+
+
 
 	s = *astr;
 	while (ft_isatt_flags(*s))

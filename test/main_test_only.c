@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 12:14:01 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 12:17:48 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -946,9 +946,9 @@ int		ft_test_17(void)
 	ft_printf("|{inverted}inverted{eoc}|\n");
 	ft_printf("|{hidden}hidden{eoc}|\n");
 	ft_printf("|{}{eoc}|\n");
-	ft_printf("|{inverted}{white}{blink}i blink{eoc}|\n");
-	ft_printf("|{blink}%s{eoc}|\n", "bonjour");
-	ft_printf("{white}hola{eoc}\n");
+	ft_printf("|{green}{}|\n");
+	ft_printf("|bonjour|\n");
+	ft_printf("|{eoc}{}|\n");
 
 	(void)p;
 	printf("\n");
