@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 12:17:48 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 16:03:12 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,14 +208,20 @@ int		ft_test_3(void)
 	you[++p] =	printf("9 - [youprintf] |%.5kg|\n");
 	my[++i] =ft_printf("10 - [ft_printf] |%#hhhkg|\n");
 	you[++p] =	printf("10 - [youprintf] |%#hhhkg|\n");
-	my[++i] =ft_printf("13 - [ft_printf] |%ld|\n", -2);
-	you[++p] =	printf("13 - [youprintf] |%ld|\n", -2);
-	my[++i] =ft_printf("14 - [ft_printf] |%d|\n", -2147483648);
-	you[++p] =	printf("14 - [youprintf] |%d|\n", -2147483648);
-	my[++i] =ft_printf("15 - %0d\n", -42);
-	you[++p] =	printf("15 - %0d\n", -42);
-	my[++i] =ft_printf("16 - %00d\n", -42);
-	you[++p] =	printf("16 - %00d\n", -42);
+	my[++i] =ft_printf("11 - [ft_printf] |%ld|\n", -2);
+	you[++p] =	printf("11 - [youprintf] |%ld|\n", -2);
+	my[++i] =ft_printf("12 - [ft_printf] |%d|\n", -2147483648);
+	you[++p] =	printf("12 - [youprintf] |%d|\n", -2147483648);
+	my[++i] =ft_printf("13 - %0d\n", -42);
+	you[++p] =	printf("13 - %0d\n", -42);
+	my[++i] =ft_printf("14 - %00d\n", -42);
+	you[++p] =	printf("14 - %00d\n", -42);
+	my[++i] =ft_printf("15 - |%+d|\n", 0);
+	you[++p] =	printf("15 - |%+d|\n", 0);
+	my[++i] =ft_printf("16 - |% d|\n", 0);
+	you[++p] =	printf("16 - |% d|\n", 0);
+	my[++i] =ft_printf("17 - |%5d|\n", -42);
+	you[++p] =	printf("17 - |%5d|\n", -42);
 
 	printf("\n");
 	i = -1;
@@ -698,7 +704,12 @@ int		ft_test_12(void)
 	you[++p] =	printf("9 - @moulitest: |%5.o| |%5.0o|\n", 0, 0);
 	my[++i] =ft_printf("10 - @moulitestf: |%#.o| |%#.0o|\n", 0, 0);
 	you[++p] =	printf("10 - @moulitestp: |%#.o| |%#.0o|\n", 0, 0);
-
+	my[++i] =ft_printf("11 - @moulitestf: |%#.4o| |%#.0o|\n", 0, 0);
+	you[++p] =	printf("11 - @moulitestp: |%#.4o| |%#.0o|\n", 0, 0);
+	my[++i] =ft_printf("12 - @moulitestf: |%#o| |%#.0o|\n", 0, 0);
+	you[++p] =	printf("12 - @moulitestp: |%#o| |%#.0o|\n", 0, 0);
+	my[++i] =ft_printf("13 - @moulitestf: |%o| |%#.0o|\n", 0, 0);
+	you[++p] =	printf("13 - @moulitestp: |%o| |%#.0o|\n", 0, 0);
 	(void)p;
 	printf("\n");
 	i = -1;
@@ -902,11 +913,16 @@ int		ft_test_16(void)
 	my[++i] =ft_printf("|%C|\n", 0);
 	you[++p] =	printf("|%C|\n", 0);
 	ft_printf("|%b|\n|%B|\n", INT32_MAX, INT64_MAX);
-	ft_printf("|%04#b|\n", 5);
-	ft_printf("|%.4#b|\n", 5);
-	ft_printf("|%.0#b|\n", 0);
-	ft_printf("|%0#b|\n", 0);
-	ft_printf("|%.#b|\n", 0);
+	ft_printf("|%#04.0b|\n", 5);
+	ft_printf("|%#4.b|\n", 5);
+	ft_printf("|%#.0b|\n", 0);
+	ft_printf("|%#0b|\n", 0);
+	ft_printf("|%#.b|\n", 0);
+	ft_printf("|%#.5b|\n", 0);
+	printf("|%#.5x|\n", 0);
+	printf("|%#.0x|\n", 0);
+	printf("|%#0x|\n", 0);
+	printf("|%#.x|\n", 0);
 	(void)p;
 	printf("\n");
 	i = -1;

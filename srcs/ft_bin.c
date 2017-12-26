@@ -6,15 +6,19 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:21:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 09:44:01 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 14:44:29 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_fillbin(uintmax_t n)
+int		ft_fillbin(uintmax_t n, t_flags f, int len)
 {
-	return (ft_itoa_base(n, "01"));
+	if (f.precision)
+		ft_filldimen_hex(f, len);
+	if (n != 0 || (n == 0 && f.have_p == 0))
+		ft_itoa_base(n, "01");
+	return (1);
 }
 
 int		ft_callbin(uintmax_t n, t_flags f, int len)
@@ -26,13 +30,21 @@ int		ft_callbin(uintmax_t n, t_flags f, int len)
 		flen = f.precision;
 	if (f.have_hash)
 		flen += 2;
-	if (f.have_minus == 0 && f.have_buff_size)
-		ft_fillforward_hex(f, len);
-	ft_filldimen_hex(f, len);
-	if (n != 0 || (n == 0 && f.have_p == 0))
-		ft_itoa_base(n, "01");
-	if (f.have_minus == 1 && f.have_buff_size)
-		ft_fillbackward(f, 0, len);
+	if (f.buff_size)
+	{
+		if (f.have_minus)
+		{
+			ft_fillbin(n, f, len);
+			ft_fillbackward(f, 0, flen);
+		}
+		else
+		{
+			ft_fillforward_hex(f, flen);
+			ft_fillbin(n, f, len);
+		}
+	}
+	else
+		ft_fillbin(n, f, len);
 	return (1);
 }
 
@@ -42,10 +54,16 @@ int		ft_call_fillbin(va_list *ap, t_flags f)
 	int			l;
 
 	nb = ft_get_uint(ap, f);
-	if (nb != 0)
+	if (nb)
+	{
 		l = ft_len_nb(nb, 2);
+		if (!f.precision)
+			f.precision = 1;
+	}
 	else
+	{
+		f.have_hash = 0;
 		l = 0;
-	f.have_hash = (nb == 0) ? 0 : f.have_hash;
+	}
 	return (ft_callbin(nb, f, l));
 }

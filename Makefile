@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/26 12:38:50 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/26 15:08:46 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ SRC_NAME=\
 	ft_bin.c\
 	ft_char.c\
 	ft_hex.c\
+	ft_unbr.c\
 	ft_nbr.c\
 	ft_octal.c\
 	ft_str.c\
