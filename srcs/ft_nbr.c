@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:35:08 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 16:26:24 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 16:28:25 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,26 @@ int		ft_callnbr(uintmax_t n, t_flags f, int len, char isneg)
 int		ft_call_fillnbr(va_list *ap, t_flags f)
 {
 	intmax_t	n;
+	intmax_t	u;
 	int			l;
 	char		neg;
 
 	n = ft_get_int(ap, f);
 	l = 0;
-	neg = 0;
 	if (n < 0)
+	{
 		neg = 1;
+		u = -n;
+	}
+	else
+	{
+		neg = 0;
+		u = n;
+	}
 	if (n != 0)
 		l = ft_len_nb((n >= 0) ? n : -n, 10);
 	if (n >= 0 && f.have_null\
 	&& (f.have_add || f.have_escape))
 		f.buff_size--;
-	return (ft_callnbr((neg) ? -n : n, f, l, neg));
+	return (ft_callnbr(u, f, l, neg));
 }
