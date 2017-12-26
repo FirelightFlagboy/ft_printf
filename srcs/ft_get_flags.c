@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:54:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 14:39:22 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 12:16:06 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ t_flags		ft_get_flags(char **astr)
 	ft_get_buff_size(&s, &f);
 	ft_get_precision(&s, &f);
 	ft_get_len_flags(&s, &f);
-	ft_get_att(&s, &f);
 	f.type = *s;
 	*astr = s;
 	return (f);
