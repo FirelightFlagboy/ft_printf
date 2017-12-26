@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:54:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 16:40:56 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/26 16:32:54 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,21 @@ int		ft_callstr(char *s, t_flags f, int len)
 
 	len = ft_strlen(s);
 	flen = (f.have_p && f.precision < len) ? f.precision : len;
-	if (f.have_minus == 0 && f.have_buff_size)
-		ft_fillforward(f, 0, flen);
-	ft_add_nstr_to_buff(s, flen);
-	if (f.have_minus == 1 && f.have_buff_size)
-		ft_fillbackward(f, 0, flen);
+	if (f.buff_size)
+	{
+		if (f.have_minus)
+		{
+			ft_add_nstr_to_buff(s, flen);
+			ft_fillbackward(f, 0, flen);
+		}
+		else
+		{
+			ft_fillforward(f, 0, flen);
+			ft_add_nstr_to_buff(s, flen);
+		}
+	}
+	else
+		ft_add_nstr_to_buff(s, flen);
 	return (1);
 }
 
