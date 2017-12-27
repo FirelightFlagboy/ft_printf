@@ -19,4 +19,13 @@ ft_printf(char const *s, ...);
 ft_dprintf(int fd, char const *s, ...);
 ft_vfprintf(int fd, char const *s, va_list ap);
 ```
-**_work also with color_**
+**work also with color**
+
+#### Color
+* {red}
+* {cyan}
+* {green}
+* {blue}
+* {magenta}
+* {black}
+* {white}
