@@ -2,4 +2,5 @@
 project recode function **printf**
 
 >work like **printf**
-**[pdf](https://cdn.intra.42.fr/pdf/pdf/20/ft_printf.pdf)**
+###see projet's pdf for more info
+* **[pdf](https://cdn.intra.42.fr/pdf/pdf/20/ft_printf.pdf)**
