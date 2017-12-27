@@ -12,4 +12,4 @@ project recode function **printf**
   ft_dprintf(FileDescriptor, "foo", bar);
   ft_vfprintf(FileDescriptor, "foo", va_list); //<<you can't get it
 ```
-<span style="color:blue">some *blue* text</span>.
+<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
