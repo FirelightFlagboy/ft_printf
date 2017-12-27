@@ -38,3 +38,5 @@ ft_vfprintf(int fd, char const *s, va_list ap);
 * {blink}
 * {inverted}
 * {hidden}
+
+while do
