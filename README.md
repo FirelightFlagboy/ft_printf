@@ -9,4 +9,6 @@ project recode function **printf**
 #### Use
 ```C
   ft_printf("food", bar);
+  ft_dprintf(FileDescriptor, "foo", bar);
+  ft_vfprintf(FileDescriptor, "foo", va_list); //< you can't get it
 ```
