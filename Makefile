@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/27 12:10:43 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/27 12:19:52 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,7 +117,7 @@ $(NAME) : $(OBJ_DIR) $(OBJ)
 	@printf '\t'$(OK)'\n'
 
 $(OBJ_DIR) :
-	@printf "[ft_printf] creating folder $(MAJENTA)$(BOLD)OBJ$(NC)"
+	@printf "[ft_printf] creating folder $(MAJENTA)$(BOLD)obj$(NC)"
 	@mkdir -p $(OBJ_DIR)
 	@printf '\t\t'$(OK)'\n'
 
@@ -129,7 +129,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) $(NUMJOBS)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INC)
 	@printf $(NC)$(OK)'\r'
 
-clean :
+clean : $(OBJ_DIR)
 	@printf "[ft_printf] rm all $(BOLD)$(RED) obj file$(NC)"
 	@rm -rf $(OBJ_DIR)
 	@printf '\t\t'$(OK)'\n'
