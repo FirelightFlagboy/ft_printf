@@ -39,4 +39,10 @@ ft_vfprintf(int fd, char const *s, va_list ap);
 * {inverted}
 * {hidden}
 
-while do
+will donated
+
+`ft_printf("{bold}bonjour\n");`
+
+result :
+
+**bonjour**
