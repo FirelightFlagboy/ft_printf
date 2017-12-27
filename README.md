@@ -32,9 +32,9 @@ ft_vfprintf(int fd, char const *s, va_list ap);
 * {white}
 
 #### Style
-* {bold}       **in bold**
-* {dim}        //no ex
-* {underline}  //no ex
-* {blink}      //no ex
-* {inverted}   //no ex
-* {hidden}     //no ex
+* {bold}
+* {dim}
+* {underline}
+* {blink}
+* {inverted}
+* {hidden}
