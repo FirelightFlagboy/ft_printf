@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/27 09:50:41 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/27 11:04:05 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1048,6 +1048,43 @@ int		ft_test_19(void)
 	return (error);
 }
 
+int		ft_test_20(void)
+{
+	int *my = ft_get_tab();
+	int *you = ft_get_tab();
+	int error = 0;
+	int i = -1;
+	int p = -1;
+	int nt = 20; //nb_test
+	printf("\n");
+	printf("=====================\nft_test_%d\n=====================\n", nt);
+	ft_printf("%ll#x\n", 9223372036854775807);
+	ft_printf("%0 d\n", 42);
+	ft_printf("% 0d\n", 42);
+	ft_printf("%5+d\n", 42);
+	ft_printf("%5+d\n", -42);
+	ft_printf("%-5+d\n", 42);
+	ft_printf("%-0+5d\n", 42);
+	ft_printf("%-5+d\n", -42);
+	ft_printf("%lhlz\n", 9223372036854775807);
+	ft_printf("%hhld\n", 128);
+	ft_printf("@main_ftprintf: %####0000 33..1..#00d\\n\n", 256);
+	ft_printf("@main_ftprintf: %####0000 33..1d\n", 256);
+	ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
+	(void)p;
+	printf("\n");
+	i = -1;
+	while (++i < NB_TEST)
+		if ((my[i] != 0 || you[i] != 0) && my[i] != you[i])
+		{
+			printf("%1$d> ft_printf[%1$d] = %2$d printf[%1$d] = %3$d\n", i, my[i], you[i]);
+			error = 1;
+		}
+	free(my);
+	free(you);
+	return (error);
+}
+
 /*
 int		ft_test_n123(void)
 {
@@ -1077,7 +1114,7 @@ int		ft_test_n123(void)
 
 int		main(int argc, char **argv)
 {
-	int		nb_fc = 19;
+	int		nb_fc = 20;
 	char	*test_to_make = ft_strnew(nb_fc);
 	char	stres[NB_TEST];
 	int		i = -1;
@@ -1099,7 +1136,7 @@ int		main(int argc, char **argv)
 			{
 				if (error == 0)
 					printf("====================================\n");
-				printf("error ft_test_%d, doesn't exits (%d <= %d == %d)\n", nb, nb, nb_fc, nb <= nb_fc);
+				printf("error ft_test_%d, doesn't exits (%d <= %d == %d)\n", nb + 1, nb + 1, nb_fc, nb + 1 <= nb_fc);
 				error = (error == 0) ? 1 : error;
 			}
 			argc--;
@@ -1151,6 +1188,8 @@ int		main(int argc, char **argv)
 		stres[i] = ft_test_18();
 	if (test_to_make[++i])
 		stres[i] = ft_test_19();
+	if (test_to_make[++i])
+		stres[i] = ft_test_20();
 	i = 0;
 	printf("=====%s=====\n", "_-resultat-_");
 	while (i < nb_fc)
