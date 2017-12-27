@@ -2,10 +2,26 @@
 project recode function **printf**
 
 >work like **printf**
-
+***
 ### see projet's pdf for more info
 * **[link to pdf](https://cdn.intra.42.fr/pdf/pdf/20/ft_printf.pdf)**
+### see man printf
+* **[man printf](http://manpagesfr.free.fr/man/man3/printf.3.html)**
 
+***
+### Includes
+* **wchar.h**
+for `wchat_t` type
+* **string.h**
+for `size_t` def
+* **limit.h**
+for `OPEN_MAX` and `INT64_MAX`
+* **unistd.h**
+for `write()`
+* **stdlib.h**
+for `NULL` and `MB_CURL_MAX`
+* **stdarg.h**
+for `va_list`, `va_start()`, `va_copy()` and `va_end()`
 ***
 #### **Use**
 ```C
@@ -46,3 +62,4 @@ will donated
 result :
 
 **bonjour**
+***
