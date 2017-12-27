@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/27 09:35:19 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/27 12:10:43 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,7 +122,9 @@ $(OBJ_DIR) :
 	@printf '\t\t'$(OK)'\n'
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) $(NUMJOBS)
-	@# @for ((i=0; i<60; i++)); do printf ' '; done;
+	@for ((i=0; i<60; i++))\
+		do printf ' ';\
+	done;
 	@printf "\r\033[0m[ft_printf] compile $(BOLD)$(YELLOW)%-20s" "$<"
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INC)
 	@printf $(NC)$(OK)'\r'
