@@ -26,6 +26,15 @@ ft_vfprintf(int fd, char const *s, va_list ap);
 * {cyan}
 * {green}
 * {blue}
+* {yellow}
 * {magenta}
 * {black}
 * {white}
+
+#### Style
+* {bold}       **in blod**
+* {dim}        //no ex
+* {underline}  //no ex
+* {blink}      //no ex
+* {inverted}   //no ex
+* {hidden}     //no ex
