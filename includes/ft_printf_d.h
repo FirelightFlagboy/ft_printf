@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 15:34:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 12:07:46 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/27 09:28:16 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 
 # ifndef BUFF_SIZE_PRINTF
 #  define BUFF_SIZE_PRINTF 4096
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 10240
 # endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 16:12:19 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 14:46:18 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/27 09:43:26 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int		ft_get_index(va_list *ap, t_flags f)
 	buff = get_buff();
 	i = (int*)va_arg(*ap, int*);
 	if (i)
-		*i = buff->index;
+		*i = buff->res + buff->index;
 	return (buff->index);
 }
