@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:55:51 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/29 10:40:25 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/29 11:22:26 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ int			ft_get_buff_size(char **astr, t_flags *f, va_list *ap)
 	if (res > 0)
 		f->buff_size = res;
 	else
-	{
 		f->buff_size = -res;
+	if (res < 0)
 		f->have_minus = 1;
-	}
 	*astr = s;
 	return (res);
 }

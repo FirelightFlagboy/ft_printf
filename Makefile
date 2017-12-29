@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/27 12:19:52 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/29 11:26:53 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,6 +132,11 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) $(NUMJOBS)
 clean : $(OBJ_DIR)
 	@printf "[ft_printf] rm all $(BOLD)$(RED) obj file$(NC)"
 	@rm -rf $(OBJ_DIR)
+	@printf '\t\t'$(OK)'\n'
+
+naelc :
+	@printf "[ft_printf] rm $(BOLD)$(CYAN)$(NAME)$(NC)"
+	@rm -f $(NAME)
 	@printf '\t\t'$(OK)'\n'
 
 norme : $(SRC) $(INCLUDE)
