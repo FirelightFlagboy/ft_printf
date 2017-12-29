@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/27 11:04:05 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/29 10:40:51 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1085,6 +1085,70 @@ int		ft_test_20(void)
 	return (error);
 }
 
+int		ft_test_21(void)
+{
+	int *my = ft_get_tab();
+	int *you = ft_get_tab();
+	int error = 0;
+	int i = -1;
+	int p = -1;
+	int nt = 21; //nb_test
+	printf("\n");
+	printf("=====================\nft_test_%d\n=====================\n", nt);
+	my[++i] =ft_printf("0 - |%*d|\n", 5, 3);
+	you[++p] =	printf("0 - |%*d|\n", 5, 3);
+	my[++i] =ft_printf("1 - |%.*d|\n", 5, 3);
+	you[++p] =	printf("1 - |%.*d|\n", 5, 3);
+	my[++i] =ft_printf("2 - |%*.*d|\n", 10, 5, 3);
+	you[++p] =	printf("2 - |%*.*d|\n", 10, 5, 3);
+	my[++i] =ft_printf("3 - |%5*d|\n", 10, 3);
+	you[++p] =	printf("3 - |%5*d|\n", 10, 3);
+	my[++i] =ft_printf("4 - |%*5d|\n", 10, 3);
+	you[++p] =	printf("4 - |%*5d|\n", 10, 3);
+	my[++i] =ft_printf("5 - |%.5*d|\n", 10, 3);
+	you[++p] =	printf("5 - |%.5*d|\n", 10, 3);
+	my[++i] =ft_printf("6 - |%.*5d|\n", 10, 3);
+	you[++p] =	printf("6 - |%.*5d|\n", 10, 3);
+	my[++i] =ft_printf("7 - |%5*.5*d|\n", 10, 6, 3);
+	you[++p] =	printf("7 - |%5*.5*d|\n", 10, 6, 3);
+	my[++i] =ft_printf("8 - |%*5.*5d|\n", 10, 6, 3);
+	you[++p] =	printf("8 - |%*5.*5d|\n", 10, 6, 3);
+	my[++i] =ft_printf("9 - |%**d|\n", 10, 9, 6);
+	you[++p] =	printf("9 - |%**d|\n", 10, 9, 6);
+	my[++i] =ft_printf("10 - |%.**d|\n", 10, 9, 6);
+	you[++p] =	printf("10 - |%.**d|\n", 10, 9, 6);
+	my[++i] =ft_printf("11 - |%*d|\n", -5, 3);
+	you[++p] =	printf("11 - |%*d|\n", -5, 3);
+	my[++i] =ft_printf("12 - |%.*d|\n", -5, 3);
+	you[++p] =	printf("12 - |%.*d|\n", -5, 3);
+	my[++i] =ft_printf("13 - |%*.*d|\n", -10, -5, 3);
+	you[++p] =	printf("13 - |%*.*d|\n", -10, -5, 3);
+	my[++i] =ft_printf("14 - |%-*d|\n", -5, 3);
+	you[++p] =	printf("14 - |%-*d|\n", -5, 3);
+	my[++i] =ft_printf("15 - |%-.*d|\n", -5, 3);
+	you[++p] =	printf("15 - |%-.*d|\n", -5, 3);
+	my[++i] =ft_printf("16 - |%-*.*d|\n", -10, -5, 3);
+	you[++p] =	printf("16 - |%-*.*d|\n", -10, -5, 3);
+	my[++i] =ft_printf("17 - |%-*d|\n", 5, 3);
+	you[++p] =	printf("17 - |%-*d|\n", 5, 3);
+	my[++i] =ft_printf("18 - |%-.*d|\n", 5, 3);
+	you[++p] =	printf("18 - |%-.*d|\n", 5, 3);
+	my[++i] =ft_printf("19 - |%-*.*d|\n", 10, 5, 3);
+	you[++p] =	printf("19 - |%-*.*d|\n", 10, 5, 3);
+	(void)p;
+	printf("\n");
+	i = -1;
+	while (++i < NB_TEST)
+		if ((my[i] != 0 || you[i] != 0) && my[i] != you[i])
+		{
+			printf("%1$d> ft_printf[%1$d] = %2$d printf[%1$d] = %3$d\n", i, my[i], you[i]);
+			error = 1;
+		}
+	free(my);
+	free(you);
+	return (error);
+}
+
 /*
 int		ft_test_n123(void)
 {
@@ -1114,7 +1178,7 @@ int		ft_test_n123(void)
 
 int		main(int argc, char **argv)
 {
-	int		nb_fc = 20;
+	int		nb_fc = 21;
 	char	*test_to_make = ft_strnew(nb_fc);
 	char	stres[NB_TEST];
 	int		i = -1;
@@ -1190,6 +1254,8 @@ int		main(int argc, char **argv)
 		stres[i] = ft_test_19();
 	if (test_to_make[++i])
 		stres[i] = ft_test_20();
+	if (test_to_make[++i])
+		stres[i] = ft_test_21();
 	i = 0;
 	printf("=====%s=====\n", "_-resultat-_");
 	while (i < nb_fc)

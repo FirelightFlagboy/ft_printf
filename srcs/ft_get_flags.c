@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:54:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 14:46:38 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/29 10:02:30 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_flags		ft_get_att(char **astr, t_flags *f)
 	return (*f);
 }
 
-t_flags		ft_get_flags(char **astr)
+t_flags		ft_get_flags(char **astr, va_list *ap)
 {
 	t_flags	f;
 	char	*s;
@@ -61,8 +61,8 @@ t_flags		ft_get_flags(char **astr)
 	s++;
 	f = ft_init_t_flags();
 	ft_get_att(&s, &f);
-	ft_get_buff_size(&s, &f);
-	ft_get_precision(&s, &f);
+	ft_get_buff_size(&s, &f, ap);
+	ft_get_precision(&s, &f, ap);
 	ft_get_len_flags(&s, &f);
 	f.type = *s;
 	*astr = s;

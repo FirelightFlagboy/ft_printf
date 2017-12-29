@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 11:21:32 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/29 10:01:25 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_call_fc(char const *s, va_list *ap, t_type *t)
 	t_flags f;
 	int		i;
 
-	f = ft_get_flags((char**)&s);
+	f = ft_get_flags((char**)&s, ap);
 	if (!ft_isspecifier(*s))
 		return (ft_putgen(f, s));
 	i = 0;

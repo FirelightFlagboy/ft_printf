@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:55:51 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 12:05:45 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/29 10:40:25 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_get_precision(char **astr, t_flags *f)
+int			ft_get_precision(char **astr, t_flags *f, va_list *ap)
 {
 	int		res;
 	char	*s;
@@ -24,16 +24,22 @@ int			ft_get_precision(char **astr, t_flags *f)
 	f->have_p = 1;
 	s++;
 	while (*s && ft_isdigit(*s))
+		res = (res * 10) + (*s++ - '0');
+	if (*s == '*')
 	{
-		res = (res * 10) + (*s - '0');
+		res = (int)va_arg(*ap, int);
 		s++;
+		if (ft_isdigit(*s))
+			res = 0;
+		while (*s && ft_isdigit(*s))
+			res = (res * 10) + (*s++ - '0');
 	}
 	f->precision = res;
 	*astr = s;
 	return (res);
 }
 
-int			ft_get_buff_size(char **astr, t_flags *f)
+int			ft_get_buff_size(char **astr, t_flags *f, va_list *ap)
 {
 	int		res;
 	char	*s;
@@ -41,12 +47,24 @@ int			ft_get_buff_size(char **astr, t_flags *f)
 	s = *astr;
 	res = 0;
 	while (*s && ft_isdigit(*s))
+		res = (res * 10) + (*s++ - '0');
+	if (*s == '*')
 	{
-		res = (res * 10) + (*s - '0');
-		s++;
+		res = (int)va_arg(*ap, int);
+		if (s++ != 0 && ft_isdigit(*s))
+			res = 0;
+		while (*s && ft_isdigit(*s))
+			res = (res * 10) + (*s++ - '0');
 	}
-	f->have_buff_size = (res != 0) ? 1 : 0;
-	f->buff_size = res;
+	if (res != 0)
+		f->have_buff_size = 1;
+	if (res > 0)
+		f->buff_size = res;
+	else
+	{
+		f->buff_size = -res;
+		f->have_minus = 1;
+	}
 	*astr = s;
 	return (res);
 }
