@@ -26,7 +26,7 @@ for `va_list`, `va_start()`, `va_copy()` and `va_end()`
 ### Constante
 * `BUFF_SIZE_PRINTF` : the buffer size of ft_printf when it full it flush
 * `NB_FC` : the number of function alias number of working flags
-* `NB_COLOR` :
+* `NB_COLOR` : the number of color and type
 ***
 #### **Use**
 ```C
