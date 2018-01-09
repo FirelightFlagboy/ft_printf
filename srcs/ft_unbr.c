@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 15:06:22 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 15:16:15 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:36:05 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int		ft_fillunbr(uintmax_t n, t_flags f, int len)
 {
 	if (f.precision)
 		ft_filldimen_uin(f, len);
-	if (n != 0 || (n == 0 && f.have_p == 0))
+	// if (n != 0 || (n == 0 && f.have_p == 0))
+	if (!(n == 0 && f.have_p && f.precision == 0))
 		ft_itoa(n);
 	return (0);
 }
@@ -32,8 +33,8 @@ int		ft_callunbr(uintmax_t n, t_flags f, int len)
 		f.have_null = 0;
 	if (f.buff_size)
 	{
-		if (n == 0 && f.have_null)
-			f.buff_size--;
+		// if (n == 0 && f.have_null)
+		// 	f.buff_size--;
 		if (f.have_minus)
 		{
 			ft_fillunbr(n, f, len);
@@ -56,10 +57,13 @@ int		ft_call_fillunbr(va_list *ap, t_flags f)
 	int			l;
 
 	n = ft_get_uint(ap, f);
-	if (n != 0)
-		l = ft_len_nb(n, 10);
-	else
+	l = ft_len_nb(n, 10);
+	if (f.have_p && n == 0 && f.precision == 0)
 		l = 0;
+	// if (n != 0)
+	// 	l = ft_len_nb(n, 10);
+	// else
+	// 	l = 0;
 	f.have_add = 0;
 	return (ft_callunbr(n, f, l));
 }

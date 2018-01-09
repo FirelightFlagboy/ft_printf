@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/29 10:40:51 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:18:36 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +222,8 @@ int		ft_test_3(void)
 	you[++p] =	printf("16 - |% d|\n", 0);
 	my[++i] =ft_printf("17 - |%5d|\n", -42);
 	you[++p] =	printf("17 - |%5d|\n", -42);
+	my[++i] =ft_printf("18 - |%*lu|\n", 5, 0);
+	you[++p] =	printf("18 - |%*lu|\n", 5, 0);
 
 	printf("\n");
 	i = -1;
