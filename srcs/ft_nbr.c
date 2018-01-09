@@ -6,11 +6,19 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:35:08 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 16:29:38 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:47:27 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+// int		ft_fillnbr(uintmax_t n, t_flags f, int len, char isneg)
+// {
+// 	ft_filldimen(f, isneg, len);
+// 	if (n != 0 || (n == 0 && f.have_p == 0))
+// 		ft_itoa(n);
+// 	return (0);
+// }
 
 int		ft_fillnbr(uintmax_t n, t_flags f, int len, char isneg)
 {
@@ -48,6 +56,33 @@ int		ft_callnbr(uintmax_t n, t_flags f, int len, char isneg)
 		return (ft_fillnbr(n, f, len, isneg));
 }
 
+// int		ft_call_fillnbr(va_list *ap, t_flags f)
+// {
+// 	intmax_t	n;
+// 	intmax_t	u;
+// 	int			l;
+// 	char		neg;
+
+// 	n = ft_get_int(ap, f);
+// 	l = 0;
+// 	if (n < 0)
+// 	{
+// 		neg = 1;
+// 		u = -n;
+// 	}
+// 	else
+// 	{
+// 		neg = 0;
+// 		u = n;
+// 	}
+// 	if (n != 0)
+// 		l = ft_len_nb((n >= 0) ? n : -n, 10);
+// 	if (n >= 0 && f.have_null\
+// 	&& (f.have_add || f.have_escape))
+// 		f.buff_size--;
+// 	return (ft_callnbr(u, f, l, neg));
+// }
+
 int		ft_call_fillnbr(va_list *ap, t_flags f)
 {
 	intmax_t	n;
@@ -56,7 +91,9 @@ int		ft_call_fillnbr(va_list *ap, t_flags f)
 	char		neg;
 
 	n = ft_get_int(ap, f);
-	l = 0;
+	l = ft_len_nb((n >= 0) ? n : -n, 10);
+	if (f.have_p && n == 0 && f.precision == 0)
+		l = 0;
 	if (n < 0)
 	{
 		neg = 1;
@@ -67,8 +104,6 @@ int		ft_call_fillnbr(va_list *ap, t_flags f)
 		neg = 0;
 		u = n;
 	}
-	if (n != 0)
-		l = ft_len_nb((n >= 0) ? n : -n, 10);
 	if (n >= 0 && f.have_null\
 	&& (f.have_add || f.have_escape))
 		f.buff_size--;

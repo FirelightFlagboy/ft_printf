@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/09 16:18:36 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:42:04 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1138,6 +1138,40 @@ int		ft_test_21(void)
 	my[++i] =ft_printf("19 - |%-*.*d|\n", 10, 5, 3);
 	you[++p] =	printf("19 - |%-*.*d|\n", 10, 5, 3);
 	(void)p;
+	return (0);
+	printf("\n");
+	i = -1;
+	while (++i < NB_TEST)
+		if ((my[i] != 0 || you[i] != 0) && my[i] != you[i])
+		{
+			printf("%1$d> ft_printf[%1$d] = %2$d printf[%1$d] = %3$d\n", i, my[i], you[i]);
+			error = 1;
+		}
+	free(my);
+	free(you);
+	return (error);
+}
+
+int		ft_test_22(void)
+{
+	int *my = ft_get_tab();
+	int *you = ft_get_tab();
+	int error = 0;
+	int i = -1;
+	int p = -1;
+	int nt = 22; //nb_test
+	printf("\n");
+	printf("=====================\nft_test_%d\n=====================\n", nt);
+	my[++i] =ft_printf("0 - %5d\n", 0);
+	you[++p] =	printf("0 - %5d\n", 0);
+	my[++i] =ft_printf("1 - %5u\n", 0);
+	you[++p] =	printf("1 - %5u\n", 0);
+	my[++i] =ft_printf("2 - %5x\n", 0);
+	you[++p] =	printf("2 - %5x\n", 0);
+	my[++i] =ft_printf("3 - %5o\n", 0);
+	you[++p] =	printf("3 - %5o\n", 0);
+	ft_printf("4 - %5b\n", 0);
+	(void)p;
 	printf("\n");
 	i = -1;
 	while (++i < NB_TEST)
@@ -1152,7 +1186,7 @@ int		ft_test_21(void)
 }
 
 /*
-int		ft_test_n123(void)
+int		ft_test_22(void)
 {
 	int *my = ft_get_tab();
 	int *you = ft_get_tab();
@@ -1180,7 +1214,7 @@ int		ft_test_n123(void)
 
 int		main(int argc, char **argv)
 {
-	int		nb_fc = 21;
+	int		nb_fc = 22;
 	char	*test_to_make = ft_strnew(nb_fc);
 	char	stres[NB_TEST];
 	int		i = -1;
@@ -1258,6 +1292,8 @@ int		main(int argc, char **argv)
 		stres[i] = ft_test_20();
 	if (test_to_make[++i])
 		stres[i] = ft_test_21();
+	if (test_to_make[++i])
+		stres[i] = ft_test_22();
 	i = 0;
 	printf("=====%s=====\n", "_-resultat-_");
 	while (i < nb_fc)

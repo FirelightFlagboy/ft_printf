@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:22:20 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 14:46:08 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:43:44 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,17 @@ int		ft_call_fillhex(va_list *ap, t_flags f)
 	int			l;
 
 	nb = ft_get_uint(ap, f);
+	l = ft_len_nb(nb, 16);
 	if (nb)
 	{
-		l = ft_len_nb(nb, 16);
 		if (!f.precision)
 			f.precision = 1;
 	}
 	else
 	{
 		f.have_hash = 0;
-		l = 0;
+		if (f.have_p && f.precision == 0)
+			l = 0;
 	}
 	return (ft_callhex(nb, f, l));
 }
