@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:55:51 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/10 09:46:25 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/10 09:53:54 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ int			ft_get_precision(char **astr, t_flags *f, va_list *ap)
 	if (*s != '.' || !(s++))
 		return (0);
 	f->have_p = 1;
-	// s++;
 	while (*s && ft_isdigit(*s))
 		res = (res * 10) + (*s++ - '0');
 	if (*s == '*' && (s++))
 	{
 		res = (int)va_arg(*ap, int);
-		// s++;
 		if (ft_isdigit(*s))
 			res = 0;
 		while (*s && ft_isdigit(*s))
