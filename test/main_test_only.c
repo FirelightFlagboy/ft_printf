@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/10 09:49:23 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/10 09:51:44 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1171,6 +1171,15 @@ int		ft_test_22(void)
 	my[++i] =ft_printf("3 - %5o\n", 0);
 	you[++p] =	printf("3 - %5o\n", 0);
 	ft_printf("4 - %5b\n", 0);
+	my[++i] =ft_printf("5 - %05d\n", 0);
+	you[++p] =	printf("5 - %05d\n", 0);
+	my[++i] =ft_printf("6 - %05u\n", 0);
+	you[++p] =	printf("6 - %05u\n", 0);
+	my[++i] =ft_printf("7 - %05x\n", 0);
+	you[++p] =	printf("7 - %05x\n", 0);
+	my[++i] =ft_printf("8 - %05o\n", 0);
+	you[++p] =	printf("8 - %05o\n", 0);
+	ft_printf("9 - %05b\n", 0);
 	printf("%.*s", -5, "42");
 	ft_printf("%.*s", -5, "42");
 	(void)p;
