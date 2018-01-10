@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/10 09:51:44 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/10 11:09:13 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1159,6 +1159,7 @@ int		ft_test_22(void)
 	int error = 0;
 	int i = -1;
 	int p = -1;
+	int	b[2];
 	int nt = 22; //nb_test
 	printf("\n");
 	printf("=====================\nft_test_%d\n=====================\n", nt);
@@ -1180,8 +1181,17 @@ int		ft_test_22(void)
 	my[++i] =ft_printf("8 - %05o\n", 0);
 	you[++p] =	printf("8 - %05o\n", 0);
 	ft_printf("9 - %05b\n", 0);
-	printf("%.*s", -5, "42");
-	ft_printf("%.*s", -5, "42");
+	ft_printf("%.*s\n", -5, "42");
+	printf("%.*s\n", -5, "42");
+	printf("bonjour%n\n", b);
+	ft_printf("bonjour%n\n", b + 1);
+	printf("%d %d\n", b[0], b[1]);
+	printf("%nbonjour\n", b);
+	ft_printf("%nbonjour\n", b + 1);
+	printf("%d %d\n", b[0], b[1]);
+	printf("bon%njour\n", b);
+	ft_printf("bon%njour\n", b + 1);
+	printf("%d %d\n", b[0], b[1]);
 	(void)p;
 	printf("\n");
 	i = -1;
