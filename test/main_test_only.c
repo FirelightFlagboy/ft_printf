@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/09 16:42:04 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/10 09:49:23 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -914,17 +914,17 @@ int		ft_test_16(void)
 	you[++p] =	printf("{%15.4S}\n", L"我是一只猫。");
 	my[++i] =ft_printf("|%C|\n", 0);
 	you[++p] =	printf("|%C|\n", 0);
-	ft_printf("|%b|\n|%B|\n", INT32_MAX, INT64_MAX);
-	ft_printf("|%#04.0b|\n", 5);
-	ft_printf("|%#4.b|\n", 5);
-	ft_printf("|%#.0b|\n", 0);
-	ft_printf("|%#0b|\n", 0);
-	ft_printf("|%#.b|\n", 0);
-	ft_printf("|%#.5b|\n", 0);
-	printf("|%#.5x|\n", 0);
-	printf("|%#.0x|\n", 0);
-	printf("|%#0x|\n", 0);
-	printf("|%#.x|\n", 0);
+	ft_printf("f - |%b|\nf - |%B|\n", INT32_MAX, INT64_MAX);
+	ft_printf("f - |%#04.0b|\n", 5);
+	ft_printf("f - |%#4.b|\n", 5);
+	ft_printf("f - |%#.0b|\n", 0);
+	ft_printf("f - |%#0b|\n", 0);
+	ft_printf("f - |%#.b|\n", 0);
+	ft_printf("f - |%#.5b|\n", 0);
+	printf("p - |%#.5x|\n", 0);
+	printf("p - |%#.0x|\n", 0);
+	printf("p - |%#0x|\n", 0);
+	printf("p - |%#.x|\n", 0);
 	(void)p;
 	printf("\n");
 	i = -1;
@@ -1171,6 +1171,8 @@ int		ft_test_22(void)
 	my[++i] =ft_printf("3 - %5o\n", 0);
 	you[++p] =	printf("3 - %5o\n", 0);
 	ft_printf("4 - %5b\n", 0);
+	printf("%.*s", -5, "42");
+	ft_printf("%.*s", -5, "42");
 	(void)p;
 	printf("\n");
 	i = -1;
