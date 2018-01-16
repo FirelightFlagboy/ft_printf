@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 14:00:29 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/10 11:09:13 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/16 12:58:19 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1192,6 +1192,42 @@ int		ft_test_22(void)
 	printf("bon%njour\n", b);
 	ft_printf("bon%njour\n", b + 1);
 	printf("%d %d\n", b[0], b[1]);
+	printf("11 - |%5d|\n", 5);
+	printf("11 - |%*d|\n", 9, 5);
+	(void)p;
+	printf("\n");
+	i = -1;
+	while (++i < NB_TEST)
+		if ((my[i] != 0 || you[i] != 0) && my[i] != you[i])
+		{
+			printf("%1$d> ft_printf[%1$d] = %2$d printf[%1$d] = %3$d\n", i, my[i], you[i]);
+			error = 1;
+		}
+	free(my);
+	free(you);
+	return (error);
+}
+
+int		ft_test_23(void)
+{
+	int *my = ft_get_tab();
+	int *you = ft_get_tab();
+	int error = 0;
+	int i = -1;
+	int p = -1;
+	int nt = 23; //nb_test
+	printf("\n");
+	printf("=====================\nft_test_%d\n=====================\n", nt);
+	ft_printf("%s%s%s\n", "\033[91m", "bonjour", "\033[0m");
+	printf("%s%s%s\n", "\033[91m", "bonjour", "\033[0m");
+	ft_printf("{Bred}Bred{eoc}\n");
+	ft_printf("{Bgreen}Bgreen{eoc}\n");
+	ft_printf("{Byellow}Byellow{eoc}\n");
+	ft_printf("{Bblue}Bblue{eoc}\n");
+	ft_printf("{Bpurple}Bpurple{eoc}\n");
+	ft_printf("{Bcyan}Bcyan{eoc}\n");
+	ft_printf("{Bwhite}Bwhite{eoc}\n");
+	ft_printf("{blink}{Bcyan}{red}{bold}p{eoc}\n");
 	(void)p;
 	printf("\n");
 	i = -1;
@@ -1207,7 +1243,7 @@ int		ft_test_22(void)
 }
 
 /*
-int		ft_test_22(void)
+int		ft_test_n123(void)
 {
 	int *my = ft_get_tab();
 	int *you = ft_get_tab();
@@ -1235,7 +1271,7 @@ int		ft_test_22(void)
 
 int		main(int argc, char **argv)
 {
-	int		nb_fc = 22;
+	int		nb_fc = 23;
 	char	*test_to_make = ft_strnew(nb_fc);
 	char	stres[NB_TEST];
 	int		i = -1;
@@ -1315,6 +1351,9 @@ int		main(int argc, char **argv)
 		stres[i] = ft_test_21();
 	if (test_to_make[++i])
 		stres[i] = ft_test_22();
+	if (test_to_make[++i])
+		stres[i] = ft_test_23();
+
 	i = 0;
 	printf("=====%s=====\n", "_-resultat-_");
 	while (i < nb_fc)

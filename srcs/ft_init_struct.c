@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:54:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 12:08:18 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/16 12:51:31 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,14 @@ void		ft_init_color_name(void *data)
 	t[12].color_name = "{blink}";
 	t[13].color_name = "{inverted}";
 	t[14].color_name = "{hidden}";
-	t[15].color_name = NULL;
+	t[15].color_name = "{Bred}";
+	t[16].color_name = "{Bgreen}";
+	t[17].color_name = "{Byellow}";
+	t[18].color_name = "{Bblue}";
+	t[19].color_name = "{Bpurple}";
+	t[20].color_name = "{Bcyan}";
+	t[21].color_name = "{Bwhite}";
+	t[22].color_name = NULL;
 }
 
 void		ft_init_color_str(void *data)
@@ -104,4 +111,11 @@ void		ft_init_color_str(void *data)
 	t[12].color_str = "\x1b[5m";
 	t[13].color_str = "\x1b[7m";
 	t[14].color_str = "\x1b[8m";
+	t[15].color_str = "\x1b[41m";
+	t[16].color_str = "\x1b[42m";
+	t[17].color_str = "\x1b[43m";
+	t[18].color_str = "\x1b[44m";
+	t[19].color_str = "\x1b[45m";
+	t[20].color_str = "\x1b[46m";
+	t[21].color_str = "\x1b[47m";
 }
