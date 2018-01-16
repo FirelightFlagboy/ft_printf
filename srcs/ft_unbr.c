@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 15:06:22 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/10 09:35:29 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/16 13:09:51 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_fillunbr(uintmax_t n, t_flags f, int len)
 	if (f.precision)
 		ft_filldimen_uin(f, len);
 	if (!(n == 0 && f.have_p && f.precision == 0))
-		ft_itoa(n);
+		ft_itoa_buff(n);
 	return (0);
 }
 

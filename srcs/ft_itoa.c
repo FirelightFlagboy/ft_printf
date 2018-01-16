@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:04:33 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/23 14:41:11 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/16 13:08:56 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t		ft_len_nb(uintmax_t n, size_t lenbase)
 	return (len);
 }
 
-int			ft_itoa(uintmax_t n)
+int			ft_itoa_buff(uintmax_t n)
 {
 	char	s[20];
 	int		lennb;
@@ -44,7 +44,7 @@ int			ft_itoa(uintmax_t n)
 	return (ft_add_str_to_buff(s));
 }
 
-int			ft_itoa_base(uintmax_t n, char *base)
+int			ft_itoa_base_buff(uintmax_t n, char *base)
 {
 	char		s[65];
 	int			len_base;

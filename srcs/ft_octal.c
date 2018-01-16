@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:28:30 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 14:47:02 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/16 13:09:38 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_filloctal(uintmax_t n, t_flags f, int len)
 {
 	ft_filldimen_oct(f, len);
 	if (n != 0)
-		ft_itoa_base(n, "01234567");
+		ft_itoa_base_buff(n, "01234567");
 	return (0);
 }
 

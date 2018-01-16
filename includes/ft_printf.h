@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/29 10:02:25 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/16 13:09:17 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ int			ft_get_len_forward(t_flags *f, int flen, char neg);
 char		*ft_strchr(char const *s, int c);
 int			ft_strcmp(char const *s1, char const *s2);
 int			ft_strncmp(char const *s1, char const *s2, size_t n);
-int			ft_itoa(uintmax_t n);
-int			ft_itoa_base(uintmax_t n, char *base);
+int			ft_itoa_buff(uintmax_t n);
+int			ft_itoa_base_buff(uintmax_t n, char *base);
 /*
 ** Unicode
 */

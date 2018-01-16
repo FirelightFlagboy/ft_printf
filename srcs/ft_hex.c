@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:22:20 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/10 09:35:36 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/16 13:10:10 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_fillhex(uintmax_t n, t_flags f, int len)
 		base = "0123456789ABCDEF";
 	else
 		base = "0123456789abcdef";
-	return (ft_itoa_base(n, base));
+	return (ft_itoa_base_buff(n, base));
 }
 
 int		ft_callhex(uintmax_t n, t_flags f, int len)
