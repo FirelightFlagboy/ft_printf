@@ -5,7 +5,8 @@
         "stdarg.h": "c",
         "wchar.h": "c",
         "stdio.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "ft_printf_header_fc.h": "c"
     },
     "clang.cflags":[
         "-Wall",

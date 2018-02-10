@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/16 13:09:17 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/02/10 10:19:14 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@
 */
 int			ft_printf(char const *s, ...);
 int			ft_dprintf(int fd, char const *s, ...);
-int			ft_vfprintf(int fd, char const *s, va_list ap);
+int			ft_fprintf(FILE *stream, char const *s, ...);
+int			ft_vfprintf(FILE *stream, char const *s, va_list ap);
+int			ft_vfdrintf(int fd, char const *s, va_list ap);
 /*
 ** Classic libft
 */

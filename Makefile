@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/29 11:26:53 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/02/10 10:16:15 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,14 +47,33 @@ INC = -I $(INC_DIR)
 # SRC #
 #######
 
-SRC_DIR = ./srcs/
+SRC_BUFFER_NAME =\
+	ft_buffer.c\
+	ft_buffer_2.c\
+
+SRC_BUFFER_DIR = buffer/
+SRC_BUFFER = $(addprefix $(SRC_BUFFER_DIR), $(SRC_BUFFER_NAME))
+
+SRC_CONV =\
+	ft_adr.c\
+	ft_bin.c\
+	ft_fillstr.c\
+	ft_unbr.c\
+	ft_char.c\
+	ft_octal.c\
+	ft_hex.c\
+	ft_nbr.c\
+
+SRC_CONV_DIR = conv/
+SRC_CONV = $(addprefix $(SRC_CONV_DIR), $(SRC_CONV_NAME))
+
 SRC_NAME=\
+	$(SRC_BUFFER)\
+	$(SRC_CONV)\
 	ft_fillforward_annexe.c\
 	ft_fillforward.c\
 	ft_filldimen.c\
 	ft_backward.c\
-	ft_buffer_2.c\
-	ft_buffer.c\
 	ft_get_flags_2.c\
 	ft_get_flags.c\
 	ft_iswhat_2.c\
@@ -64,18 +83,12 @@ SRC_NAME=\
 	ft_singleton.c\
 	ft_unicode.c\
 	ft_get_int.c\
-	ft_fillstr.c\
 	ft_strlen.c\
 	ft_itoa.c\
-	ft_adr.c\
-	ft_bin.c\
-	ft_char.c\
-	ft_hex.c\
-	ft_unbr.c\
-	ft_nbr.c\
-	ft_octal.c\
 	ft_str.c\
 	ft_printf.c\
+
+SRC_DIR = ./srcs/
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_NAME))
 
