@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/02/10 10:16:15 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/02/10 10:29:33 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ SRC_BUFFER_NAME =\
 SRC_BUFFER_DIR = buffer/
 SRC_BUFFER = $(addprefix $(SRC_BUFFER_DIR), $(SRC_BUFFER_NAME))
 
-SRC_CONV =\
+SRC_CONV_NAME =\
 	ft_adr.c\
 	ft_bin.c\
 	ft_fillstr.c\
@@ -121,45 +121,52 @@ OK		= "$(GREEN)$(CHEK)$(NC)"
 
 all : $(NAME)
 
-$(NAME) : $(OBJ_DIR) $(OBJ)
-	@printf "\n[ft_printf] doing ar rc $(BOLD)$(CYAN)$@$(NC)"
+$(NAME) : $(OBJ_DIR) $(OBJ_DIR)$(SRC_CONV_DIR) $(OBJ_DIR)$(SRC_BUFFER_DIR) $(OBJ)
+	@printf "[ft_printf: $@]\n\tdoing ar rc $(BOLD)$(CYAN)$@$(NC)"
 	@$(LIB) $@ $(OBJ)
-	@printf '\t'$(OK)'\n'
-	@printf "[ft_printf] doing ranlib $(BOLD)$(CYAN)$@$(NC)"
+	@printf ' '$(OK)'\n'
+	@printf "\tdoing ranlib $(BOLD)$(CYAN)$@$(NC)"
 	@ranlib	$@
-	@printf '\t'$(OK)'\n'
+	@printf ' '$(OK)'\n'
 
 $(OBJ_DIR) :
-	@printf "[ft_printf] creating folder $(MAJENTA)$(BOLD)obj$(NC)"
+	@printf "[ft_printf :$@]\n\tcreating folder $(MAJENTA)$(BOLD)$@$(NC)"
 	@mkdir -p $(OBJ_DIR)
-	@printf '\t\t'$(OK)'\n'
+	@printf ' '$(OK)'\n'
+
+$(OBJ_DIR)$(SRC_CONV_DIR) : $(OBJ_DIR)
+	@printf "[ft_printf :$@]\n\tcreating folder $(MAJENTA)$(BOLD)$(SRC_CONV_DIR)$(NC)"
+	@mkdir -p $(OBJ_DIR)$(SRC_CONV_DIR)
+	@printf ' '$(OK)'\n'
+
+$(OBJ_DIR)$(SRC_BUFFER_DIR) : $(OBJ_DIR)
+	@printf "[ft_printf :$@]\n\tcreating folder $(MAJENTA)$(BOLD)$(SRC_BUFFER_DIR)$(NC)"
+	@mkdir -p $(OBJ_DIR)$(SRC_BUFFER_DIR)
+	@printf ' '$(OK)'\n'
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) $(NUMJOBS)
-	@for ((i=0; i<60; i++))\
-		do printf ' ';\
-	done;
-	@printf "\r\033[0m[ft_printf] compile $(BOLD)$(YELLOW)%-20s" "$<"
+	@printf "\tcompile $(BOLD)$(YELLOW)$@$(NC) "
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INC)
-	@printf $(NC)$(OK)'\r'
+	@printf $(OK)'\n'
 
 clean : $(OBJ_DIR)
-	@printf "[ft_printf] rm all $(BOLD)$(RED) obj file$(NC)"
+	@printf "[ft_printf: $@]\n\trm all $(BOLD)$(RED) obj file$(NC)"
 	@rm -rf $(OBJ_DIR)
-	@printf '\t\t'$(OK)'\n'
+	@printf ' '$(OK)'\n'
 
 naelc :
-	@printf "[ft_printf] rm $(BOLD)$(CYAN)$(NAME)$(NC)"
+	@printf "[ft_printf: $@] rm $(BOLD)$(CYAN)$(NAME)$(NC)"
 	@rm -f $(NAME)
-	@printf '\t\t'$(OK)'\n'
+	@printf ' '$(OK)'\n'
 
 norme : $(SRC) $(INCLUDE)
-	@printf "checking\n"
+	@printf "[ft_printf: $@]\n\tchecking\n"
 	@norminette $^
 
 fclean : clean
-	@printf "[ft_printf] rm $(BOLD)$(CYAN)$(NAME)$(NC)"
+	@printf "[ft_printf: $@]\n\trm $(BOLD)$(CYAN)$(NAME)$(NC)"
 	@rm -f $(NAME)
-	@printf '\t\t'$(OK)'\n'
+	@printf ' '$(OK)'\n'
 
 proper :
 	@make -C ./ all
