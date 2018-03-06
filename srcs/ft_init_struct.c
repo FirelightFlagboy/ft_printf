@@ -88,7 +88,6 @@ void		ft_init_color_name(void *data)
 	t[19].color_name = "{Bpurple}";
 	t[20].color_name = "{Bcyan}";
 	t[21].color_name = "{Bwhite}";
-	t[22].color_name = NULL;
 }
 
 void		ft_init_color_str(void *data)
