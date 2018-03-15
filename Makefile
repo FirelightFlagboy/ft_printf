@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/02/10 10:29:33 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/15 15:33:43 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ NAME=libftprintf.a
 # COMPILER #
 ############
 
-CC=gcc
-CFLAGS=-Wall -Werror -Wextra
+CC=clang
+CFLAGS=-Wall -Werror -Wextra -O3
 
 #######
 # LIB #
@@ -112,8 +112,27 @@ BLUE	= "\\033[34m"
 MAJENTA	= "\\033[35m"
 CYAN	= "\\033[36m"
 BOLD	= "\\033[1m"
-CHEK	= "\\xE2\\x9C\\x94"
+CHEK	= "✓"
 OK		= "$(GREEN)$(CHEK)$(NC)"
+
+#######
+# NOT #
+#######
+
+ifneq ($(words $(MAKECMDGOALS)),1)
+.DEFAULT_GOAL = all
+%:
+		@$(MAKE) $@ --no-print-directory -rRf $(firstword $(MAKEFILE_LIST))
+else
+ifndef ECHO
+T := $(shell $(MAKE) $(MAKECMDGOALS) --no-print-directory \
+		-nrRf $(firstword $(MAKEFILE_LIST)) \
+		ECHO="COUNTTHIS" | grep -c "COUNTTHIS")
+
+N := x
+C = $(words $N)$(eval N := x $N)
+ECHO = printf "\r\e[K[ft_printf: %3s%%]" "`expr "\`expr $C '*' 100 / $T\`"`"
+endif
 
 #########
 # RULES #
@@ -122,51 +141,61 @@ OK		= "$(GREEN)$(CHEK)$(NC)"
 all : $(NAME)
 
 $(NAME) : $(OBJ_DIR) $(OBJ_DIR)$(SRC_CONV_DIR) $(OBJ_DIR)$(SRC_BUFFER_DIR) $(OBJ)
-	@printf "[ft_printf: $@]\n\tdoing ar rc $(BOLD)$(CYAN)$@$(NC)"
+	@$(ECHO)
+	@printf " doing ar rc $(BOLD)$(CYAN)$@$(NC)"
 	@$(LIB) $@ $(OBJ)
-	@printf ' '$(OK)'\n'
-	@printf "\tdoing ranlib $(BOLD)$(CYAN)$@$(NC)"
+	@printf ' '$(OK)
+	@$(ECHO)
+	@printf " doing ranlib $(BOLD)$(CYAN)$@$(NC)"
 	@ranlib	$@
 	@printf ' '$(OK)'\n'
 
 $(OBJ_DIR) :
-	@printf "[ft_printf :$@]\n\tcreating folder $(MAJENTA)$(BOLD)$@$(NC)"
+	@$(ECHO)
+	@printf " creating folder $(MAJENTA)$(BOLD)$@$(NC)"
 	@mkdir -p $(OBJ_DIR)
-	@printf ' '$(OK)'\n'
+	@printf ' '$(OK)
 
 $(OBJ_DIR)$(SRC_CONV_DIR) : $(OBJ_DIR)
-	@printf "[ft_printf :$@]\n\tcreating folder $(MAJENTA)$(BOLD)$(SRC_CONV_DIR)$(NC)"
+	@$(ECHO)
+	@printf " creating folder $(MAJENTA)$(BOLD)$(SRC_CONV_DIR)$(NC)"
 	@mkdir -p $(OBJ_DIR)$(SRC_CONV_DIR)
-	@printf ' '$(OK)'\n'
+	@printf ' '$(OK)
 
 $(OBJ_DIR)$(SRC_BUFFER_DIR) : $(OBJ_DIR)
-	@printf "[ft_printf :$@]\n\tcreating folder $(MAJENTA)$(BOLD)$(SRC_BUFFER_DIR)$(NC)"
+	@$(ECHO)
+	@printf " creating folder $(MAJENTA)$(BOLD)$(SRC_BUFFER_DIR)$(NC)"
 	@mkdir -p $(OBJ_DIR)$(SRC_BUFFER_DIR)
-	@printf ' '$(OK)'\n'
+	@printf ' '$(OK)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) $(NUMJOBS)
-	@printf "\tcompile $(BOLD)$(YELLOW)$@$(NC) "
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) ./Makefile
+	@$(ECHO)
+	@printf " compile $(BOLD)$(YELLOW)$@$(NC) "
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INC)
-	@printf $(OK)'\n'
+	@printf $(OK)
 
 clean : $(OBJ_DIR)
-	@printf "[ft_printf: $@]\n\trm all $(BOLD)$(RED) obj file$(NC)"
+	@$(ECHO)
+	@printf " rm all $(BOLD)$(RED) obj file$(NC)"
 	@rm -rf $(OBJ_DIR)
-	@printf ' '$(OK)'\n'
+	@printf ' '$(OK)
 
 naelc :
-	@printf "[ft_printf: $@] rm $(BOLD)$(CYAN)$(NAME)$(NC)"
+	@$(ECHO)
+	@printf " rm $(BOLD)$(CYAN)$(NAME)$(NC)"
 	@rm -f $(NAME)
-	@printf ' '$(OK)'\n'
+	@printf ' '$(OK)
 
 norme : $(SRC) $(INCLUDE)
-	@printf "[ft_printf: $@]\n\tchecking\n"
+	@$(ECHO)
+	@printf " checking\n"
 	@norminette $^
 
 fclean : clean
-	@printf "[ft_printf: $@]\n\trm $(BOLD)$(CYAN)$(NAME)$(NC)"
+	@$(ECHO)
+	@printf " rm $(BOLD)$(CYAN)$(NAME)$(NC)"
 	@rm -f $(NAME)
-	@printf ' '$(OK)'\n'
+	@printf ' '$(OK)
 
 proper :
 	@make -C ./ all
@@ -176,4 +205,8 @@ re :
 	@make -C ./ fclean
 	@make -C ./ all
 
+print-%:
+	@echo '$*=$($*)'
+
 .PHONY: proper re norme all fclean clean
+endif
