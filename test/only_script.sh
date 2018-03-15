@@ -6,12 +6,13 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/13 11:40:28 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/26 12:39:03 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/15 15:54:37 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 flags=0
 INCLUDE_DIR=../includes/
+MAKEFILE_DIR=./
 echo $0
 parsed_options=$(
 	getopt :wp "$@"
@@ -30,7 +31,7 @@ while [ "$#" -gt 0 ]; do
 	(*) exit 1 # should never be reached.
 	esac
 done
-cmd="make -j3 ../libftprintf.a"
+cmd="make -C $MAKEFILE_DIR libftprintf.a"
 eval $cmd
 res=$?
 if [ $res != 0 ]
@@ -40,14 +41,14 @@ then
 fi
 case $flags in
 	(0) echo "max flag";
-	gcc -Wall -Werror -Wextra -o test_only ../libftprintf.a\
+	gcc -Wall -Werror -Wextra -o test_only $MAKEFILE_DIR/libftprintf.a\
 	./main_test_only.c -I $INCLUDE_DIR
 	;;
 	(1) echo "min flags";
-	gcc -o test_only ../libftprintf.a ./main_test_only.c -I $INCLUDE_DIR
+	gcc -o test_only $MAKEFILE_DIR/libftprintf.a ./main_test_only.c -I $INCLUDE_DIR
 	;;
 	(2) echo "no flags";
-	gcc -w -o test_only ../libftprintf.a ./main_test_only.c -I $INCLUDE_DIR
+	gcc -w -o test_only $MAKEFILE_DIR/libftprintf.a ./main_test_only.c -I $INCLUDE_DIR
 	;;
 esac
 res=$?
