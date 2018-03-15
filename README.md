@@ -38,6 +38,7 @@ ft_vfprintf(FileDescriptor, "foo", va_list); //<<you can't get it
 ```C
 ft_printf(char const *s, ...);
 ft_dprintf(int fd, char const *s, ...);
+ft_eprintf(char const *s, ...);
 ft_vfprintf(int fd, char const *s, va_list ap);
 ```
 **work also with color**
