@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/15 15:33:43 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/15 15:52:20 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 ##########
 
 NAME=libftprintf.a
+
 
 ############
 # COMPILER #
@@ -100,6 +101,16 @@ OBJ_DIR= ./obj/
 OBJ_NAME=$(SRC_NAME:.c=.o)
 OBJ=$(addprefix $(OBJ_DIR), $(OBJ_NAME))
 
+#######
+# Dir #
+#######
+
+SRC_DIR_NAME =\
+	$(SRC_CONV_DIR)\
+	$(SRC_BUFFER_DIR)\
+
+OBJ_DIR_ALL = $(addprefix $(OBJ_DIR), $(SRC_DIR_NAME))
+
 #########
 # MACRO #
 #########
@@ -140,7 +151,7 @@ endif
 
 all : $(NAME)
 
-$(NAME) : $(OBJ_DIR) $(OBJ_DIR)$(SRC_CONV_DIR) $(OBJ_DIR)$(SRC_BUFFER_DIR) $(OBJ)
+$(NAME) : $(OBJ_DIR) $(OBJ_DIR_ALL) $(OBJ)
 	@$(ECHO)
 	@printf " doing ar rc $(BOLD)$(CYAN)$@$(NC)"
 	@$(LIB) $@ $(OBJ)
@@ -156,21 +167,15 @@ $(OBJ_DIR) :
 	@mkdir -p $(OBJ_DIR)
 	@printf ' '$(OK)
 
-$(OBJ_DIR)$(SRC_CONV_DIR) : $(OBJ_DIR)
+$(OBJ_DIR_ALL) :
 	@$(ECHO)
-	@printf " creating folder $(MAJENTA)$(BOLD)$(SRC_CONV_DIR)$(NC)"
-	@mkdir -p $(OBJ_DIR)$(SRC_CONV_DIR)
-	@printf ' '$(OK)
-
-$(OBJ_DIR)$(SRC_BUFFER_DIR) : $(OBJ_DIR)
-	@$(ECHO)
-	@printf " creating folder $(MAJENTA)$(BOLD)$(SRC_BUFFER_DIR)$(NC)"
-	@mkdir -p $(OBJ_DIR)$(SRC_BUFFER_DIR)
+	@printf " creating folder $(MAJENTA)$(BOLD)$@$(NC)"
+	@mkdir -p $@
 	@printf ' '$(OK)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) ./Makefile
 	@$(ECHO)
-	@printf " compile $(BOLD)$(YELLOW)$@$(NC) "
+	@printf " compile $(BOLD)$(YELLOW)$<$(NC) "
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INC)
 	@printf $(OK)
 
