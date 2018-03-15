@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/15 15:52:20 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/15 16:14:50 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 ##########
 
 NAME=libftprintf.a
+MKNAME=ft_printf
 
 
 ############
@@ -142,7 +143,7 @@ T := $(shell $(MAKE) $(MAKECMDGOALS) --no-print-directory \
 
 N := x
 C = $(words $N)$(eval N := x $N)
-ECHO = printf "\r\e[K[ft_printf: %3s%%]" "`expr "\`expr $C '*' 100 / $T\`"`"
+ECHO = printf "\r\e[K[$(MKNAME): %3s%%]" "`expr "\`expr $C '*' 100 / $T\`"`"
 endif
 
 #########
