@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/16 10:22:23 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/16 10:26:07 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,7 @@ SRC_NAME=\
 	ft_itoa.c\
 	ft_str.c\
 	ft_printf.c\
+	ft_vprintf.c\
 
 SRC_DIR = ./srcs/
 
