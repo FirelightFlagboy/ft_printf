@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:36:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/30 15:17:50 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 13:47:25 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int			ft_get_finale_len(wchar_t *s, t_flags f)
 		l = ft_len_unicode(*s);
 		if (l == -1)
 			return (-1);
-		if (f.have_p && len + l > f.precision)
+		if (f.flags & HI_PRECISION && len + l > f.precision)
 			break ;
 		len += l;
 		s++;

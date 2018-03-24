@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:55:51 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/10 09:53:54 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 13:44:36 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			ft_get_precision(char **astr, t_flags *f, va_list *ap)
 	res = 0;
 	if (*s != '.' || !(s++))
 		return (0);
-	f->have_p = 1;
+	f->flags &= HI_PRECISION;
 	while (*s && ft_isdigit(*s))
 		res = (res * 10) + (*s++ - '0');
 	if (*s == '*' && (s++))
@@ -34,7 +34,7 @@ int			ft_get_precision(char **astr, t_flags *f, va_list *ap)
 	}
 	f->precision = res;
 	if (res < 0)
-		f->have_p = 0;
+		f->flags ^= ~HI_PRECISION;
 	*astr = s;
 	return (res);
 }
@@ -57,13 +57,13 @@ int			ft_get_buff_size(char **astr, t_flags *f, va_list *ap)
 			res = (res * 10) + (*s++ - '0');
 	}
 	if (res != 0)
-		f->have_buff_size = 1;
+		f->flags = HI_BUFF_SIZE;
 	if (res > 0)
 		f->buff_size = res;
 	else
 		f->buff_size = -res;
 	if (res < 0)
-		f->have_minus = 1;
+		f->flags = HI_MINUS;
 	*astr = s;
 	return (res);
 }

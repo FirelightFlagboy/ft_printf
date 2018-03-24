@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:21:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/16 13:09:57 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 13:53:33 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_fillbin(uintmax_t n, t_flags f, int len)
 {
 	if (f.precision)
 		ft_filldimen_hex(f, len);
-	if (n != 0 || (n == 0 && f.have_p == 0))
+	if (n != 0 || (n == 0 && !(f.flags & HI_PRECISION)))
 		ft_itoa_base_buff(n, "01");
 	return (1);
 }
@@ -28,11 +28,11 @@ int		ft_callbin(uintmax_t n, t_flags f, int len)
 	flen = len;
 	if (f.precision > len)
 		flen = f.precision;
-	if (f.have_hash)
+	if (f.flags  & HI_HASH)
 		flen += 2;
 	if (f.buff_size)
 	{
-		if (f.have_minus)
+		if (f.flags & HI_MINUS)
 		{
 			ft_fillbin(n, f, len);
 			ft_fillbackward(f, 0, flen);
@@ -62,8 +62,8 @@ int		ft_call_fillbin(va_list *ap, t_flags f)
 	}
 	else
 	{
-		f.have_hash = 0;
-		if (f.have_p && f.precision == 0)
+		f.flags ^= HI_HASH;
+		if (f.flags & HI_PRECISION && f.precision == 0)
 			l = 0;
 	}
 	return (ft_callbin(nb, f, l));

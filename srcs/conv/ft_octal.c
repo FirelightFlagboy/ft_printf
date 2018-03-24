@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:28:30 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/16 13:09:38 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 14:05:32 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int		ft_calloctal(uintmax_t n, t_flags f, int len)
 	flen = len;
 	if (f.precision > len)
 		flen = f.precision;
-	if (f.have_hash)
+	if (f.flags & HI_HASH)
 		flen++;
 	if (f.buff_size)
 	{
-		if (f.have_minus)
+		if (f.flags & HI_MINUS)
 		{
 			ft_filloctal(n, f, len);
 			ft_fillbackward(f, 0, flen);
@@ -58,8 +58,8 @@ int		ft_call_filloctal(va_list *ap, t_flags f)
 	else
 	{
 		l = 0;
-		if (!f.have_p)
-			f.have_hash = 1;
+		if (f.flags & ~HI_PRECISION)
+			f.flags &= HI_HASH;
 	}
 	return (ft_calloctal(n, f, l));
 }

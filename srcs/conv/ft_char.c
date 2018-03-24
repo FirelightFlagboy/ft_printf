@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:38:59 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/27 09:35:34 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 13:55:29 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_call_longchar(wchar_t c, t_flags f)
 		return (-1);
 	if (f.buff_size)
 	{
-		if (f.have_minus)
+		if (f.flags & HI_MINUS)
 		{
 			ft_fill_longchar(c);
 			ft_fillbackward(f, 0, len);
@@ -46,7 +46,7 @@ int		ft_callchar(int c, t_flags f)
 {
 	if (f.buff_size)
 	{
-		if (f.have_minus)
+		if (f.flags & HI_MINUS)
 		{
 			ft_add_char_to_buff(c);
 			ft_fillbackward(f, 0, 1);
@@ -66,8 +66,7 @@ int		ft_call_fill_longchar(va_list *ap, t_flags f)
 {
 	wchar_t c;
 
-	f.have_add = 0;
-	f.have_escape = 0;
+	f.flags = ~(HI_ADD | HI_ESCAPE);
 	c = (wchar_t)va_arg(*ap, wchar_t);
 	return (ft_call_longchar(c, f));
 }
@@ -79,7 +78,6 @@ int		ft_call_fillchar(va_list *ap, t_flags f)
 	if (f.type == 'C' || ft_strcmp(f.len_flags, "l") == 0)
 		return (ft_call_fill_longchar(ap, f));
 	c = (int)va_arg(*ap, int);
-	f.have_add = 0;
-	f.have_escape = 0;
+	f.flags = ~(HI_ADD | HI_ESCAPE);
 	return (ft_callchar(c, f));
 }

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:54:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/29 10:02:30 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 13:46:41 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ t_flags		ft_init_t_flags(void)
 {
 	t_flags f;
 
-	f.error = 0;
-	f.have_add = 0;
-	f.have_hash = 0;
-	f.have_null = 0;
-	f.have_minus = 0;
-	f.have_escape = 0;
-	f.have_buff_size = 0;
-	f.have_p = 0;
+	// f.error = 0;
+	// f.have_add = 0;
+	// f.have_hash = 0;
+	// f.have_null = 0;
+	// f.have_minus = 0;
+	// f.have_escape = 0;
+	// f.have_buff_size = 0;
+	// f.have_p = 0;
+	f.flags = 0;
 	f.buff_size = 0;
 	f.precision = 0;
 	return (f);
@@ -37,15 +38,15 @@ t_flags		ft_get_att(char **astr, t_flags *f)
 	while (ft_isatt_flags(*s))
 	{
 		if (*s == '#')
-			f->have_hash = 1;
+			f->flags &= HI_HASH;
 		else if (*s == ' ')
-			f->have_escape = 1;
+			f->flags &= HI_ESCAPE;
 		else if (*s == '-')
-			f->have_minus = 1;
+			f->flags &= HI_MINUS;
 		else if (*s == '+')
-			f->have_add = 1;
+			f->flags &= HI_ADD;
 		else if (*s == '0')
-			f->have_null = 1;
+			f->flags &= HI_NULL;
 		s++;
 	}
 	*astr = s;

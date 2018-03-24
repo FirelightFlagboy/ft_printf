@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 16:34:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 12:05:26 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 12:27:49 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int		ft_fill_char_sign(t_flags f, char isneg)
 {
 	if (isneg)
 		return (ft_add_char_to_buff('-'));
-	if (!isneg && f.have_add)
+	if (!isneg && f.flags & HI_ADD)
 		return (ft_add_char_to_buff('+'));
-	if (!isneg && f.have_escape)
+	if (!isneg && f.flags & HI_ESCAPE)
 		return (ft_add_char_to_buff(' '));
 	return (0);
 }

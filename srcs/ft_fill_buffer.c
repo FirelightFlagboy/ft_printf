@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:41:57 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 14:10:40 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 char	*ft_putgen(t_flags f, char const *s)
 {
-	if (f.have_buff_size && f.have_minus == 0)
+	if (f.flags & HI_BUFF_SIZE && f.flags & ~HI_MINUS)
 	{
-		if (f.have_null)
+		if (f.flags & HI_NULL)
 			ft_add_nchar_to_buff('0', f.buff_size - 1);
 		else
 			ft_add_nchar_to_buff(' ', f.buff_size - 1);
 	}
 	if (*s)
 		ft_add_char_to_buff(*s);
-	if (f.have_buff_size && f.have_minus == 1)
+	if (f.flags & HI_BUFF_SIZE && f.flags & HI_MINUS)
 		ft_add_nchar_to_buff(' ', f.buff_size - 1);
 	return ((*s) ? (char*)s++ : (char*)s);
 }

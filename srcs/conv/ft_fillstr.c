@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:54:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/27 10:25:21 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 14:00:56 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int		ft_callstr(char *s, t_flags f, int len)
 	size_t	flen;
 
 	flen = len;
-	if (f.have_p && f.precision < len)
+	if (f.flags & HI_PRECISION && f.precision < len)
 		flen = f.precision;
 	if (f.buff_size)
 	{
-		if (f.have_minus)
+		if (f.flags & HI_MINUS)
 		{
 			ft_add_nstr_to_buff(s, flen);
 			ft_fillbackward(f, 0, flen);
@@ -67,11 +67,11 @@ int		ft_call_longstr(wchar_t *s, t_flags f)
 	flen = ft_get_finale_len(s, f);
 	if (flen == -1)
 		return (-1);
-	if (f.have_p && ft_len_unicode(*s) > f.precision)
+	if (f.flags & HI_PRECISION && ft_len_unicode(*s) > f.precision)
 		flen = 0;
 	if (f.buff_size)
 	{
-		if (f.have_minus)
+		if (f.flags & HI_MINUS)
 		{
 			ft_fill_longstr(s, flen);
 			ft_fillbackward(f, 0, flen);
@@ -92,8 +92,7 @@ int		ft_call_fill_longstr(va_list *ap, t_flags f)
 	wchar_t *s;
 
 	s = (wchar_t*)va_arg(*ap, wchar_t*);
-	f.have_add = 0;
-	f.have_escape = 0;
+	f.flags = ~(HI_ADD | HI_ESCAPE);
 	if (s == NULL)
 		return (ft_callstr("(null)", f, 6));
 	return (ft_call_longstr(s, f));
@@ -106,8 +105,7 @@ int		ft_call_fillstr(va_list *ap, t_flags f)
 	if (f.type == 'S' || ft_strcmp(f.len_flags, "l") == 0)
 		return (ft_call_fill_longstr(ap, f));
 	s = (char*)va_arg(*ap, char*);
-	f.have_add = 0;
-	f.have_escape = 0;
+	f.flags = ~(HI_ADD | HI_ESCAPE);
 	if (s == NULL)
 		return (ft_callstr("(null)", f, 6));
 	return (ft_callstr(s, f, ft_strlen(s)));
