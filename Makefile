@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/16 10:26:07 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/24 11:12:08 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ INC_DIR = ./includes/
 INC_NAME = \
 	ft_printf_typedef.h\
 	ft_printf_header_fc.h\
+	ft_printf_global.h\
 	ft_printf_d.h\
 	ft_printf.h\
 

@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_singleton.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:53:25 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:33:33 by fbenneto         ###   ########.fr       */
+/*   Created: 2018/03/24 11:23:55 by fbenneto          #+#    #+#             */
+/*   Updated: 2018/03/24 11:28:00 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-t_buff	*get_buff(void)
+int		main(void)
 {
-	static t_buff buff;
-
-	return (&buff);
-}
-
-t_color	*get_color(void)
-{
-	static	t_color tab[NB_COLOR + 1];
-
-	if (tab[0].color_name == NULL)
-	{
-		ft_init_color_name((void*)&tab);
-		ft_init_color_str((void*)&tab);
-	}
-	return (tab);
+	ft_printf("%%\n");
+	printf("%%\n");
+	ft_printf("%x\n", 42);
+	printf("%x\n", 42);
+	return (0);
 }

@@ -6,11 +6,12 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 09:12:04 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 11:36:03 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "ft_printf_global.h"
 
 char	*ft_putgen(t_flags f, char const *s)
 {
@@ -28,28 +29,20 @@ char	*ft_putgen(t_flags f, char const *s)
 	return ((*s) ? (char*)s++ : (char*)s);
 }
 
-char	*ft_call_fc(char const *s, va_list *ap, t_type *t)
+char	*ft_call_fc_g(char const *s, va_list *ap)
 {
 	t_flags f;
 	int		i;
 
 	f = ft_get_flags((char**)&s, ap);
-	if (!ft_isspecifier(*s))
-		return (ft_putgen(f, s));
-	i = 0;
-	while (t[i].charset)
+	i = 120 - f.type;
+	if (i >= 0 && i <= 54 && g_conv[i])
 	{
-		if (t[i].charset == f.type)
-		{
-			if (t[i].f(ap, f) == -1)
-				return (NULL);
-			return ((char*)s);
-		}
-		i++;
+		if (g_conv[i](ap, f) == -1)
+			return (NULL);
+		return ((char*)s);
 	}
-	if (*s)
-		return ((char*)s + 1);
-	return ((char*)s);
+	return (ft_putgen(f, s));
 }
 
 char	*ft_putcolor(char const *s)
@@ -77,12 +70,10 @@ int		ft_fill_buffer(char const *s, va_list ap)
 	t_buff	*buff;
 	char	*p;
 	size_t	len;
-	t_type	*type;
 	va_list	node;
 
 	buff = get_buff();
 	va_copy(node, ap);
-	type = get_t_type();
 	while (*s != '\0')
 	{
 		p = ft_strchr(s, '%');
@@ -90,11 +81,12 @@ int		ft_fill_buffer(char const *s, va_list ap)
 		ft_add_nstr_to_buff(s, len);
 		s += len;
 		if (*s)
-			s = ft_call_fc(s, &node, type);
+			s = ft_call_fc_g(s, &node);
 		if (!s)
 			return (-1);
-		if (*s)
-			s++;
+		if (*s == 0)
+			break;
+		s++;
 	}
 	va_end(node);
 	return (0);
@@ -104,10 +96,8 @@ int		ft_fill_buffer_color(char const *s, va_list ap)
 {
 	t_buff	*buff;
 	va_list	node;
-	t_type	*type;
 
 	buff = get_buff();
-	type = get_t_type();
 	va_copy(node, ap);
 	while (*s != '\0')
 	{
@@ -117,7 +107,7 @@ int		ft_fill_buffer_color(char const *s, va_list ap)
 			continue;
 		}
 		else if (*s == '%')
-			s = ft_call_fc(s, &node, type);
+			s = ft_call_fc_g(s, &node);
 		else
 			ft_add_char_to_buff(*s);
 		s++;
