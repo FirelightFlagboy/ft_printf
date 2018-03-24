@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:31:21 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:34:53 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:17:29 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int		ft_calladr(uintmax_t n, t_flags f, int len)
 	flen = len;
 	if (f.precision > len)
 		flen = f.precision;
-	if (f.flags & HI_HASH)
-		flen += 2;
+	flen += 2;
 	if (f.buff_size)
 	{
 		if (f.flags & HI_MINUS)
