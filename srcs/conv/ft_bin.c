@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:21:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 13:53:33 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:39:50 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_callbin(uintmax_t n, t_flags f, int len)
 	flen = len;
 	if (f.precision > len)
 		flen = f.precision;
-	if (f.flags  & HI_HASH)
+	if (f.flags & HI_HASH)
 		flen += 2;
 	if (f.buff_size)
 	{
@@ -62,7 +62,7 @@ int		ft_call_fillbin(va_list *ap, t_flags f)
 	}
 	else
 	{
-		f.flags ^= HI_HASH;
+		f.flags &= ~HI_HASH;
 		if (f.flags & HI_PRECISION && f.precision == 0)
 			l = 0;
 	}

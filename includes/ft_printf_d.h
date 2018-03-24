@@ -6,12 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 15:34:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:47:36 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:37:41 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_D_H
 # define FT_PRINTF_D_H
+
 /*
 ** Header that contains all perso define
 */
@@ -31,16 +32,16 @@
 #  define OPEN_MAX 10240
 # endif
 
-enum e_flags_printf
+enum	e_flags_printf
 {
-	HI_ERROR		= 0b1,
-	HI_ADD			= 0b10,
-	HI_HASH			= 0b100,
-	HI_NULL			= 0b1000,
-	HI_MINUS		= 0b10000,
-	HI_ESCAPE		= 0b100000,
-	HI_PRECISION	= 0b1000000,
-	HI_BUFF_SIZE	= 0b10000000
+	HI_ERROR = 0b1,
+	HI_ADD = 0b10,
+	HI_HASH = 0b100,
+	HI_NULL = 0b1000,
+	HI_MINUS = 0b10000,
+	HI_ESCAPE = 0b100000,
+	HI_PRECISION = 0b1000000,
+	HI_BUFF_SIZE = 0b10000000
 };
 
 #endif

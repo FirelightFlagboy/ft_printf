@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:53:06 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:25:09 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:38:37 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int		ft_fillforward(t_flags f, char isneg, int len)
 	int	l;
 
 	l = ft_get_len_forward(&f, len, isneg);
-	if (f.flags & HI_NULL && (isneg || ((f.flags & (HI_ADD | HI_ESCAPE)) && !isneg)))
+	if (f.flags & HI_NULL\
+	&& (isneg || ((f.flags & (HI_ADD | HI_ESCAPE)) && !isneg)))
 		ft_fill_char_sign(f, isneg);
 	if (f.flags & HI_NULL)
 		ft_add_nchar_to_buff('0', l);

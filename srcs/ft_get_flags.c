@@ -6,27 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:54:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 14:42:28 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:38:19 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-t_flags		*ft_init_t_flags(t_flags *f)
-{
-	// f.error = 0;
-	// f.have_add = 0;
-	// f.have_hash = 0;
-	// f.have_null = 0;
-	// f.have_minus = 0;
-	// f.have_escape = 0;
-	// f.have_buff_size = 0;
-	// f.have_p = 0;
-	f->flags = 0;
-	f->buff_size = 0;
-	f->precision = 0;
-	return (f);
-}
 
 t_flags		ft_get_att(char **astr, t_flags *f)
 {
@@ -57,7 +41,9 @@ t_flags		*ft_get_flags(char **astr, va_list *ap, t_flags *f)
 
 	s = *astr;
 	s++;
-	ft_init_t_flags(f);
+	f->flags = 0;
+	f->buff_size = 0;
+	f->precision = 0;
 	ft_get_att(&s, f);
 	ft_get_buff_size(&s, f, ap);
 	ft_get_precision(&s, f, ap);
