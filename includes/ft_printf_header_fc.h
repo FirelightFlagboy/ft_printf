@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:25:49 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:44:42 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,8 @@ int		ft_call_filladr(va_list *ap, t_flags *f);
 ** %n
 */
 int		ft_get_index(va_list *ap, t_flags *f);
+/*
+** Other
+*/
+int		ft_putgen_type(va_list *ap, t_flags *f);
 #endif
