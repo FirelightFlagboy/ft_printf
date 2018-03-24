@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 09:15:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:06:38 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:20:56 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	(*const g_conv[55])(va_list*, t_flags) =
 	NULL,
 	ft_call_fillunbr,
 	NULL,
-	ft_call_fillstr,
+	ft_call_fill_longstr,
 	NULL,
 	NULL,
 	NULL,
@@ -72,7 +72,7 @@ int	(*const g_conv[55])(va_list*, t_flags) =
 	NULL,
 	NULL,
 	ft_call_fillnbr,
-	ft_call_fillchar,
+	ft_call_fill_longchar,
 	ft_call_fillbin
 };
 #endif

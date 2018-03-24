@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:54:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:02:57 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:23:44 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int		ft_call_fillstr(va_list *ap, t_flags f)
 {
 	char	*s;
 
-	if (f.type == 'S' || ft_strcmp(f.len_flags, "l") == 0)
+	if (f.len_flags[0] == 'l' && f.len_flags[1] == 0)
 		return (ft_call_fill_longstr(ap, f));
 	s = (char*)va_arg(*ap, char*);
 	f.flags &= ~(HI_ADD | HI_ESCAPE);
