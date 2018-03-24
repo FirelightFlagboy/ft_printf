@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:44:16 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:45:36 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_call_fc_g(char const *s, va_list *ap)
 
 	ft_get_flags((char**)&s, ap, &f);
 	i = 120 - f.type;
-	if (i >= 0 && i <= 54 && g_conv[i])
+	if (i >= 0 && i <= 54)
 	{
 		if (g_conv[i](ap, &f) == -1)
 			return (NULL);
