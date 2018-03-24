@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:35:08 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 14:04:21 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:27:59 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_callnbr(uintmax_t n, t_flags f, int len, char isneg)
 	flen = len;
 	if (f.precision > len)
 		flen = f.precision;
-	if (f.flags & HI_ADD)
+	if (f.flags & HI_PRECISION)
 		f.flags &= ~HI_NULL;
 	if (f.buff_size)
 	{

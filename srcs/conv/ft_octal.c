@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:28:30 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 14:05:32 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:12:57 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int		ft_call_filloctal(va_list *ap, t_flags f)
 	else
 	{
 		l = 0;
-		if (f.flags & ~HI_PRECISION)
-			f.flags &= HI_HASH;
+		if ((f.flags & HI_PRECISION) == 0)
+			f.flags |= HI_HASH;
 	}
 	return (ft_calloctal(n, f, l));
 }

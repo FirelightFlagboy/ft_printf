@@ -6,16 +6,17 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 14:10:40 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:33:01 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 #include "ft_printf_global.h"
 
 char	*ft_putgen(t_flags f, char const *s)
 {
-	if (f.flags & HI_BUFF_SIZE && f.flags & ~HI_MINUS)
+	if (f.flags & HI_BUFF_SIZE && (f.flags & HI_MINUS) == 0)
 	{
 		if (f.flags & HI_NULL)
 			ft_add_nchar_to_buff('0', f.buff_size - 1);
@@ -34,7 +35,7 @@ char	*ft_call_fc_g(char const *s, va_list *ap)
 	t_flags f;
 	int		i;
 
-	f = ft_get_flags((char**)&s, ap);
+	ft_get_flags((char**)&s, ap, &f);
 	i = 120 - f.type;
 	if (i >= 0 && i <= 54 && g_conv[i])
 	{

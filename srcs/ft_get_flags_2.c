@@ -6,11 +6,12 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:55:51 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 13:44:36 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 14:42:19 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int			ft_get_precision(char **astr, t_flags *f, va_list *ap)
 {
@@ -21,20 +22,20 @@ int			ft_get_precision(char **astr, t_flags *f, va_list *ap)
 	res = 0;
 	if (*s != '.' || !(s++))
 		return (0);
-	f->flags &= HI_PRECISION;
+	f->flags |= HI_PRECISION;
 	while (*s && ft_isdigit(*s))
 		res = (res * 10) + (*s++ - '0');
 	if (*s == '*' && (s++))
 	{
 		res = (int)va_arg(*ap, int);
-		if (ft_isdigit(*s))
+		if (*s >= '0' && *s <= '9')
 			res = 0;
-		while (*s && ft_isdigit(*s))
+		while (*s && *s >= '0' && *s <= '9')
 			res = (res * 10) + (*s++ - '0');
 	}
 	f->precision = res;
 	if (res < 0)
-		f->flags ^= ~HI_PRECISION;
+		f->flags &= ~HI_PRECISION;
 	*astr = s;
 	return (res);
 }
@@ -46,29 +47,29 @@ int			ft_get_buff_size(char **astr, t_flags *f, va_list *ap)
 
 	s = *astr;
 	res = 0;
-	while (*s && ft_isdigit(*s))
+	while (*s && *s >= '0' && *s <= '9')
 		res = (res * 10) + (*s++ - '0');
 	if (*s == '*')
 	{
 		res = (int)va_arg(*ap, int);
-		if (s++ != 0 && ft_isdigit(*s))
+		if (s++ != 0 && *s >= '0' && *s <= '9')
 			res = 0;
-		while (*s && ft_isdigit(*s))
+		while (*s && *s >= '0' && *s <= '9')
 			res = (res * 10) + (*s++ - '0');
 	}
 	if (res != 0)
-		f->flags = HI_BUFF_SIZE;
+		f->flags |= HI_BUFF_SIZE;
 	if (res > 0)
 		f->buff_size = res;
 	else
 		f->buff_size = -res;
 	if (res < 0)
-		f->flags = HI_MINUS;
+		f->flags |= HI_MINUS;
 	*astr = s;
 	return (res);
 }
 
-t_flags		ft_get_len_flags(char **astr, t_flags *f)
+t_flags		*ft_get_len_flags(char **astr, t_flags *f)
 {
 	char	*s;
 	size_t	i;
@@ -87,5 +88,5 @@ t_flags		ft_get_len_flags(char **astr, t_flags *f)
 	}
 	f->len_flags[i] = 0;
 	*astr = s;
-	return (*f);
+	return (f);
 }

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:22:20 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 14:01:54 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 14:56:52 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_fillhex(uintmax_t n, t_flags f, int len)
 
 	if (f.precision)
 		ft_filldimen_hex(f, len);
-	if (!(n != 0 || (n == 0 && !(f.flags & HI_PRECISION))))
+	if (!(n != 0 || (n == 0 && (f.flags & HI_PRECISION) == 0)))
 		return (0);
 	if (f.type == 'X')
 		base = "0123456789ABCDEF";
@@ -68,7 +68,7 @@ int		ft_call_fillhex(va_list *ap, t_flags f)
 	}
 	else
 	{
-		f.flags &= ~HI_PRECISION;
+		f.flags &= ~HI_HASH;
 		if (f.flags & HI_PRECISION && f.precision == 0)
 			l = 0;
 	}

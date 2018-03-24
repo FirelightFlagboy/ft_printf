@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:31:21 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 13:51:42 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 15:34:53 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_call_filladr(va_list *ap, t_flags f)
 	f.len_flags[0] = 'l';
 	f.len_flags[1] = 0;
 	f.type = 'x';
-	f.flags &= HI_HASH;
+	f.flags |= HI_HASH;
 	n = ft_get_uint(ap, f);
 	if (n != 0)
 		l = ft_len_nb(n, 16);
