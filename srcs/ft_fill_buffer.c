@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:36:03 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 11:37:12 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		ft_fill_buffer(char const *s, va_list ap)
 		if (!s)
 			return (-1);
 		if (*s == 0)
-			break;
+			break ;
 		s++;
 	}
 	va_end(node);
