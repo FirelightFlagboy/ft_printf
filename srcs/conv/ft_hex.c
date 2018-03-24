@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:22:20 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 14:56:52 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:10:38 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int		ft_call_fillhex(va_list *ap, t_flags f)
 	else
 	{
 		f.flags &= ~HI_HASH;
+		if (f.precision)
+			f.precision++;
 		if (f.flags & HI_PRECISION && f.precision == 0)
 			l = 0;
 	}
