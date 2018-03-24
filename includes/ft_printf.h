@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/16 10:24:07 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 10:54:08 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int			ft_get_buff_size(char **astr, t_flags *f, va_list *ap);
 int			ft_get_precision(char **astr, t_flags *f, va_list *ap);
 intmax_t	ft_get_int(va_list *ap, t_flags f);
 uintmax_t	ft_get_uint(va_list *ap, t_flags f);
-int			ft_get_index(va_list *ap, t_flags f);
 /*
 ** T_type
 */

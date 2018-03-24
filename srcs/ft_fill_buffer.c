@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/29 10:01:25 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 09:12:04 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 char	*ft_putgen(t_flags f, char const *s)
 {
 	if (f.have_buff_size && f.have_minus == 0)
-		ft_add_nchar_to_buff((f.have_null) ? '0' : ' ', f.buff_size - 1);
+	{
+		if (f.have_null)
+			ft_add_nchar_to_buff('0', f.buff_size - 1);
+		else
+			ft_add_nchar_to_buff(' ', f.buff_size - 1);
+	}
 	if (*s)
 		ft_add_char_to_buff(*s);
 	if (f.have_buff_size && f.have_minus == 1)
@@ -72,17 +77,20 @@ int		ft_fill_buffer(char const *s, va_list ap)
 	t_buff	*buff;
 	char	*p;
 	size_t	len;
+	t_type	*type;
 	va_list	node;
 
 	buff = get_buff();
 	va_copy(node, ap);
+	type = get_t_type();
 	while (*s != '\0')
 	{
 		p = ft_strchr(s, '%');
 		len = (p) ? p - s : ft_strlen(s);
 		ft_add_nstr_to_buff(s, len);
 		s += len;
-		s = (*s) ? ft_call_fc(s, &node, get_t_type()) : s;
+		if (*s)
+			s = ft_call_fc(s, &node, type);
 		if (!s)
 			return (-1);
 		if (*s)
@@ -96,8 +104,10 @@ int		ft_fill_buffer_color(char const *s, va_list ap)
 {
 	t_buff	*buff;
 	va_list	node;
+	t_type	*type;
 
 	buff = get_buff();
+	type = get_t_type();
 	va_copy(node, ap);
 	while (*s != '\0')
 	{
@@ -107,9 +117,7 @@ int		ft_fill_buffer_color(char const *s, va_list ap)
 			continue;
 		}
 		else if (*s == '%')
-		{
-			s = ft_call_fc(s, &node, get_t_type());
-		}
+			s = ft_call_fc(s, &node, type);
 		else
 			ft_add_char_to_buff(*s);
 		s++;

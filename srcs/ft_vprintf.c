@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 10:24:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/16 10:25:03 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 10:04:35 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,3 @@ int		ft_vdprintf(int fd, char const *s, va_list ap)
 	va_end(node);
 	return (buff->res);
 }
-
