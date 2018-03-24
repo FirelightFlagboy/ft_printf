@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 16:34:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 16:14:44 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 12:05:26 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_get_len_forward(t_flags *f, int flen, char neg)
 	int l;
 
 	l = 0;
-	if (!f->have_null && (neg || ((f->have_add || f->have_escape) && !neg)))
+	if (f->flags & (~HI_NULL) && (neg || (f->flags & (HI_HASH | HI_ESCAPE) && !neg)))
 		f->buff_size--;
 	if (f->buff_size > flen)
 		l = f->buff_size - flen;

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:52:57 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:51:42 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 11:58:45 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_filldimen_hex(t_flags f, int len)
 	int	l;
 
 	l = 0;
-	if (f.have_hash && !((!f.have_minus && f.have_null) && f.have_buff_size))
+	if (f.flags & HI_HASH && !(f.flags & (~HI_MINUS | HI_NULL | HI_BUFF_SIZE)))
 		ft_fill_ox(f.type);
 	if (f.precision > len)
 		l += f.precision - len;
@@ -49,7 +49,7 @@ int		ft_filldimen_oct(t_flags f, int len)
 	int	l;
 
 	l = 0;
-	if (f.have_hash && !(f.have_null && f.have_buff_size))
+	if (f.flags & (HI_HASH | ~HI_NULL | ~HI_BUFF_SIZE))
 	{
 		f.precision--;
 		ft_fill_ox(f.type);
