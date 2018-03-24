@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:17:28 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:31:49 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ t_flags		ft_get_att(char **astr, t_flags *f);
 t_flags		*ft_get_len_flags(char **astr, t_flags *f);
 int			ft_get_buff_size(char **astr, t_flags *f, va_list *ap);
 int			ft_get_precision(char **astr, t_flags *f, va_list *ap);
-intmax_t	ft_get_int(va_list *ap, t_flags f);
-uintmax_t	ft_get_uint(va_list *ap, t_flags f);
+intmax_t	ft_get_int(va_list *ap, t_flags *f);
+uintmax_t	ft_get_uint(va_list *ap, t_flags *f);
 /*
 ** T_type
 */
@@ -81,16 +81,16 @@ char		*ft_call_fc_g(char const *s, va_list *ap);
 /*
 ** Filler
 */
-int			ft_fillforward(t_flags f, char isneg, int len);
-int			ft_fillforward_hex(t_flags f, int len);
-int			ft_fillforward_oct(t_flags f, int len);
-int			ft_fillforward_uin(t_flags f, int len);
-int			ft_fillbackward(t_flags f, char isneg, int len);
-int			ft_filldimen(t_flags f, char isneg, int len);
-int			ft_filldimen_hex(t_flags f, int len);
-int			ft_filldimen_oct(t_flags f, int len);
-int			ft_filldimen_uin(t_flags f, int len);
-int			ft_fill_char_sign(t_flags f, char isneg);
+int			ft_fillforward(t_flags *f, char isneg, int len);
+int			ft_fillforward_hex(t_flags *f, int len);
+int			ft_fillforward_oct(t_flags *f, int len);
+int			ft_fillforward_uin(t_flags *f, int len);
+int			ft_fillbackward(t_flags *f, char isneg, int len);
+int			ft_filldimen(t_flags *f, char isneg, int len);
+int			ft_filldimen_hex(t_flags *f, int len);
+int			ft_filldimen_oct(t_flags *f, int len);
+int			ft_filldimen_uin(t_flags *f, int len);
+int			ft_fill_char_sign(t_flags *f, char isneg);
 int			ft_get_len_forward(t_flags *f, int flen, char neg);
 /*
 ** Lib string
@@ -104,7 +104,7 @@ int			ft_itoa_base_buff(uintmax_t n, char *base);
 ** Unicode
 */
 int			ft_len_unicode(wchar_t c);
-int			ft_get_finale_len(wchar_t *s, t_flags f);
+int			ft_get_finale_len(wchar_t *s, t_flags *f);
 size_t		ft_len_longstr(wchar_t const *s);
 int			ft_unicode(wchar_t c);
 #endif

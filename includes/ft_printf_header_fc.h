@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:17:13 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:25:49 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,39 @@
 /*
 ** %d %D %i
 */
-int		ft_call_fillnbr(va_list *ap, t_flags f);
+int		ft_call_fillnbr(va_list *ap, t_flags *f);
 /*
 ** %u %U
 */
-int		ft_call_fillunbr(va_list *ap, t_flags f);
+int		ft_call_fillunbr(va_list *ap, t_flags *f);
 /*
 ** %x %X
 */
-int		ft_call_fillhex(va_list *ap, t_flags f);
+int		ft_call_fillhex(va_list *ap, t_flags *f);
 /*
 ** %o %O
 */
-int		ft_call_filloctal(va_list *ap, t_flags f);
+int		ft_call_filloctal(va_list *ap, t_flags *f);
 /*
 ** %b %B
 */
-int		ft_call_fillbin(va_list *ap, t_flags f);
+int		ft_call_fillbin(va_list *ap, t_flags *f);
 /*
 ** %c %C
 */
-int		ft_call_fillchar(va_list *ap, t_flags f);
-int		ft_call_fill_longchar(va_list *ap, t_flags f);
+int		ft_call_fillchar(va_list *ap, t_flags *f);
+int		ft_call_fill_longchar(va_list *ap, t_flags *f);
 /*
 ** %s %S
 */
-int		ft_call_fillstr(va_list *ap, t_flags f);
-int		ft_call_fill_longstr(va_list *ap, t_flags f);
+int		ft_call_fillstr(va_list *ap, t_flags *f);
+int		ft_call_fill_longstr(va_list *ap, t_flags *f);
 /*
 ** %p
 */
-int		ft_call_filladr(va_list *ap, t_flags f);
+int		ft_call_filladr(va_list *ap, t_flags *f);
 /*
 ** %n
 */
-int		ft_get_index(va_list *ap, t_flags f);
+int		ft_get_index(va_list *ap, t_flags *f);
 #endif

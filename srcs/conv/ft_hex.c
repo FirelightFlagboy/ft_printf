@@ -6,39 +6,39 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:22:20 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:10:38 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:27:14 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_fillhex(uintmax_t n, t_flags f, int len)
+int		ft_fillhex(uintmax_t n, t_flags *f, int len)
 {
 	char	*base;
 
-	if (f.precision)
+	if (f->precision)
 		ft_filldimen_hex(f, len);
-	if (!(n != 0 || (n == 0 && (f.flags & HI_PRECISION) == 0)))
+	if (!(n != 0 || (n == 0 && (f->flags & HI_PRECISION) == 0)))
 		return (0);
-	if (f.type == 'X')
+	if (f->type == 'X')
 		base = "0123456789ABCDEF";
 	else
 		base = "0123456789abcdef";
 	return (ft_itoa_base_buff(n, base));
 }
 
-int		ft_callhex(uintmax_t n, t_flags f, int len)
+int		ft_callhex(uintmax_t n, t_flags *f, int len)
 {
 	size_t	flen;
 
 	flen = len;
-	if (f.precision > len)
-		flen = f.precision;
-	if (f.flags & HI_HASH)
+	if (f->precision > len)
+		flen = f->precision;
+	if (f->flags & HI_HASH)
 		flen += 2;
-	if (f.buff_size)
+	if (f->buff_size)
 	{
-		if (f.flags & HI_MINUS)
+		if (f->flags & HI_MINUS)
 		{
 			ft_fillhex(n, f, len);
 			ft_fillbackward(f, 0, flen);
@@ -54,7 +54,7 @@ int		ft_callhex(uintmax_t n, t_flags f, int len)
 	return (1);
 }
 
-int		ft_call_fillhex(va_list *ap, t_flags f)
+int		ft_call_fillhex(va_list *ap, t_flags *f)
 {
 	uintmax_t	nb;
 	int			l;
@@ -63,15 +63,15 @@ int		ft_call_fillhex(va_list *ap, t_flags f)
 	l = ft_len_nb(nb, 16);
 	if (nb)
 	{
-		if (!f.precision)
-			f.precision = 1;
+		if (!f->precision)
+			f->precision = 1;
 	}
 	else
 	{
-		f.flags &= ~HI_HASH;
-		if (f.precision)
-			f.precision++;
-		if (f.flags & HI_PRECISION && f.precision == 0)
+		f->flags &= ~HI_HASH;
+		if (f->precision)
+			f->precision++;
+		if (f->flags & HI_PRECISION && f->precision == 0)
 			l = 0;
 	}
 	return (ft_callhex(nb, f, l));

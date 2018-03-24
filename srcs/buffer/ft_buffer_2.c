@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 16:12:19 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/27 09:43:26 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:29:34 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_fill_ox(char type)
 	return (1);
 }
 
-int		ft_get_index(va_list *ap, t_flags f)
+int		ft_get_index(va_list *ap, t_flags *f)
 {
 	t_buff	*buff;
 	int		*i;

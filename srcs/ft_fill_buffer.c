@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:33:01 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:35:29 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_call_fc_g(char const *s, va_list *ap)
 	i = 120 - f.type;
 	if (i >= 0 && i <= 54 && g_conv[i])
 	{
-		if (g_conv[i](ap, f) == -1)
+		if (g_conv[i](ap, &f) == -1)
 			return (NULL);
 		return ((char*)s);
 	}

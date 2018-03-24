@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 09:15:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:20:56 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:34:49 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ft_printf_header_fc.h"
 # include "ft_printf_typedef.h"
 
-int	(*const g_conv[55])(va_list*, t_flags) =
+int	(*const g_conv[55])(va_list*, t_flags*) =
 {
 	ft_call_fillhex,
 	NULL,

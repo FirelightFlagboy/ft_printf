@@ -6,19 +6,19 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 16:34:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:38:29 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:33:17 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_fill_char_sign(t_flags f, char isneg)
+int		ft_fill_char_sign(t_flags *f, char isneg)
 {
 	if (isneg)
 		return (ft_add_char_to_buff('-'));
-	if (!isneg && f.flags & HI_ADD)
+	if (!isneg && f->flags & HI_ADD)
 		return (ft_add_char_to_buff('+'));
-	if (!isneg && f.flags & HI_ESCAPE)
+	if (!isneg && f->flags & HI_ESCAPE)
 		return (ft_add_char_to_buff(' '));
 	return (0);
 }
