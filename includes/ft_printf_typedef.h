@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:19:43 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 09:20:27 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 11:48:47 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,7 @@ typedef struct	s_color
 
 typedef struct	s_flags
 {
-	char		error;
-	char		have_add;
-	char		have_hash;
-	char		have_null;
-	char		have_minus;
-	char		have_escape;
-	char		have_p;
-	char		have_buff_size;
+	unsigned	flags:10;
 	char		type;
 	char		len_flags[4];
 	int			precision;

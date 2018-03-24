@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:52:57 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/12/26 14:45:38 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/24 11:51:42 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int		ft_filldimen(t_flags f, char isneg, int len)
 {
 	int l;
 
-	if ((isneg && (f.have_minus || !(f.have_buff_size && f.have_null)))\
-	|| (!isneg && !(f.have_buff_size && f.have_null)\
-		&& (f.have_add || f.have_escape)))
+	if ((isneg && (f.flags & HI_MINUS || !(f.flags & (HI_BUFF_SIZE | HI_NULL))))\
+	|| (!isneg && !(f.flags & (HI_BUFF_SIZE | HI_NULL))\
+		&& (f.flags & (HI_ADD | HI_ESCAPE))))
 	{
 		ft_fill_char_sign(f, isneg);
 	}
