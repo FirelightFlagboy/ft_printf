@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:52:57 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:34:21 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/26 15:44:37 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ int		ft_filldimen(t_flags *f, char isneg, int len)
 	{
 		ft_fill_char_sign(f, isneg);
 	}
-	l = 0;
-	if (f->precision > len)
-		l += f->precision - len;
-	if (l == 0)
+	if (f->precision < len)
 		return (0);
+	l = f->precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
 }
@@ -36,13 +34,13 @@ int		ft_filldimen_hex(t_flags *f, int len)
 {
 	int	l;
 
-	l = 0;
 	if (f->flags & HI_HASH\
-	&& !((!(f->flags & HI_MINUS)\
-	&& f->flags & HI_NULL) && f->flags & HI_BUFF_SIZE))
+	&& !((!(f->flags & HI_MINUS) && f->flags & HI_NULL)\
+	&& f->flags & HI_BUFF_SIZE))
 		ft_fill_ox(f->type);
-	if (f->precision > len)
-		l += f->precision - len;
+	if (f->precision < len)
+		return (0);
+	l = f->precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
 }
@@ -51,14 +49,14 @@ int		ft_filldimen_oct(t_flags *f, int len)
 {
 	int	l;
 
-	l = 0;
 	if (f->flags & HI_HASH && !(f->flags & HI_NULL && f->flags & HI_BUFF_SIZE))
 	{
 		f->precision--;
 		ft_fill_ox(f->type);
 	}
-	if (f->precision > len)
-		l += f->precision - len;
+	if (f->precision < len)
+		return (0);
+	l = f->precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
 }
