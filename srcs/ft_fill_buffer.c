@@ -6,30 +6,12 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:45:36 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:33:04 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "ft_printf_header.h"
 #include "ft_printf_global.h"
-
-int		ft_putgen_type(va_list *ap, t_flags *f)
-{
-	(void)ap;
-	if (f->flags & HI_BUFF_SIZE && (f->flags & HI_MINUS) == 0)
-	{
-		if (f->flags & HI_NULL)
-			ft_add_nchar_to_buff('0', f->buff_size - 1);
-		else
-			ft_add_nchar_to_buff(' ', f->buff_size - 1);
-	}
-	if (f->type)
-		ft_add_char_to_buff(f->type);
-	if (f->flags & HI_BUFF_SIZE && f->flags & HI_MINUS)
-		ft_add_nchar_to_buff(' ', f->buff_size - 1);
-	return (1);
-}
 
 char	*ft_putgen(t_flags *f, char const *s)
 {

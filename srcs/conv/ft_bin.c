@@ -6,11 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 16:27:50 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:29:45 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:32:22 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_header.h"
 
 int		ft_fillbin(uintmax_t n, t_flags *f, int len)
 {

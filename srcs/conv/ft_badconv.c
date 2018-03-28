@@ -1,49 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_badconv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:01:08 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:34:19 by fbenneto         ###   ########.fr       */
+/*   Created: 2018/03/28 13:28:12 by fbenneto          #+#    #+#             */
+/*   Updated: 2018/03/28 13:31:38 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-char	*ft_strchr(char const *s, int c)
+int		ft_putgen_type(va_list *ap, t_flags *f)
 {
-	while (*s)
+	(void)ap;
+	if (f->flags & HI_BUFF_SIZE && (f->flags & HI_MINUS) == 0)
 	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
+		if (f->flags & HI_NULL)
+			ft_add_nchar_to_buff('0', f->buff_size - 1);
+		else
+			ft_add_nchar_to_buff(' ', f->buff_size - 1);
 	}
-	return (NULL);
-}
-
-int		ft_strcmp(char const *s1, char const *s2)
-{
-	while (*s1 || *s2)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-	}
-	return (0);
-}
-
-int		ft_strncmp(char const *s1, char const *s2, size_t n)
-{
-	while ((*s1 || *s2) && n)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		n--;
-		s1++;
-		s2++;
-	}
-	return (0);
+	if (f->type)
+		ft_add_char_to_buff(f->type);
+	if (f->flags & HI_BUFF_SIZE && f->flags & HI_MINUS)
+		ft_add_nchar_to_buff(' ', f->buff_size - 1);
+	return (1);
 }

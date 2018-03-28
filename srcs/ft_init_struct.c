@@ -6,11 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:54:56 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:33:10 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:33:44 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_header.h"
 
 void		ft_init_color_name(void *data)
 {

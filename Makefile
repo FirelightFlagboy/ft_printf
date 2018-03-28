@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/24 12:22:14 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/28 13:37:58 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRC_BUFFER = $(addprefix $(SRC_BUFFER_DIR), $(SRC_BUFFER_NAME))
 
 SRC_CONV_NAME =\
 	ft_adr.c\
+	ft_badconv.c\
 	ft_bin.c\
 	ft_fillstr.c\
 	ft_unbr.c\
