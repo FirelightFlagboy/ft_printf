@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:04:33 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:33:59 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:21:19 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int			ft_itoa_base_buff(uintmax_t n, char *base)
 	t_buff		*buff;
 
 	buff = get_buff();
-	len_base = ft_strlen(base);
+	len_base = ft_strlen_printf(base);
 	lennb = ft_len_nb(n, len_base);
 	s[lennb] = 0;
 	lennb--;

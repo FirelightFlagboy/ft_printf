@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:34:53 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:20:19 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 /*
 ** Classic libft
 */
-size_t		ft_strlen(char const *s);
+size_t		ft_strlen_printf(char const *s);
 size_t		ft_len_nb(uintmax_t n, size_t lenbase);
 /*
 ** Buffer fc
@@ -43,11 +43,11 @@ int			ft_fill_ox(char type);
 /*
 ** Ft_iswhat
 */
-int			ft_isspace(int c);
-int			ft_isdigit(int c);
+int			ft_isspace_printf(int c);
+int			ft_isdigit_printf(int c);
 int			ft_islen_flags(int c);
-int			ft_isalpha(int c);
-int			ft_isdigit_flags(int c);
+int			ft_isalpha_printf(int c);
+int			ft_isdigit_flags_printf(int c);
 int			ft_isatt_flags(int c);
 int			ft_isspecifier(int c);
 /*
@@ -87,9 +87,9 @@ int			ft_get_len_forward(t_flags *f, int flen, char neg);
 /*
 ** Lib string
 */
-char		*ft_strchr(char const *s, int c);
-int			ft_strcmp(char const *s1, char const *s2);
-int			ft_strncmp(char const *s1, char const *s2, size_t n);
+char		*ft_strchr_printf(char const *s, int c);
+int			ft_strcmp_printf(char const *s1, char const *s2);
+int			ft_strncmp_printf(char const *s1, char const *s2, size_t n);
 int			ft_itoa_buff(uintmax_t n);
 int			ft_itoa_base_buff(uintmax_t n, char *base);
 /*

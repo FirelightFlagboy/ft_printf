@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:26:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:32:10 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:18:34 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_add_str_to_buff(char const *s)
 	size_t	i;
 
 	buff = get_buff();
-	len = ft_strlen(s);
+	len = ft_strlen_printf(s);
 	if (buff->index + len >= BUFF_SIZE_PRINTF)
 		ft_putbuffer();
 	i = 0;

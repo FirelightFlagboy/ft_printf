@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:33:04 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:20:56 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,11 @@ char	*ft_putcolor(char const *s)
 	c = get_color();
 	while (c[i].color_name)
 	{
-		if (ft_strncmp(s, c[i].color_name, ft_strlen(c[i].color_name)) == 0)
+		if (ft_strncmp_printf(s, c[i].color_name,\
+		ft_strlen_printf(c[i].color_name)) == 0)
 		{
 			ft_add_str_to_buff(c[i].color_str);
-			return (ft_strchr(s, '}') + 1);
+			return (ft_strchr_printf(s, '}') + 1);
 		}
 		i++;
 	}
@@ -76,8 +77,8 @@ int		ft_fill_buffer(char const *s, va_list ap)
 	va_copy(node, ap);
 	while (*s != '\0')
 	{
-		p = ft_strchr(s, '%');
-		len = (p) ? p - s : ft_strlen(s);
+		p = ft_strchr_printf(s, '%');
+		len = (p) ? p - s : ft_strlen_printf(s);
 		ft_add_nstr_to_buff(s, len);
 		s += len;
 		if (*s)

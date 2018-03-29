@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:54:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:32:39 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:19:00 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,5 @@ int		ft_call_fillstr(va_list *ap, t_flags *f)
 	f->flags &= ~(HI_ADD | HI_ESCAPE);
 	if (s == NULL)
 		return (ft_callstr("(null)", f, 6));
-	return (ft_callstr(s, f, ft_strlen(s)));
+	return (ft_callstr(s, f, ft_strlen_printf(s)));
 }

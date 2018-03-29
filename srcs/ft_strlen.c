@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:36:09 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:34:22 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:22:43 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			ft_len_unicode(wchar_t n)
 	return (-1);
 }
 
-size_t		ft_strlen(char const *str)
+size_t		ft_strlen_printf(char const *str)
 {
 	char const *s;
 

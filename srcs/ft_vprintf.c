@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 10:24:34 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:34:31 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:21:55 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_vfprintf(FILE *stream, char const *s, va_list ap)
 	buff->res = 0;
 	buff->fd = stream->_file;
 	va_copy(node, ap);
-	if (ft_strchr(s, '{'))
+	if (ft_strchr_printf(s, '{'))
 		f = ft_fill_buffer_color;
 	else
 		f = ft_fill_buffer;
@@ -50,7 +50,7 @@ int		ft_vdprintf(int fd, char const *s, va_list ap)
 	buff->res = 0;
 	buff->fd = fd;
 	va_copy(node, ap);
-	if (ft_strchr(s, '{'))
+	if (ft_strchr_printf(s, '{'))
 		f = ft_fill_buffer_color;
 	else
 		f = ft_fill_buffer;
