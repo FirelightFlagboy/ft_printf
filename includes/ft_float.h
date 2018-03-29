@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:20:50 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 09:32:16 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 10:39:44 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <float.h>
 # include "ft_printf_typedef.h"
 
+#ifndef MAXPOWTWO
+# define MAXPOWTWO	4.503599627370496000E+15
+#endif
+
+double	ft_modf(double value, double *iptr);
 double	ft_pow(double d, int p);
 int		ft_len_double(double r, double v, int pre);
 int		ft_fillforward_float(t_flags *f, int neg, int len);

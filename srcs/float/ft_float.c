@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:01:07 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 10:21:35 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 10:39:07 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,11 @@ int					ft_call_fillfloat(va_list *ap, t_flags *f)
 	pre = 6;
 	if (d < 0.0)
 	{
-		v = modf(-d, &d);
+		v = ft_modf(-d, &d);
 		neg = 1;
 	}
 	else
-		v = modf(d, &d);
+		v = ft_modf(d, &d);
 	if (f->flags & HI_PRECISION && f->precision >= 0)
 	{
 		pre = f->precision;

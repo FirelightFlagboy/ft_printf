@@ -6,12 +6,30 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:19:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 10:17:57 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 10:39:35 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 #include "ft_float.h"
+
+double ft_modf(double value, double *iptr)
+{
+	double absvalue;
+
+	if ((absvalue = (value >= 0.0) ? value : -value) >= MAXPOWTWO)
+		*iptr = value;
+	else
+	{
+		*iptr = absvalue + MAXPOWTWO;
+		*iptr -= MAXPOWTWO;
+		while (*iptr > absvalue)
+			*iptr -= 1.0;
+		if (value < 0.0)
+			*iptr = -*iptr;
+	}
+	return (value - *iptr);
+}
 
 double		ft_pow(double d, int p)
 {
