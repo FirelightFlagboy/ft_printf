@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/29 09:31:00 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/29 16:27:51 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,7 +157,7 @@ T := $(shell $(MAKE) $(MAKECMDGOALS) --no-print-directory \
 
 N := x
 C = $(words $N)$(eval N := x $N)
-ECHO = printf "\r\e[K[$(MKNAME):\t%3s%%]" "`expr "\`expr $C '*' 100 / $T\`"`"
+ECHO = printf "\r\e[K[%-10s:%10s%%]" "$(MKNAME)" "`expr "\`expr $C '*' 100 / $T\`"`"
 endif
 
 #########
