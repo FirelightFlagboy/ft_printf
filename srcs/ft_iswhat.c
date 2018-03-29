@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:56:26 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 16:22:27 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 16:31:55 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_isdigit_printf(int c)
 	return (0);
 }
 
-int		ft_islen_flags_printf(int c)
+int		ft_islen_flags(int c)
 {
 	return (c == 'h' || c == 'l' || c == 'z' || c == 'j');
 }
