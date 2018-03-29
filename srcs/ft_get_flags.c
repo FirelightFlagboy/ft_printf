@@ -6,11 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:54:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:38:19 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:33:37 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_header.h"
 
 t_flags		ft_get_att(char **astr, t_flags *f)
 {

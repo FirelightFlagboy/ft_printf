@@ -6,12 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:55:51 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 14:42:19 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:33:32 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "ft_printf_header.h"
 
 int			ft_get_precision(char **astr, t_flags *f, va_list *ap)
 {

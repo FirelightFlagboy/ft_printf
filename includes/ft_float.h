@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_float.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/28 13:30:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:35:21 by fbenneto         ###   ########.fr       */
+/*   Created: 2018/03/28 15:20:50 by fbenneto          #+#    #+#             */
+/*   Updated: 2018/03/29 10:39:44 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_FLOAT_H
+# define FT_FLOAT_H
 
-# include <stdio.h>
-# include <stdarg.h>
+# include <math.h>
+# include <float.h>
+# include "ft_printf_typedef.h"
 
-/*
-** Printf
-*/
-int			ft_printf(char const *s, ...);
-int			ft_eprintf(char const *s, ...);
-int			ft_dprintf(int fd, char const *s, ...);
-int			ft_fprintf(FILE *stream, char const *s, ...);
-int			ft_vfprintf(FILE *stream, char const *s, va_list ap);
-int			ft_vdprintf(int fd, char const *s, va_list ap);
+#ifndef MAXPOWTWO
+# define MAXPOWTWO	4.503599627370496000E+15
+#endif
+
+double	ft_modf(double value, double *iptr);
+double	ft_pow(double d, int p);
+int		ft_len_double(double r, double v, int pre);
+int		ft_fillforward_float(t_flags *f, int neg, int len);
+int		ft_isnan_or_inf(double d, t_flags *f);
 #endif

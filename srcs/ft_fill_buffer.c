@@ -6,27 +6,26 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:33:01 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:33:04 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "ft_printf_header.h"
 #include "ft_printf_global.h"
 
-char	*ft_putgen(t_flags f, char const *s)
+char	*ft_putgen(t_flags *f, char const *s)
 {
-	if (f.flags & HI_BUFF_SIZE && (f.flags & HI_MINUS) == 0)
+	if (f->flags & HI_BUFF_SIZE && (f->flags & HI_MINUS) == 0)
 	{
-		if (f.flags & HI_NULL)
-			ft_add_nchar_to_buff('0', f.buff_size - 1);
+		if (f->flags & HI_NULL)
+			ft_add_nchar_to_buff('0', f->buff_size - 1);
 		else
-			ft_add_nchar_to_buff(' ', f.buff_size - 1);
+			ft_add_nchar_to_buff(' ', f->buff_size - 1);
 	}
 	if (*s)
 		ft_add_char_to_buff(*s);
-	if (f.flags & HI_BUFF_SIZE && f.flags & HI_MINUS)
-		ft_add_nchar_to_buff(' ', f.buff_size - 1);
+	if (f->flags & HI_BUFF_SIZE && f->flags & HI_MINUS)
+		ft_add_nchar_to_buff(' ', f->buff_size - 1);
 	return ((*s) ? (char*)s++ : (char*)s);
 }
 
@@ -37,13 +36,13 @@ char	*ft_call_fc_g(char const *s, va_list *ap)
 
 	ft_get_flags((char**)&s, ap, &f);
 	i = 120 - f.type;
-	if (i >= 0 && i <= 54 && g_conv[i])
+	if (i >= 0 && i <= 54)
 	{
-		if (g_conv[i](ap, f) == -1)
+		if (g_conv[i](ap, &f) == -1)
 			return (NULL);
 		return ((char*)s);
 	}
-	return (ft_putgen(f, s));
+	return (ft_putgen(&f, s));
 }
 
 char	*ft_putcolor(char const *s)

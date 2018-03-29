@@ -6,11 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:53:25 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:33:33 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:34:15 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_header.h"
 
 t_buff	*get_buff(void)
 {

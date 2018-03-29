@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 09:28:30 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 15:12:57 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 13:32:52 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_header.h"
 
-int		ft_filloctal(uintmax_t n, t_flags f, int len)
+int		ft_filloctal(uintmax_t n, t_flags *f, int len)
 {
 	ft_filldimen_oct(f, len);
 	if (n != 0)
@@ -20,18 +20,18 @@ int		ft_filloctal(uintmax_t n, t_flags f, int len)
 	return (0);
 }
 
-int		ft_calloctal(uintmax_t n, t_flags f, int len)
+int		ft_calloctal(uintmax_t n, t_flags *f, int len)
 {
 	size_t	flen;
 
 	flen = len;
-	if (f.precision > len)
-		flen = f.precision;
-	if (f.flags & HI_HASH)
+	if (f->precision > len)
+		flen = f->precision;
+	if (f->flags & HI_HASH)
 		flen++;
-	if (f.buff_size)
+	if (f->buff_size)
 	{
-		if (f.flags & HI_MINUS)
+		if (f->flags & HI_MINUS)
 		{
 			ft_filloctal(n, f, len);
 			ft_fillbackward(f, 0, flen);
@@ -47,7 +47,7 @@ int		ft_calloctal(uintmax_t n, t_flags f, int len)
 	return (0);
 }
 
-int		ft_call_filloctal(va_list *ap, t_flags f)
+int		ft_call_filloctal(va_list *ap, t_flags *f)
 {
 	uintmax_t	n;
 	int			l;
@@ -58,8 +58,8 @@ int		ft_call_filloctal(va_list *ap, t_flags f)
 	else
 	{
 		l = 0;
-		if ((f.flags & HI_PRECISION) == 0)
-			f.flags |= HI_HASH;
+		if ((f->flags & HI_PRECISION) == 0)
+			f->flags |= HI_HASH;
 	}
 	return (ft_calloctal(n, f, l));
 }

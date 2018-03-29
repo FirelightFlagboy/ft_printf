@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iswhat.c                                        :+:      :+:    :+:   */
+/*   ft_fillforward_float.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 12:56:26 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:33:55 by fbenneto         ###   ########.fr       */
+/*   Created: 2018/03/28 16:02:57 by fbenneto          #+#    #+#             */
+/*   Updated: 2018/03/29 09:57:55 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-int		ft_isspace(int c)
+int		ft_fillforward_float(t_flags *f, int neg, int len)
 {
-	if (c == ' ' || c == '\n' || c == '\v' || c == '\r')
-		return (1);
+	int	flen;
+
+	flen = f->buff_size - len;
+	if (flen < 0)
+		return (0);
+	if (f->flags & HI_NULL)
+	{
+		if (neg)
+			ft_add_char_to_buff('-');
+		ft_add_nchar_to_buff('0', flen);
+	}
+	else
+		ft_add_nchar_to_buff(' ', flen);
 	return (0);
-}
-
-int		ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int		ft_islen_flags(int c)
-{
-	return (c == 'h' || c == 'l' || c == 'z' || c == 'j');
-}
-
-int		ft_isalpha(int c)
-{
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
-
-int		ft_isdigit_flags(int c)
-{
-	return (c == 'd' || c == 'i' || c == 'D');
 }

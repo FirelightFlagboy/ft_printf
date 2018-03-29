@@ -6,70 +6,69 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:52:57 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:07:19 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 14:27:47 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_header.h"
 
-int		ft_filldimen(t_flags f, char isneg, int len)
+int		ft_filldimen(t_flags *f, char isneg, int len)
 {
 	int l;
 
 	if ((isneg\
-	&& (f.flags & HI_MINUS || !(f.flags & HI_BUFF_SIZE && f.flags & HI_NULL)))\
-	|| (!isneg && !(f.flags & HI_BUFF_SIZE && f.flags & HI_NULL)\
-		&& (f.flags & (HI_ADD | HI_ESCAPE))))
+	&& (f->flags & HI_MINUS ||\
+	!(f->flags & HI_BUFF_SIZE && f->flags & HI_NULL)))\
+	|| (!isneg && !(f->flags & HI_BUFF_SIZE && f->flags & HI_NULL)
+	&& (f->flags & (HI_ADD | HI_ESCAPE))))
 	{
 		ft_fill_char_sign(f, isneg);
 	}
-	l = 0;
-	if (f.precision > len)
-		l += f.precision - len;
-	if (l == 0)
+	if (f->precision < len)
 		return (0);
+	l = f->precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
 }
 
-int		ft_filldimen_hex(t_flags f, int len)
+int		ft_filldimen_hex(t_flags *f, int len)
 {
 	int	l;
 
-	l = 0;
-	if (f.flags & HI_HASH\
-	&& !((!(f.flags & HI_MINUS)\
-	&& f.flags & HI_NULL) && f.flags & HI_BUFF_SIZE))
-		ft_fill_ox(f.type);
-	if (f.precision > len)
-		l += f.precision - len;
+	if (f->flags & HI_HASH\
+	&& !((!(f->flags & HI_MINUS) && f->flags & HI_NULL)\
+	&& f->flags & HI_BUFF_SIZE))
+		ft_fill_ox(f->type);
+	if (f->precision < len)
+		return (0);
+	l = f->precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
 }
 
-int		ft_filldimen_oct(t_flags f, int len)
+int		ft_filldimen_oct(t_flags *f, int len)
 {
 	int	l;
 
-	l = 0;
-	if (f.flags & HI_HASH && !(f.flags & HI_NULL && f.flags & HI_BUFF_SIZE))
+	if (f->flags & HI_HASH && !(f->flags & HI_NULL && f->flags & HI_BUFF_SIZE))
 	{
-		f.precision--;
-		ft_fill_ox(f.type);
+		f->precision--;
+		ft_fill_ox(f->type);
 	}
-	if (f.precision > len)
-		l += f.precision - len;
+	if (f->precision < len)
+		return (0);
+	l = f->precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
 }
 
-int		ft_filldimen_uin(t_flags f, int len)
+int		ft_filldimen_uin(t_flags *f, int len)
 {
 	int	l;
 
-	if (f.precision < len)
+	if (f->precision < len)
 		return (0);
-	l = f.precision - len;
+	l = f->precision - len;
 	ft_add_nchar_to_buff('0', l);
 	return (l);
 }
