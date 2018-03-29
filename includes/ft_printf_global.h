@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 09:15:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 09:46:03 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 10:15:28 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	(*const g_conv[55])(va_list*, t_flags*) =
 	ft_putgen_type,
 	ft_call_fillnbr,
 	ft_putgen_type,
-	ft_call_fillfloat,
 	ft_putgen_type,
+	ft_call_fillfloat,
 	ft_putgen_type,
 	ft_call_fillnbr,
 	ft_call_fillchar,
@@ -76,7 +76,7 @@ int	(*const g_conv[55])(va_list*, t_flags*) =
 	ft_putgen_type,
 	ft_putgen_type,
 	ft_putgen_type,
-	ft_putgen_type,
+	ft_call_fillfloat,
 	ft_putgen_type,
 	ft_call_fillnbr,
 	ft_call_fill_longchar,

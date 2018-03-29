@@ -6,14 +6,14 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:19:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 09:34:42 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 10:17:57 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 #include "ft_float.h"
 
-double	ft_pow(double d, int p)
+double		ft_pow(double d, int p)
 {
 	double r;
 
@@ -26,7 +26,7 @@ double	ft_pow(double d, int p)
 	return (r);
 }
 
-int	ft_len_double(double r, double v, int pre)
+int			ft_len_double(double r, double v, int pre)
 {
 	int		l;
 	int		i;
@@ -44,23 +44,34 @@ int	ft_len_double(double r, double v, int pre)
 	i = 0;
 	if (r < ft_pow(10, i))
 		l++;
-	while (r > ft_pow(10, i++))
+	while (r >= ft_pow(10, i++))
 		l++;
 	return (l);
 }
 
-int		ft_isnan_or_inf(double d, t_flags *f)
+int			ft_isnan_or_inf(double d, t_flags *f)
 {
-	(void)f;
-	if (isnan(d))
+	if (f->type == 'f')
 	{
-		return (ft_add_str_to_buff("NaN"));
+		if (isnan(d))
+			return (ft_add_str_to_buff("nan"));
+		if (isinf(d))
+		{
+			if (d < 0.0)
+				return (ft_add_str_to_buff("-inf"));
+			return (ft_add_str_to_buff("inf"));
+		}
 	}
-	if (isinf(d))
+	else
 	{
-		if (d < 0.0)
-			return (ft_add_str_to_buff("-inf"));
-		return (ft_add_str_to_buff("inf"));
+		if (isnan(d))
+			return (ft_add_str_to_buff("NAN"));
+		if (isinf(d))
+		{
+			if (d < 0.0)
+				return (ft_add_str_to_buff("-INF"));
+			return (ft_add_str_to_buff("INF"));
+		}
 	}
 	return (0);
 }

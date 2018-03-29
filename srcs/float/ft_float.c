@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:01:07 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 09:44:01 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 10:21:35 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static inline int	ft_float_addreel(char *s, double r, int neg, int len)
 	i = 0;
 	if (r < 1.0)
 		s[len--] = '0';
-	while (r > p)
+	while (r >= p)
 	{
 		a = ft_pow(10, i++ + 1);
 		s[len--] = (int)(fmod(r, a) / p) + '0';
@@ -43,7 +43,7 @@ static inline int	ft_fillfloat(double d[2], int n[2], int len)
 
 	s[len--] = 0;
 	r = d[0];
-	v = d[1] * ft_pow(10, n[1]);
+	v = d[1] * ft_pow(10, n[1]) + 0.5;
 	d[1] = 1;
 	i = 0;
 	while (v > d[1] || i < n[1])
@@ -63,10 +63,10 @@ static inline int	ft_setvalue(int n[2], int *flen, int len, t_flags *f)
 
 	neg = n[0];
 	*flen = len;
-	if (n[0] && f->flags & HI_BUFF_SIZE && (f->flags & HI_NULL)\
+	if (neg && f->buff_size && (f->flags & HI_NULL)\
 	&& (f->flags & HI_MINUS) == 0)
 	{
-		flen = flen - 1;
+		*flen = *flen - 1;
 		n[0] = 0;
 	}
 	return (neg);
@@ -104,9 +104,10 @@ int					ft_call_fillfloat(va_list *ap, t_flags *f)
 	int		pre;
 	int		neg;
 
-	pre = 6;
 	if (ft_isnan_or_inf((d = (double)va_arg(*ap, double)), f))
 		return (0);
+	neg = 0;
+	pre = 6;
 	if (d < 0.0)
 	{
 		v = modf(-d, &d);
@@ -120,7 +121,6 @@ int					ft_call_fillfloat(va_list *ap, t_flags *f)
 		if (pre > 768)
 			pre = 768;
 	}
-	neg = 0;
-	l = ft_len_double(d, v, pre);
-	return (ft_callfloat((double [2]){d, v}, (int [2]){neg, pre}, f, l));
+	l = ft_len_double(d, v, pre) + neg;
+	return (ft_callfloat((double[2]){d, v}, (int[2]){neg, pre}, f, l));
 }
