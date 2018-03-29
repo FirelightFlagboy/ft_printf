@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 16:44:42 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/29 09:45:32 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,45 +18,47 @@
 # include "ft_printf_typedef.h"
 
 /*
-** %d %D %i
+** Decimal conv
 */
 int		ft_call_fillnbr(va_list *ap, t_flags *f);
 /*
-** %u %U
+** Unsigned conv
 */
 int		ft_call_fillunbr(va_list *ap, t_flags *f);
 /*
-** %x %X
+** Hexadecimal conv
 */
 int		ft_call_fillhex(va_list *ap, t_flags *f);
+int		ft_call_filladr(va_list *ap, t_flags *f);
 /*
-** %o %O
+** Octal conv
 */
 int		ft_call_filloctal(va_list *ap, t_flags *f);
 /*
-** %b %B
+** Binary conv
 */
 int		ft_call_fillbin(va_list *ap, t_flags *f);
 /*
-** %c %C
+** Char conv
 */
 int		ft_call_fillchar(va_list *ap, t_flags *f);
 int		ft_call_fill_longchar(va_list *ap, t_flags *f);
 /*
-** %s %S
+** String conv
 */
 int		ft_call_fillstr(va_list *ap, t_flags *f);
 int		ft_call_fill_longstr(va_list *ap, t_flags *f);
-/*
-** %p
-*/
-int		ft_call_filladr(va_list *ap, t_flags *f);
 /*
 ** %n
 */
 int		ft_get_index(va_list *ap, t_flags *f);
 /*
+** Float
+*/
+int		ft_call_fillfloat(va_list *ap, t_flags *f);
+/*
 ** Other
 */
 int		ft_putgen_type(va_list *ap, t_flags *f);
 #endif
+

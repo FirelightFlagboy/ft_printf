@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/26 15:55:36 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/27 16:48:56 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 16:17:25 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static inline size_t ft_len_double(double d, double t, int pre)
 		l++;
 		i++;
 	}
-	l++;
+	if (pre > 0)
+		l++;
 	i = 0;
 	if (d < pow(10, i))
 		l++;
@@ -43,7 +44,7 @@ static inline size_t ft_len_double(double d, double t, int pre)
 	return (l);
 }
 
-char	*__ftoap2(char *s, double d[2], int neg, int k[2])
+char	*__ftoap2_cte(char *s, double d[2], int neg, int k[2])
 {
 	double	t;
 	double	p;
@@ -54,18 +55,25 @@ char	*__ftoap2(char *s, double d[2], int neg, int k[2])
 	p = d[1];
 	len = k[1];
 	i = 0;
-	while (t > pow(10, i) || i < k[0])
+	d[1] = 1.0;
+	while (t > d[1] || i < k[0])
 	{
-		s[len--] = (int)(fmod(t, pow(10, i + 1)) / pow(10, i)) + '0';
+		d[0] = pow(10, i + 1);
+		s[len--] = (int)(fmod(t, d[0]) / d[1]) + '0';
+		d[1] = d[0];
 		i++;
 	}
-	s[len--] = '.';
+	if (k[0] > 0)
+		s[len--] = '.';
 	i = 0;
-	if (p < pow(10, i))
+	d[1] = 1.0;
+	if (p < d[1])
 		s[len--] = '0';
-	while (p > pow(10, i))
+	while (p > d[1])
 	{
-		s[len--] = (int)(fmod(p, pow(10, i + 1)) / pow(10, i)) + '0';
+		d[0] = pow(10, i + 1);
+		s[len--] = (int)(fmod(p, d[0]) / d[1]) + '0';
+		d[1] = d[0];
 		i++;
 	}
 	if (neg)
@@ -73,15 +81,14 @@ char	*__ftoap2(char *s, double d[2], int neg, int k[2])
 	return (s);
 }
 
-char	*ftoa(double d, int pre)
+int		ftoa_cte(char *s, double d, int pre)
 {
 	double t;
 	double p;
 	size_t len;
-	char *s;
 	int neg;
 
-	if (pre < 6)
+	if (pre < 0)
 		pre = 6;
 	neg = 0;
 	if (d < 0.0)
@@ -92,11 +99,10 @@ char	*ftoa(double d, int pre)
 	else
 		t = modf(d, &p);
 	len = ft_len_double(p, t, pre) + neg;
-	if (!(s = (char *)malloc((len + 1) * sizeof(char))))
-		return (NULL);
 	s[len--] = 0;
-	t = t * pow(10, pre);
-	return (__ftoap2(s, (double [2]){t, d}, d < 0.0, (int [2]){pre, len}));
+	t = t * pow(10, pre) + 0.5;
+	__ftoap2_cte(s, (double [2]){t, p}, d < 0.0, (int [2]){pre, len});
+	return (len + 1);
 }
 
 char *etoa(long double d, int pre)
@@ -114,14 +120,15 @@ char *etoa(long double d, int pre)
 int main(void)
 {
 	uint32_t i = 0;
-	int pre = 20;
-	char *s;
+	int pre = -1;
+	char s[2048];
 	double d[] =
-		{
+	{
 			0.42,
 			0.31546,
 			-785.640625,
 			999999999999900000001.0,
+			M_PI,
 			0.0,
 			__FLT_MAX__,
 			__FLT_MIN__,
@@ -129,16 +136,16 @@ int main(void)
 			INTMAX_MAX,
 			9223372036854775808.00000000000000000000000000005,
 			0.41999999999999998445687765525,
-			0.000000000419999999999999987765525};
-
+			0.000000000419999999999999987765525
+	};
+	dprintf(1, "\e[2J\e[3J\e[0;0H");
 	dprintf(9, "\e[2J\e[3J\e[0;0H");
 	while (i < sizeof(d) / sizeof(double))
 	{
 		printf(">>>>>>>>>> %d <<<<<<<<<\n", i);
-		s = ftoa(d[i], pre);
-		printf("str f :%s\n", s);
-		free(s);
-		printf("float :%.*f\n", pre, d[i]);
+		ftoa_cte(s, d[i], pre);
+		printf("str f :%s|\n", s);
+		printf("float :%.*f|\n", pre, d[i]);
 		// s = etoa(d[i], pre);
 		// printf("str e :%s\n", s);
 		// free(s);

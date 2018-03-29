@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/23 10:31:21 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:32:14 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/03/28 15:01:38 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-int		ft_filladr(uintmax_t n, t_flags *f, int len)
+static int		ft_filladr(uintmax_t n, t_flags *f, int len)
 {
 	ft_filldimen_hex(f, len);
 	if (n != 0 || (n == 0 && !(f->flags & HI_PRECISION)))
@@ -20,7 +20,7 @@ int		ft_filladr(uintmax_t n, t_flags *f, int len)
 	return (0);
 }
 
-int		ft_calladr(uintmax_t n, t_flags *f, int len)
+static int		ft_calladr(uintmax_t n, t_flags *f, int len)
 {
 	size_t	flen;
 

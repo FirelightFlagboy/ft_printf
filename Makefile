@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/28 13:37:58 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/29 09:31:00 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ INC_NAME = \
 	ft_printf_header_fc.h\
 	ft_printf_global.h\
 	ft_printf_d.h\
+	ft_float.h\
+	ft_printf_header.h\
 	ft_printf.h\
 
 INCLUDE = $(addprefix $(INC_DIR), $(INC_NAME))
@@ -55,6 +57,14 @@ SRC_BUFFER_NAME =\
 
 SRC_BUFFER_DIR = buffer/
 SRC_BUFFER = $(addprefix $(SRC_BUFFER_DIR), $(SRC_BUFFER_NAME))
+
+SRC_FLOAT_NAME =\
+	float_utils.c\
+	ft_fillforward_float.c\
+	ft_float.c\
+
+SRC_FLOAT_DIR = float/
+SRC_FLOAT = $(addprefix $(SRC_FLOAT_DIR), $(SRC_FLOAT_NAME))
 
 SRC_CONV_NAME =\
 	ft_adr.c\
@@ -73,6 +83,7 @@ SRC_CONV = $(addprefix $(SRC_CONV_DIR), $(SRC_CONV_NAME))
 SRC_NAME=\
 	$(SRC_BUFFER)\
 	$(SRC_CONV)\
+	$(SRC_FLOAT)\
 	ft_fillforward_annexe.c\
 	ft_fillforward.c\
 	ft_filldimen.c\
@@ -110,6 +121,7 @@ OBJ=$(addprefix $(OBJ_DIR), $(OBJ_NAME))
 
 SRC_DIR_NAME =\
 	$(SRC_CONV_DIR)\
+	$(SRC_FLOAT_DIR)\
 	$(SRC_BUFFER_DIR)\
 
 OBJ_DIR_ALL = $(addprefix $(OBJ_DIR), $(SRC_DIR_NAME))

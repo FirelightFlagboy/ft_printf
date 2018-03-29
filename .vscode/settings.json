@@ -6,7 +6,9 @@
         "wchar.h": "c",
         "stdio.h": "c",
         "stdint.h": "c",
-        "ft_printf_header_fc.h": "c"
+        "ft_printf_header_fc.h": "c",
+        "ft_printf_header.h": "c",
+        "math.h": "c"
     },
     "clang.cflags":[
         "-Wall",
