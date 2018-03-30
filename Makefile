@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/29 16:27:51 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/30 12:27:49 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,7 @@ SRC_NAME=\
 	ft_singleton.c\
 	ft_unicode.c\
 	ft_get_int.c\
-	ft_strlen.c\
+	ft_strlen_printf.c\
 	ft_itoa.c\
 	ft_str.c\
 	ft_printf.c\
