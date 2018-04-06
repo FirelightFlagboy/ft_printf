@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 11:47:39 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 14:17:44 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:11:04 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int			ft_vsprintf(char *s, char *format, va_list ap)
 {
 	va_list node;
 	t_buff	*buff;
-	int		(*f)(const char*, va_list);
 
 	buff = get_buff();
 	buff->index = 0;
@@ -24,11 +23,7 @@ int			ft_vsprintf(char *s, char *format, va_list ap)
 	buff->s = s;
 	buff->put = ft_putbuffer_s;
 	va_copy(node, ap);
-	if (ft_strchr_printf(format, '{'))
-		f = ft_fill_buffer_color;
-	else
-		f = ft_fill_buffer;
-	if (f(format, node) != -1)
+	if (ft_fill_buffer(format, node) != -1)
 		buff->put(buff);
 	else
 		return (-1);
@@ -40,7 +35,6 @@ int			ft_vsnprintf(char *s, size_t n, char *format, va_list ap)
 {
 	va_list node;
 	t_buff	*buff;
-	int		(*f)(const char*, va_list);
 
 	buff = get_buff();
 	buff->index = 0;
@@ -49,11 +43,7 @@ int			ft_vsnprintf(char *s, size_t n, char *format, va_list ap)
 	buff->max = n;
 	buff->put = ft_putbuffer_sn;
 	va_copy(node, ap);
-	if (ft_strchr_printf(format, '{'))
-		f = ft_fill_buffer_color;
-	else
-		f = ft_fill_buffer;
-	if (f(format, node) != -1)
+	if (ft_fill_buffer(format, node) != -1)
 		buff->put(buff);
 	else
 		return (-1);
@@ -65,7 +55,6 @@ int			ft_vasprintf(char **as, char *format, va_list ap)
 {
 	va_list node;
 	t_buff	*buff;
-	int		(*f)(const char*, va_list);
 
 	buff = get_buff();
 	buff->index = 0;
@@ -74,11 +63,7 @@ int			ft_vasprintf(char **as, char *format, va_list ap)
 	buff->s = NULL;
 	buff->put = ft_putbuffer_as;
 	va_copy(node, ap);
-	if (ft_strchr_printf(format, '{'))
-		f = ft_fill_buffer_color;
-	else
-		f = ft_fill_buffer;
-	if (f(format, node) != -1)
+	if (ft_fill_buffer(format, node) != -1)
 		buff->put(buff);
 	else
 		return (-1);

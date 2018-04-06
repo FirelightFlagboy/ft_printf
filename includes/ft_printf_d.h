@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 15:34:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 14:48:45 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 14:56:11 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 */
 # ifndef NB_FC
 #  define NB_FC 16
-# endif
-
-# ifndef COLOR_TAB
-#  define COLOR_TAB 19
 # endif
 
 # ifndef NB_COLOR

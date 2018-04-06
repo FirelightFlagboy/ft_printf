@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 09:15:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 14:39:25 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:05:14 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@
 ** hash = 120 - value_of_char_conv
 ** if hash > 120 or hash < 0 the conv should be stop
 */
+
+# ifndef PRINTF_SIZE_HASH
+#  define PRINTF_SIZE_HASH 57
+# endif
+
 int	(*const g_conv[57])(va_list*, t_flags*) =
 {
 	ft_call_fillhex,
@@ -82,6 +87,6 @@ int	(*const g_conv[57])(va_list*, t_flags*) =
 	ft_call_fill_longchar,
 	ft_call_fillbin,
 	ft_putgen_type,
-	ft_call_fillcolor
+	ft_call_fillcolor,
 };
 #endif
