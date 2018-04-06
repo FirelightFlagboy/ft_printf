@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/06 11:42:01 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/06 13:44:33 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@
 
 NAME=libftprintf.a
 MKNAME=ft_printf
+location = $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
 
 ############
 # COMPILER #
@@ -123,9 +124,11 @@ SRC_NAME=\
 	ft_init_struct.c\
 	ft_itoa.c\
 	ft_printf.c\
+	ft_sprintf.c\
 	ft_singleton.c\
 	ft_unicode.c\
 	ft_vprintf.c\
+	ft_vsprintf.c\
 
 SRC_DIR = ./srcs/
 
@@ -215,7 +218,7 @@ $(OBJ_DIR_ALL) :
 	@mkdir -p $@
 	@printf ' '$(OK)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) ./Makefile
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDE) $(location)
 	@$(ECHO)
 	@printf " compile $(BOLD)$(YELLOW)$<$(NC) "
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INC)

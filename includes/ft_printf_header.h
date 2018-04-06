@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 16:20:19 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 12:55:50 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,15 @@
 size_t		ft_strlen_printf(char const *s);
 size_t		ft_len_nb(uintmax_t n, size_t lenbase);
 /*
+** Putbuffer
+*/
+void		ft_putbuffer(t_buff *buff);
+void		ft_putbuffer_s(t_buff *buff);
+void		ft_putbuffer_sn(t_buff *buff);
+void		ft_putbuffer_as(t_buff *buff);
+/*
 ** Buffer fc
 */
-void		ft_putbuffer();
 int			ft_fill_buffer(char const *s, va_list ap);
 int			ft_fill_buffer_color(char const *s, va_list ap);
 int			ft_add_char_to_buff(int c);
@@ -87,6 +93,7 @@ int			ft_get_len_forward(t_flags *f, int flen, char neg);
 /*
 ** Lib string
 */
+char		*ft_strncpy_printf(char *dest, char const *s, size_t n);
 char		*ft_strchr_printf(char const *s, int c);
 int			ft_strcmp_printf(char const *s1, char const *s2);
 int			ft_strncmp_printf(char const *s1, char const *s2, size_t n);

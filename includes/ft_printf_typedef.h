@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:19:43 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/24 11:48:47 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 13:16:42 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ typedef struct	s_buff
 	size_t		index;
 	size_t		res;
 	int			fd;
+	size_t		max;
+	char		*s;
+	void		(*put)(struct s_buff *buff);
 }				t_buff;
 
 #endif
