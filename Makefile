@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/30 12:27:49 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/06 11:42:01 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ INC = -I $(INC_DIR)
 
 SRC_BUFFER_NAME =\
 	ft_buffer.c\
+	ft_fill_buffer.c\
 	ft_buffer_2.c\
 
 SRC_BUFFER_DIR = buffer/
@@ -80,27 +81,50 @@ SRC_CONV_NAME =\
 SRC_CONV_DIR = conv/
 SRC_CONV = $(addprefix $(SRC_CONV_DIR), $(SRC_CONV_NAME))
 
+SRC_FILL_DIR=\
+	fill/
+
+SRC_FILL_NAME=\
+	ft_backward.c\
+	ft_filldimen.c\
+	ft_fillforward.c\
+	ft_fillforward_annexe.c\
+
+SRC_FILL = $(addprefix $(SRC_FILL_DIR), $(SRC_FILL_NAME))
+
+SRC_FLAGS_DIR=\
+	flags/
+
+SRC_FLAGS_NAME=\
+	ft_get_flags.c\
+	ft_get_flags_2.c\
+
+SRC_FLAGS = $(addprefix $(SRC_FLAGS_DIR), $(SRC_FLAGS_NAME))
+
+SRC_LIBC_DIR=\
+	libc/
+
+SRC_LIBC_NAME=\
+	ft_iswhat.c\
+	ft_iswhat_2.c\
+	ft_str.c\
+	ft_strlen_printf.c\
+
+SRC_LIBC = $(addprefix $(SRC_LIBC_DIR), $(SRC_LIBC_NAME))
+
 SRC_NAME=\
 	$(SRC_BUFFER)\
 	$(SRC_CONV)\
 	$(SRC_FLOAT)\
-	ft_fillforward_annexe.c\
-	ft_fillforward.c\
-	ft_filldimen.c\
-	ft_backward.c\
-	ft_get_flags_2.c\
-	ft_get_flags.c\
-	ft_iswhat_2.c\
-	ft_iswhat.c\
-	ft_fill_buffer.c\
+	$(SRC_FILL)\
+	$(SRC_FlAGS)\
+	$(SRC_LIBC)\
+	ft_get_int.c\
 	ft_init_struct.c\
+	ft_itoa.c\
+	ft_printf.c\
 	ft_singleton.c\
 	ft_unicode.c\
-	ft_get_int.c\
-	ft_strlen_printf.c\
-	ft_itoa.c\
-	ft_str.c\
-	ft_printf.c\
 	ft_vprintf.c\
 
 SRC_DIR = ./srcs/
@@ -123,6 +147,9 @@ SRC_DIR_NAME =\
 	$(SRC_CONV_DIR)\
 	$(SRC_FLOAT_DIR)\
 	$(SRC_BUFFER_DIR)\
+	$(SRC_FILL_DIR)\
+	$(SRC_FLAGS_DIR)\
+	$(SRC_LIBC_DIR)\
 
 OBJ_DIR_ALL = $(addprefix $(OBJ_DIR), $(SRC_DIR_NAME))
 
