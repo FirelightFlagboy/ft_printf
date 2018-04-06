@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 13:30:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 11:29:48 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 12:00:42 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int			ft_asprintf(char **as, char *format, ...);
 /*
 ** vprintf display
 */
-int			ft_vfprintf(FILE *stream, char const *s, va_list ap);
-int			ft_vdprintf(int fd, char const *s, va_list ap);
+int			ft_vfprintf(FILE *stream, char const *format, va_list ap);
+int			ft_vdprintf(int fd, char const *format, va_list ap);
 /*
 ** vprintf string
 */
