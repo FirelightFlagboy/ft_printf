@@ -28,38 +28,28 @@ for `va_list`, `va_start()`, `va_copy()` and `va_end()`
 * `NB_FC` : the number of function alias number of working flags
 * `NB_COLOR` : the number of color and type
 ***
-#### **Use**
-```C
-ft_printf("food", bar);
-ft_dprintf(FileDescriptor, "foo", bar);
-ft_vfprintf(FileDescriptor, "foo", va_list); //<<you can't get it
-```
+#### **Function**
 
 ```C
-ft_printf(char const *s, ...);
-ft_dprintf(int fd, char const *s, ...);
+ft_printf(char const *format, ...);
+ft_dprintf(int fd, char const *format, ...);
 ft_eprintf(char const *s, ...);
-ft_vfprintf(int fd, char const *s, va_list ap);
+ft_fprintf(FILE *file, char const *format, ...);
+ft_sprintf(char *dest, char const *format, ...);
+ft_snprint(char *dest, size_t n, char const *format, ...);
+ft_asprintf(char **as, char const *format, ...);
+
+ft_vdprintf(int fd, char const *format, va_list ap);
+ft_vfprintf(FILE *file, char const *format, va_list ap);
+ft_vsprintf(char *dest, char const *format, va_list ap);
+ft_vsnprintf(char *dest, size_t n, char const *format, va_list ap);
+ft_vasprintf(char **as, char const *format, va_list ap);
 ```
 **work also with color**
 
-#### Color
-* {red}
-* {cyan}
-* {green}
-* {blue}
-* {yellow}
-* {magenta}
-* {black}
-* {white}
-
-#### Style
-* {bold}
-* {dim}
-* {underline}
-* {blink}
-* {inverted}
-* {hidden}
+#### Color & Style
+* [see enum e_color](https://github.com/FirelightFlagboy/ft_printf/blob/master/includes/ft_printf.h)
+	- use with flag `%@`
 
 #### Use
 * use the balise color like that :
