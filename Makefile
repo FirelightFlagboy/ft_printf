@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/06 14:14:04 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/06 14:28:13 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ SRC_CONV_NAME =\
 	ft_fillstr.c\
 	ft_unbr.c\
 	ft_char.c\
+	ft_color.c\
 	ft_octal.c\
 	ft_hex.c\
 	ft_nbr.c\

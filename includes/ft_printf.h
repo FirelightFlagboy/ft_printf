@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 13:30:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 12:00:42 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 14:43:21 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,29 @@
 # include <string.h>
 # include <stdio.h>
 
+enum e_color
+{
+	P_NO_COLOR,
+	P_RED,
+	P_CYAN,
+	P_GREEN,
+	P_BLUE,
+	P_MAGENTA,
+	P_WHITE,
+	P_BLACK,
+	P_BOLD,
+	P_DIM,
+	P_UNDERLINE,
+	P_BLINK,
+	P_INVERTED,
+	P_HIDDEN,
+	P_BACK_RED,
+	P_BACK_YELLOW,
+	P_BACK_BLUE,
+	P_BACK_PURPLE,
+	P_BACK_CYAN,
+	P_BACK_WHITE
+};
 /*
 ** Printf display
 */

@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/24 09:15:37 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 10:15:28 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 14:39:25 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 /*
 ** the first fc ptr represent the conv 'x' (120) b:10
-** and the last fc ptr represent the conv 'B' (66) b:10
+** and the last fc ptr represent the conv '@' (64) b:10
 ** the formula for the hasing to operate is :
 ** hash = 120 - value_of_char_conv
 ** if hash > 120 or hash < 0 the conv should be stop
 */
-int	(*const g_conv[55])(va_list*, t_flags*) =
+int	(*const g_conv[57])(va_list*, t_flags*) =
 {
 	ft_call_fillhex,
 	ft_putgen_type,
@@ -80,6 +80,8 @@ int	(*const g_conv[55])(va_list*, t_flags*) =
 	ft_putgen_type,
 	ft_call_fillnbr,
 	ft_call_fill_longchar,
-	ft_call_fillbin
+	ft_call_fillbin,
+	ft_putgen_type,
+	ft_call_fillcolor
 };
 #endif

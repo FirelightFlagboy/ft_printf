@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:17:17 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 10:09:50 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 14:27:37 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ int		ft_call_fillfloat(va_list *ap, t_flags *f);
 ** Other
 */
 int		ft_putgen_type(va_list *ap, t_flags *f);
+int		ft_call_fillcolor(va_list *ap, t_flags *f);
 #endif
