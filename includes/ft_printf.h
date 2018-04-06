@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 13:30:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 14:43:21 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:56:47 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,6 @@
 # include <string.h>
 # include <stdio.h>
 
-enum e_color
-{
-	P_NO_COLOR,
-	P_RED,
-	P_CYAN,
-	P_GREEN,
-	P_BLUE,
-	P_MAGENTA,
-	P_WHITE,
-	P_BLACK,
-	P_BOLD,
-	P_DIM,
-	P_UNDERLINE,
-	P_BLINK,
-	P_INVERTED,
-	P_HIDDEN,
-	P_BACK_RED,
-	P_BACK_YELLOW,
-	P_BACK_BLUE,
-	P_BACK_PURPLE,
-	P_BACK_CYAN,
-	P_BACK_WHITE
-};
 /*
 ** Printf display
 */
@@ -64,4 +41,51 @@ int			ft_vdprintf(int fd, char const *format, va_list ap);
 int			ft_vsprintf(char *s, char *format, va_list ap);
 int			ft_vsnprintf(char *s, size_t n, char *format, va_list ap);
 int			ft_vasprintf(char **as, char *format, va_list ap);
+/*
+** Enum color
+*/
+enum	e_color
+{
+	P_RESET,
+	P_C_DEFAULT,
+	P_BLACK,
+	P_RED,
+	P_GREEN,
+	P_YELLOW,
+	P_BLUE,
+	P_MAGENTA,
+	P_CYAN,
+	P_L_GRAY,
+	P_D_GRAY,
+	P_L_RED,
+	P_L_GREEN,
+	P_L_YELLOW,
+	P_L_BLUE,
+	P_L_MAJENTA,
+	P_L_CYAN,
+	P_WHITE,
+	P_BACK_DEFAULT,
+	P_BACK_BLACK,
+	P_BACK_RED,
+	P_BACK_GREEN,
+	P_BACK_YELLOW,
+	P_BACK_BLUE,
+	P_BACK_MAJENTA,
+	P_BACK_CYAN,
+	P_BACK_L_GRAY,
+	P_BACK_D_GRAY,
+	P_BACK_L_RED,
+	P_BACK_L_GREEN,
+	P_BACK_L_YELLOW,
+	P_BACK_L_BLUE,
+	P_BACK_L_MAJENTA,
+	P_BACK_L_CYAN,
+	P_BACK_WHITE,
+	P_BOLD,
+	P_DIM,
+	P_UNDERLINE,
+	P_BLINK,
+	P_INVERTED,
+	P_HIDDEN,
+};
 #endif

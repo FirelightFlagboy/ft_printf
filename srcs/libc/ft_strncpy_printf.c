@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 12:52:00 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 14:14:22 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:55:49 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static inline size_t	ft_n_process(char const *s, size_t n)
 		return (n);
 }
 
-char	*ft_strncpy_printf(char *dest, char const *s, size_t n)
+char					*ft_strncpy_printf(char *dest, char const *s, size_t n)
 {
 	size_t	i;
 	size_t	*bdest;

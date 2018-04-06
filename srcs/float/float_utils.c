@@ -6,14 +6,14 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:19:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/29 10:39:35 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:57:21 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 #include "ft_float.h"
 
-double ft_modf(double value, double *iptr)
+double		ft_modf(double value, double *iptr)
 {
 	double absvalue;
 

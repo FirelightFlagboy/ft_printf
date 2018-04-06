@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 15:34:31 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 14:56:11 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:43:19 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # endif
 
 # ifndef NB_COLOR
-#  define NB_COLOR 22
+#  define NB_COLOR 41
 # endif
 
 # ifndef BUFF_SIZE_PRINTF

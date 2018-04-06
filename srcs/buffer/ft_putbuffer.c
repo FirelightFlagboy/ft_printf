@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 12:48:04 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 14:20:12 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:57:43 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-void	ft_putbuffer(t_buff *buff)
+void		ft_putbuffer(t_buff *buff)
 {
 	buff->res += write(buff->fd, buff->buffer, buff->index);
 	buff->index = 0;
