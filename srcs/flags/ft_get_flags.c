@@ -6,13 +6,13 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:54:54 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/03/28 13:33:37 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:15:23 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-t_flags		ft_get_att(char **astr, t_flags *f)
+t_flags		*ft_get_att(char **astr, t_flags *f)
 {
 	char	*s;
 
@@ -32,7 +32,7 @@ t_flags		ft_get_att(char **astr, t_flags *f)
 		s++;
 	}
 	*astr = s;
-	return (*f);
+	return (f);
 }
 
 t_flags		*ft_get_flags(char **astr, va_list *ap, t_flags *f)

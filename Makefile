@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/06 14:28:13 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/06 15:13:20 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,7 +124,6 @@ SRC_NAME=\
 	$(SRC_FLAGS)\
 	$(SRC_LIBC)\
 	ft_get_int.c\
-	ft_init_struct.c\
 	ft_itoa.c\
 	ft_printf.c\
 	ft_sprintf.c\

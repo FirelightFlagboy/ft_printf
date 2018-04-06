@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 14:16:05 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 15:04:56 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:15:45 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,6 @@ char	*ft_call_fc_g(char const *s, va_list *ap)
 	return (ft_putgen(&f, s));
 }
 
-char	*ft_putcolor(char const *s)
-{
-	t_color	*c;
-	int		i;
-
-	i = 0;
-	c = get_color();
-	while (c[i].color_name)
-	{
-		if (ft_strncmp_printf(s, c[i].color_name,\
-		ft_strlen_printf(c[i].color_name)) == 0)
-		{
-			ft_add_str_to_buff(c[i].color_str);
-			return (ft_strchr_printf(s, '}') + 1);
-		}
-		i++;
-	}
-	ft_add_char_to_buff('{');
-	return ((char*)s + 1);
-}
-
 int		ft_fill_buffer(char const *s, va_list ap)
 {
 	t_buff	*buff;
@@ -87,30 +66,6 @@ int		ft_fill_buffer(char const *s, va_list ap)
 			return (-1);
 		if (*s == 0)
 			break ;
-		s++;
-	}
-	va_end(node);
-	return (0);
-}
-
-int		ft_fill_buffer_color(char const *s, va_list ap)
-{
-	t_buff	*buff;
-	va_list	node;
-
-	buff = get_buff();
-	va_copy(node, ap);
-	while (*s != '\0')
-	{
-		if (*s == '{')
-		{
-			s = ft_putcolor(s);
-			continue;
-		}
-		else if (*s == '%')
-			s = ft_call_fc_g(s, &node);
-		else
-			ft_add_char_to_buff(*s);
 		s++;
 	}
 	va_end(node);

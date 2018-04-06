@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 12:55:50 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:15:27 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,8 @@ int			ft_isspecifier(int c);
 ** Getter
 */
 t_buff		*get_buff(void);
-t_color		*get_color(void);
 t_flags		*ft_get_flags(char **astr, va_list *ap, t_flags *f);
-t_flags		ft_get_att(char **astr, t_flags *f);
+t_flags		*ft_get_att(char **astr, t_flags *f);
 t_flags		*ft_get_len_flags(char **astr, t_flags *f);
 int			ft_get_buff_size(char **astr, t_flags *f, va_list *ap);
 int			ft_get_precision(char **astr, t_flags *f, va_list *ap);
@@ -73,8 +72,6 @@ uintmax_t	ft_get_uint(va_list *ap, t_flags *f);
 */
 void		ft_tab_charset(void *data_type);
 void		ft_tab_fc(void *data_type);
-void		ft_init_color_name(void *data);
-void		ft_init_color_str(void *data);
 char		*ft_call_fc_g(char const *s, va_list *ap);
 /*
 ** Filler
