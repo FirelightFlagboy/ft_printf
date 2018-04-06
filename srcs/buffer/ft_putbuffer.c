@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 12:48:04 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 13:28:24 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 14:20:12 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void		ft_putbuffer_as(t_buff *buff)
 	flen = len + buff->index;
 	if (!(r = (char*)malloc((flen + 1) * sizeof(char))))
 		return ;
-	ft_strncpy_printf(r, buff->s, len);
+	if (buff->s)
+		ft_strncpy_printf(r, buff->s, len);
 	buff->buffer[buff->index + 1] = 0;
 	ft_strncpy_printf(r + len, buff->buffer, buff->index);
 	r[flen] = 0;

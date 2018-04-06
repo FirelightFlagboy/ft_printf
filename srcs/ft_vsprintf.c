@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 11:47:39 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 13:47:56 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 14:17:44 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int			ft_vasprintf(char **as, char *format, va_list ap)
 	buff->index = 0;
 	buff->res = 0;
 	*as = NULL;
+	buff->s = NULL;
 	buff->put = ft_putbuffer_as;
 	va_copy(node, ap);
 	if (ft_strchr_printf(format, '{'))

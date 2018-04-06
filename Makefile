@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 09:48:42 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/06 13:44:33 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/06 14:14:04 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRC_BUFFER_NAME =\
 	ft_buffer.c\
 	ft_fill_buffer.c\
 	ft_buffer_2.c\
+	ft_putbuffer.c\
 
 SRC_BUFFER_DIR = buffer/
 SRC_BUFFER = $(addprefix $(SRC_BUFFER_DIR), $(SRC_BUFFER_NAME))
@@ -110,6 +111,7 @@ SRC_LIBC_NAME=\
 	ft_iswhat_2.c\
 	ft_str.c\
 	ft_strlen_printf.c\
+	ft_strncpy_printf.c\
 
 SRC_LIBC = $(addprefix $(SRC_LIBC_DIR), $(SRC_LIBC_NAME))
 
@@ -118,7 +120,7 @@ SRC_NAME=\
 	$(SRC_CONV)\
 	$(SRC_FLOAT)\
 	$(SRC_FILL)\
-	$(SRC_FlAGS)\
+	$(SRC_FLAGS)\
 	$(SRC_LIBC)\
 	ft_get_int.c\
 	ft_init_struct.c\
