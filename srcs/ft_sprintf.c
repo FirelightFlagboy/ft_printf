@@ -6,7 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 11:47:47 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/04/06 11:56:09 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/04/06 11:58:42 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int			ft_sprintf(char *s, char *format, ...)
 
 	if (!s || !format)
 		return (-1);
+	va_start(ap, format);
+	rt = ft_vsprintf(s, format, ap);
+	va_end(ap);
 	return (rt);
 }
 
@@ -29,8 +32,10 @@ int			ft_snprintf(char *s, size_t n, char *format, ...)
 
 	if (!s || !format)
 		return (-1);
+	va_start(ap, format);
+	rt = ft_vsnprintf(s, n, format, ap);
+	va_end(ap);
 	return (rt);
-
 }
 
 int			ft_asprintf(char **as, char *format, ...)
@@ -40,5 +45,8 @@ int			ft_asprintf(char **as, char *format, ...)
 
 	if (!as || !format)
 		return (-1);
+	va_start(ap, format);
+	rt = ft_vasprintf(as, format, ap);
+	va_end(ap);
 	return (rt);
 }
