@@ -6,11 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 12:52:00 by fbenneto          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/04/06 14:14:22 by fbenneto         ###   ########.fr       */
-=======
-/*   Updated: 2018/04/07 08:49:48 by fbenneto         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2018/04/07 09:20:46 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +20,8 @@ static inline size_t	ft_n_process(size_t l, size_t n)
 		return (n);
 }
 
-<<<<<<< Updated upstream
-char	*ft_strncpy_printf(char *dest, char const *s, size_t n)
-=======
 char					*ft_strncpy_printf(char *dest, char const *s, size_t n,
 	size_t l)
->>>>>>> Stashed changes
 {
 	size_t	i;
 	size_t	*bdest;

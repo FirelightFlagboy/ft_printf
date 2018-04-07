@@ -6,11 +6,7 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2018/04/06 12:55:50 by fbenneto         ###   ########.fr       */
-=======
-/*   Updated: 2018/04/07 08:48:31 by fbenneto         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Updated: 2018/04/07 09:20:21 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
