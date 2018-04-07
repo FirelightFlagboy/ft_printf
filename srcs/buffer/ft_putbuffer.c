@@ -6,7 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 12:48:04 by fbenneto          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2018/04/06 14:20:12 by fbenneto         ###   ########.fr       */
+=======
+/*   Updated: 2018/04/07 08:51:27 by fbenneto         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +24,8 @@ void	ft_putbuffer(t_buff *buff)
 
 void		ft_putbuffer_s(t_buff *buff)
 {
-	ft_strncpy_printf(buff->s + buff->res, buff->buffer, buff->index);
+	ft_strncpy_printf(buff->s + buff->res, buff->buffer, buff->index,
+	buff->index);
 	buff->res += buff->index;
 	buff->index = 0;
 }
@@ -32,8 +37,8 @@ void		ft_putbuffer_sn(t_buff *buff)
 	max = buff->index;
 	if (max > buff->max - buff->res)
 		max = buff->max - buff->res;
-	buff->buffer[buff->index + 1] = 0;
-	ft_strncpy_printf(buff->s + buff->res, buff->buffer, max);
+	// buff->buffer[buff->index + 1] = 0;
+	ft_strncpy_printf(buff->s + buff->res, buff->buffer, buff->max, buff->index);
 	buff->res += max;
 	buff->index = 0;
 }
@@ -47,12 +52,12 @@ void		ft_putbuffer_as(t_buff *buff)
 	if (buff->s == NULL)
 		len = 0;
 	else
-		len = ft_strlen_printf(buff->s);
+		len = buff->res;
 	flen = len + buff->index;
 	if (!(r = (char*)malloc((flen + 1) * sizeof(char))))
 		return ;
 	if (buff->s)
-		ft_strncpy_printf(r, buff->s, len);
+		ft_strncpy_printf(r, buff->s, len, buff->res);
 	buff->buffer[buff->index + 1] = 0;
 	ft_strncpy_printf(r + len, buff->buffer, buff->index);
 	r[flen] = 0;

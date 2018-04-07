@@ -6,7 +6,11 @@
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 09:51:32 by fbenneto          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2018/04/06 12:55:50 by fbenneto         ###   ########.fr       */
+=======
+/*   Updated: 2018/04/07 08:48:31 by fbenneto         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +97,7 @@ int			ft_get_len_forward(t_flags *f, int flen, char neg);
 /*
 ** Lib string
 */
-char		*ft_strncpy_printf(char *dest, char const *s, size_t n);
+char		*ft_strncpy_printf(char *dest, char const *s, size_t n, size_t l);
 char		*ft_strchr_printf(char const *s, int c);
 int			ft_strcmp_printf(char const *s1, char const *s2);
 int			ft_strncmp_printf(char const *s1, char const *s2, size_t n);
