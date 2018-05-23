@@ -34,5 +34,5 @@ ft_vasprintf(char **as, char const *format, va_list ap);
 
 #### Color & Style
 * [see enum e_color](https://github.com/FirelightFlagboy/ft_printf/blob/master/includes/ft_printf.h)
-	- use with flag `%@`
+	- use with flag `%@` and give him an argument eq : `ft_printf("%@blue%@", P_BLUE, P_RESET);`
 ***
