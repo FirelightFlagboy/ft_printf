@@ -8,21 +8,6 @@ project recode function **printf**
 ### see man printf
 * **[man printf](http://manpagesfr.free.fr/man/man3/printf.3.html)**
 
-***
-### Includes
-* **wchar.h**
-for `wchat_t` type
-* **string.h**
-for `size_t` def
-* **limit.h**
-for `OPEN_MAX` and `INT64_MAX`
-* **unistd.h**
-for `write()`
-* **stdlib.h**
-for `NULL` and `MB_CURL_MAX`
-* **stdarg.h**
-for `va_list`, `va_start()`, `va_copy()` and `va_end()`
-***
 ### Constante
 * `BUFF_SIZE_PRINTF` : the buffer size of ft_printf when it full it flush
 * `NB_FC` : the number of function alias number of working flags
